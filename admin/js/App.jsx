@@ -1,9 +1,10 @@
 import { useState, useEffect } from '@wordpress/element';
 import Sidebar from './components/Sidebar';
 import Header from './components/Header';
+import GradientGenerator from './tools/GradientGenerator';
 
 const toolComponents = {
-	gradient: () => <div className="mlc-wdt-placeholder"><h2>CSS Gradient Generator</h2><p>Coming soon...</p></div>,
+	gradient: GradientGenerator,
 	'box-shadow': () => <div className="mlc-wdt-placeholder"><h2>Box Shadow Generator</h2><p>Coming soon...</p></div>,
 	schema: () => <div className="mlc-wdt-placeholder"><h2>Schema.org Generator</h2><p>Coming soon...</p></div>,
 	qrcode: () => <div className="mlc-wdt-placeholder"><h2>QR Code Generator</h2><p>Coming soon...</p></div>,
