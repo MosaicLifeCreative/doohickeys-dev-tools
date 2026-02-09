@@ -198,7 +198,7 @@ export default function PlaceholderImageGenerator() {
 				</button>
 			</div>
 			<div className="mlc-wdt-placeholder-data-uri">
-				<div className="mlc-wdt-section-label" style={ { marginTop: '16px' } }>
+				<div className="mlc-wdt-section-label" style={ { marginTop: '16px', display: 'flex', alignItems: 'center', gap: '8px' } }>
 					Inline Data URI
 					<CopyButton text={ canvasRef.current?.toDataURL( 'image/png' ) || '' } />
 				</div>

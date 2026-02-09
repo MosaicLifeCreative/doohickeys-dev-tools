@@ -1201,6 +1201,73 @@
 }
 
 /* ==========================================
+   Lorem Ipsum Generator
+   ========================================== */
+
+.mlc-wdt-lorem-preview {
+	max-height: 300px;
+	overflow-y: auto;
+}
+
+.mlc-wdt-lorem-text {
+	font-size: var(--mlc-text-base);
+	line-height: 1.7;
+	color: var(--mlc-text-primary);
+	white-space: pre-wrap;
+}
+
+.mlc-wdt-lorem-stats {
+	display: flex;
+	gap: var(--mlc-space-md);
+	margin-top: var(--mlc-space-sm);
+	padding-top: var(--mlc-space-xs);
+	border-top: 1px solid var(--mlc-border);
+	font-size: var(--mlc-text-sm);
+	color: var(--mlc-text-tertiary);
+	font-family: var(--mlc-font-mono);
+}
+
+.mlc-wdt-lorem-options {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+/* ==========================================
+   Encoder / Decoder
+   ========================================== */
+
+.mlc-wdt-textarea {
+	width: 100%;
+	padding: var(--mlc-space-sm);
+	border: 1px solid var(--mlc-border);
+	border-radius: var(--mlc-radius-sm);
+	font-family: var(--mlc-font-mono);
+	font-size: var(--mlc-text-sm);
+	line-height: 1.6;
+	resize: vertical;
+	transition: border-color 0.15s;
+}
+
+.mlc-wdt-textarea:focus {
+	outline: none;
+	border-color: var(--mlc-primary);
+	box-shadow: 0 0 0 1px var(--mlc-primary);
+}
+
+.mlc-wdt-encoder-direction-row {
+	display: flex;
+	align-items: center;
+	gap: var(--mlc-space-sm);
+}
+
+.mlc-wdt-encoder-stats {
+	font-size: var(--mlc-text-sm);
+	color: var(--mlc-text-tertiary);
+	font-family: var(--mlc-font-mono);
+}
+
+/* ==========================================
    CSS Border Generator
    ========================================== */
 

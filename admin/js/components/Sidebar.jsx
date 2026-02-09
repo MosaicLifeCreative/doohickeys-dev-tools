@@ -3,12 +3,15 @@ import { usePro } from '../context/ProContext';
 const tools = [
 	{
 		category: 'CSS Tools',
-		icon: '\uD83C\uDFA8',
+		icon: '\uD83D\uDCBB',
 		items: [
 			{ id: 'gradient', label: 'Gradient' },
 			{ id: 'box-shadow', label: 'Box Shadow' },
 			{ id: 'border', label: 'Border' },
 			{ id: 'border-radius', label: 'Border Radius' },
+			{ id: 'flexbox', label: 'Flexbox' },
+			{ id: 'grid', label: 'Grid' },
+			{ id: 'clip-path', label: 'Clip-Path' },
 		],
 	},
 	{
@@ -21,17 +24,42 @@ const tools = [
 		],
 	},
 	{
+		category: 'Code Tools',
+		icon: '\uD83D\uDCDD',
+		items: [
+			{ id: 'formatter', label: 'Formatter' },
+			{ id: 'encoder', label: 'Encoder/Decoder' },
+			{ id: 'diff', label: 'Diff Checker' },
+			{ id: 'string-utils', label: 'String Utilities' },
+		],
+	},
+	{
 		category: 'Generators',
 		icon: '\u2699\uFE0F',
 		items: [
 			{ id: 'qrcode', label: 'QR Code' },
 			{ id: 'placeholder-image', label: 'Placeholder Image' },
+			{ id: 'lorem-ipsum', label: 'Lorem Ipsum' },
+			{ id: 'table', label: 'HTML Table' },
+			{ id: 'test-data', label: 'Test Data' },
 		],
 	},
 	{
-		category: 'Schema',
-		icon: '\uD83D\uDCCA',
-		items: [ { id: 'schema', label: 'Generator' } ],
+		category: 'SEO & Meta',
+		icon: '\uD83D\uDD0D',
+		items: [
+			{ id: 'meta-tags', label: 'Meta Tags' },
+			{ id: 'schema', label: 'Schema.org' },
+		],
+	},
+	{
+		category: 'Converters',
+		icon: '\uD83D\uDD04',
+		items: [
+			{ id: 'svg-to-png', label: 'SVG to PNG' },
+			{ id: 'html-to-markdown', label: 'HTML to Markdown' },
+			{ id: 'markdown-preview', label: 'Markdown Preview' },
+		],
 	},
 ];
 

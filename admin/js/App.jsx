@@ -9,18 +9,44 @@ import QRCodeGenerator from './tools/QRCodeGenerator';
 import ContrastChecker from './tools/ContrastChecker';
 import ColorConverter from './tools/ColorConverter';
 import PlaceholderImageGenerator from './tools/PlaceholderImageGenerator';
+import LoremIpsumGenerator from './tools/LoremIpsumGenerator';
+import EncoderDecoder from './tools/EncoderDecoder';
+
+const Placeholder = ( { title } ) => (
+	<div className="mlc-wdt-placeholder"><h2>{ title }</h2><p>Coming soon...</p></div>
+);
 
 const toolComponents = {
+	// CSS Tools
 	gradient: GradientGenerator,
 	'box-shadow': BoxShadowGenerator,
 	border: BorderGenerator,
 	'border-radius': BorderRadiusGenerator,
+	flexbox: () => <Placeholder title="Flexbox Generator" />,
+	grid: () => <Placeholder title="CSS Grid Generator" />,
+	'clip-path': () => <Placeholder title="Clip-Path Maker" />,
+	// Color
 	'color-converter': ColorConverter,
 	'contrast-checker': ContrastChecker,
-	palette: () => <div className="mlc-wdt-placeholder"><h2>Palette Generator</h2><p>Coming soon...</p></div>,
+	palette: () => <Placeholder title="Palette Generator" />,
+	// Code Tools
+	formatter: () => <Placeholder title="Code Formatter" />,
+	encoder: EncoderDecoder,
+	diff: () => <Placeholder title="Diff Checker" />,
+	'string-utils': () => <Placeholder title="String Utilities" />,
+	// Generators
 	qrcode: QRCodeGenerator,
 	'placeholder-image': PlaceholderImageGenerator,
-	schema: () => <div className="mlc-wdt-placeholder"><h2>Schema.org Generator</h2><p>Coming soon...</p></div>,
+	'lorem-ipsum': LoremIpsumGenerator,
+	table: () => <Placeholder title="HTML Table Generator" />,
+	'test-data': () => <Placeholder title="Test Data Generator" />,
+	// SEO & Meta
+	'meta-tags': () => <Placeholder title="Meta Tag Generator" />,
+	schema: () => <Placeholder title="Schema.org Generator" />,
+	// Converters
+	'svg-to-png': () => <Placeholder title="SVG to PNG Converter" />,
+	'html-to-markdown': () => <Placeholder title="HTML to Markdown" />,
+	'markdown-preview': () => <Placeholder title="Markdown Preview" />,
 };
 
 export default function App() {
