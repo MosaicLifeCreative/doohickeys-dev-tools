@@ -6,17 +6,21 @@ import BoxShadowGenerator from './tools/BoxShadowGenerator';
 import BorderGenerator from './tools/BorderGenerator';
 import BorderRadiusGenerator from './tools/BorderRadiusGenerator';
 import QRCodeGenerator from './tools/QRCodeGenerator';
+import ContrastChecker from './tools/ContrastChecker';
+import ColorConverter from './tools/ColorConverter';
+import PlaceholderImageGenerator from './tools/PlaceholderImageGenerator';
 
 const toolComponents = {
 	gradient: GradientGenerator,
 	'box-shadow': BoxShadowGenerator,
 	border: BorderGenerator,
 	'border-radius': BorderRadiusGenerator,
-	schema: () => <div className="mlc-wdt-placeholder"><h2>Schema.org Generator</h2><p>Coming soon...</p></div>,
-	qrcode: QRCodeGenerator,
-	'color-converter': () => <div className="mlc-wdt-placeholder"><h2>Color Converter</h2><p>Coming soon...</p></div>,
-	'contrast-checker': () => <div className="mlc-wdt-placeholder"><h2>Contrast Checker</h2><p>Coming soon...</p></div>,
+	'color-converter': ColorConverter,
+	'contrast-checker': ContrastChecker,
 	palette: () => <div className="mlc-wdt-placeholder"><h2>Palette Generator</h2><p>Coming soon...</p></div>,
+	qrcode: QRCodeGenerator,
+	'placeholder-image': PlaceholderImageGenerator,
+	schema: () => <div className="mlc-wdt-placeholder"><h2>Schema.org Generator</h2><p>Coming soon...</p></div>,
 };
 
 export default function App() {

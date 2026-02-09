@@ -12,16 +12,6 @@ const tools = [
 		],
 	},
 	{
-		category: 'Schema',
-		icon: '\uD83D\uDCCA',
-		items: [ { id: 'schema', label: 'Generator' } ],
-	},
-	{
-		category: 'QR Code',
-		icon: '\uD83D\uDCF1',
-		items: [ { id: 'qrcode', label: 'Generator' } ],
-	},
-	{
 		category: 'Color',
 		icon: '\uD83C\uDFA8',
 		items: [
@@ -29,6 +19,19 @@ const tools = [
 			{ id: 'contrast-checker', label: 'Contrast' },
 			{ id: 'palette', label: 'Palette' },
 		],
+	},
+	{
+		category: 'Generators',
+		icon: '\u2699\uFE0F',
+		items: [
+			{ id: 'qrcode', label: 'QR Code' },
+			{ id: 'placeholder-image', label: 'Placeholder Image' },
+		],
+	},
+	{
+		category: 'Schema',
+		icon: '\uD83D\uDCCA',
+		items: [ { id: 'schema', label: 'Generator' } ],
 	},
 ];
 
