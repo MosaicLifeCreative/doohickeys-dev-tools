@@ -1,0 +1,15 @@
+{
+  "name": "mlc-web-dev-tools",
+  "version": "1.0.0",
+  "description": "Essential developer utilities for WordPress",
+  "scripts": {
+    "start": "wp-scripts start",
+    "build": "wp-scripts build",
+    "format": "wp-scripts format",
+    "lint:css": "wp-scripts lint-style",
+    "lint:js": "wp-scripts lint-js"
+  },
+  "keywords": ["wordpress", "plugin", "developer-tools"],
+  "author": "Mosaic Life Creative",
+  "license": "GPL-3.0-or-later"
+}
