@@ -188,6 +188,41 @@
 	cursor: default;
 }
 
+.mlc-wdt-pro-active {
+	display: block;
+	width: 100%;
+	padding: 8px 12px;
+	background: var(--mlc-success);
+	color: #fff;
+	font-size: var(--mlc-text-sm);
+	font-weight: 600;
+	border-radius: var(--mlc-radius-sm);
+	text-align: center;
+}
+
+.mlc-wdt-sidebar-dev {
+	padding: 4px 8px;
+}
+
+.mlc-wdt-dev-toggle {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	cursor: pointer;
+	user-select: none;
+	font-size: var(--mlc-text-sm);
+}
+
+.mlc-wdt-dev-toggle input {
+	margin: 0;
+	cursor: pointer;
+}
+
+.mlc-wdt-dev-toggle-label {
+	color: var(--mlc-text-secondary);
+	font-style: italic;
+}
+
 /* Main content area */
 .mlc-wdt-content {
 	flex: 1;
@@ -904,6 +939,139 @@
 
 .mlc-wdt-download-btn-outline:hover {
 	background: #e8f0fe;
+}
+
+/* ==========================================
+   CSS Border Generator
+   ========================================== */
+
+.mlc-wdt-border-preview {
+	width: 100%;
+	height: 200px;
+	border-radius: var(--mlc-radius-md);
+	border: 1px solid var(--mlc-border);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.mlc-wdt-border-box {
+	width: 160px;
+	height: 120px;
+	transition: border 0.15s;
+}
+
+.mlc-wdt-border-link-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.mlc-wdt-border-side {
+	margin-bottom: var(--mlc-space-sm);
+	padding: var(--mlc-space-sm);
+	background: var(--mlc-bg-light);
+	border: 1px solid var(--mlc-border);
+	border-radius: var(--mlc-radius-sm);
+}
+
+.mlc-wdt-border-side-label {
+	display: block;
+	font-size: var(--mlc-text-sm);
+	font-weight: 600;
+	margin-bottom: var(--mlc-space-xs);
+	text-transform: capitalize;
+}
+
+.mlc-wdt-border-side-fields {
+	display: flex;
+	gap: var(--mlc-space-md);
+	align-items: flex-end;
+	flex-wrap: wrap;
+}
+
+.mlc-wdt-border-field {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	min-width: 100px;
+}
+
+.mlc-wdt-range-with-value {
+	display: flex;
+	align-items: center;
+	gap: var(--mlc-space-xs);
+}
+
+.mlc-wdt-range-with-value .mlc-wdt-range {
+	flex: 1;
+	min-width: 80px;
+}
+
+/* ==========================================
+   Border Radius Generator
+   ========================================== */
+
+.mlc-wdt-radius-preview {
+	width: 100%;
+	height: 200px;
+	border-radius: var(--mlc-radius-md);
+	border: 1px solid var(--mlc-border);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.mlc-wdt-radius-box {
+	width: 160px;
+	height: 120px;
+	transition: border-radius 0.15s;
+}
+
+.mlc-wdt-radius-options {
+	display: flex;
+	align-items: center;
+	gap: var(--mlc-space-sm);
+}
+
+.mlc-wdt-radius-presets {
+	display: flex;
+	gap: var(--mlc-space-xs);
+	flex-wrap: wrap;
+}
+
+.mlc-wdt-radius-preset-btn {
+	width: 64px;
+	height: 56px;
+	border: 1px solid var(--mlc-border);
+	background: var(--mlc-bg-white);
+	border-radius: var(--mlc-radius-sm);
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 4px;
+	transition: border-color 0.15s;
+	padding: 4px;
+}
+
+.mlc-wdt-radius-preset-btn:hover {
+	border-color: var(--mlc-primary);
+}
+
+.mlc-wdt-radius-preset-shape {
+	width: 28px;
+	height: 22px;
+	background: var(--mlc-primary);
+}
+
+.mlc-wdt-radius-preset-name {
+	font-size: 9px;
+	font-weight: 600;
+	color: var(--mlc-text-secondary);
+	text-transform: uppercase;
+	letter-spacing: 0.3px;
 }
 
 /* ==========================================

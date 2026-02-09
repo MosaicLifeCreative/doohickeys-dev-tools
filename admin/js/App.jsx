@@ -3,11 +3,15 @@ import Sidebar from './components/Sidebar';
 import Header from './components/Header';
 import GradientGenerator from './tools/GradientGenerator';
 import BoxShadowGenerator from './tools/BoxShadowGenerator';
+import BorderGenerator from './tools/BorderGenerator';
+import BorderRadiusGenerator from './tools/BorderRadiusGenerator';
 import QRCodeGenerator from './tools/QRCodeGenerator';
 
 const toolComponents = {
 	gradient: GradientGenerator,
 	'box-shadow': BoxShadowGenerator,
+	border: BorderGenerator,
+	'border-radius': BorderRadiusGenerator,
 	schema: () => <div className="mlc-wdt-placeholder"><h2>Schema.org Generator</h2><p>Coming soon...</p></div>,
 	qrcode: QRCodeGenerator,
 	'color-converter': () => <div className="mlc-wdt-placeholder"><h2>Color Converter</h2><p>Coming soon...</p></div>,

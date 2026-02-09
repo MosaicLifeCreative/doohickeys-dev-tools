@@ -24,6 +24,7 @@ class MLC_Web_Dev_Tools_Admin {
 	public function init() {
 		add_action( 'admin_menu', array( $this, 'add_admin_menu' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_assets' ) );
+		add_action( 'wp_ajax_mlc_wdt_toggle_pro', array( $this, 'ajax_toggle_pro' ) );
 	}
 
 	/**
@@ -81,8 +82,30 @@ class MLC_Web_Dev_Tools_Admin {
 				'pluginUrl' => MLC_WDT_PLUGIN_URL,
 				'nonce'     => wp_create_nonce( 'mlc_wdt_nonce' ),
 				'version'   => MLC_WDT_VERSION,
+				'isPro'     => (bool) get_option( 'mlc_wdt_pro_active', false ),
+				'isDebug'   => defined( 'WP_DEBUG' ) && WP_DEBUG,
 			)
 		);
+	}
+
+	/**
+	 * AJAX handler to toggle Pro mode (dev only, requires WP_DEBUG).
+	 */
+	public function ajax_toggle_pro() {
+		check_ajax_referer( 'mlc_wdt_nonce', 'nonce' );
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error( 'Unauthorized', 403 );
+		}
+
+		if ( ! defined( 'WP_DEBUG' ) || ! WP_DEBUG ) {
+			wp_send_json_error( 'Only available in debug mode', 403 );
+		}
+
+		$current = (bool) get_option( 'mlc_wdt_pro_active', false );
+		update_option( 'mlc_wdt_pro_active', ! $current );
+
+		wp_send_json_success( array( 'isPro' => ! $current ) );
 	}
 
 	/**

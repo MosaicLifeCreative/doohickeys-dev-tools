@@ -1,3 +1,5 @@
+import { usePro } from '../context/ProContext';
+
 const tools = [
 	{
 		category: 'CSS Tools',
@@ -5,6 +7,8 @@ const tools = [
 		items: [
 			{ id: 'gradient', label: 'Gradient' },
 			{ id: 'box-shadow', label: 'Box Shadow' },
+			{ id: 'border', label: 'Border' },
+			{ id: 'border-radius', label: 'Border Radius' },
 		],
 	},
 	{
@@ -29,6 +33,9 @@ const tools = [
 ];
 
 export default function Sidebar( { currentTool, onToolChange } ) {
+	const { isPro, togglePro } = usePro();
+	const isDebug = window.mlcWdtData?.isDebug || false;
+
 	return (
 		<nav className="mlc-wdt-sidebar" role="navigation" aria-label="Tool navigation">
 			{ tools.map( ( category ) => (
@@ -58,10 +65,29 @@ export default function Sidebar( { currentTool, onToolChange } ) {
 			) ) }
 			<div className="mlc-wdt-sidebar-divider" />
 			<div className="mlc-wdt-sidebar-pro">
-				<button className="mlc-wdt-pro-btn" disabled>
-					Upgrade to Pro
-				</button>
+				{ isPro ? (
+					<div className="mlc-wdt-pro-active">Pro Active</div>
+				) : (
+					<button className="mlc-wdt-pro-btn" disabled>
+						Upgrade to Pro
+					</button>
+				) }
 			</div>
+			{ isDebug && (
+				<>
+					<div className="mlc-wdt-sidebar-divider" />
+					<div className="mlc-wdt-sidebar-dev">
+						<label className="mlc-wdt-dev-toggle">
+							<input
+								type="checkbox"
+								checked={ isPro }
+								onChange={ togglePro }
+							/>
+							<span className="mlc-wdt-dev-toggle-label">Dev: Pro Mode</span>
+						</label>
+					</div>
+				</>
+			) }
 		</nav>
 	);
 }
