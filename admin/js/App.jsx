@@ -5,12 +5,23 @@ import GradientGenerator from './tools/GradientGenerator';
 import BoxShadowGenerator from './tools/BoxShadowGenerator';
 import BorderGenerator from './tools/BorderGenerator';
 import BorderRadiusGenerator from './tools/BorderRadiusGenerator';
+import ClipPathMaker from './tools/ClipPathMaker';
 import QRCodeGenerator from './tools/QRCodeGenerator';
 import ContrastChecker from './tools/ContrastChecker';
 import ColorConverter from './tools/ColorConverter';
 import PlaceholderImageGenerator from './tools/PlaceholderImageGenerator';
 import LoremIpsumGenerator from './tools/LoremIpsumGenerator';
 import EncoderDecoder from './tools/EncoderDecoder';
+import CodeFormatter from './tools/CodeFormatter';
+import StringUtilities from './tools/StringUtilities';
+import DiffChecker from './tools/DiffChecker';
+import HtmlToMarkdown from './tools/HtmlToMarkdown';
+import MarkdownPreview from './tools/MarkdownPreview';
+import SvgToPng from './tools/SvgToPng';
+import TestDataGenerator from './tools/TestDataGenerator';
+import TableGenerator from './tools/TableGenerator';
+import SchemaGenerator from './tools/SchemaGenerator';
+import MetaTagGenerator from './tools/MetaTagGenerator';
 
 const Placeholder = ( { title } ) => (
 	<div className="mlc-wdt-placeholder"><h2>{ title }</h2><p>Coming soon...</p></div>
@@ -24,29 +35,29 @@ const toolComponents = {
 	'border-radius': BorderRadiusGenerator,
 	flexbox: () => <Placeholder title="Flexbox Generator" />,
 	grid: () => <Placeholder title="CSS Grid Generator" />,
-	'clip-path': () => <Placeholder title="Clip-Path Maker" />,
+	'clip-path': ClipPathMaker,
 	// Color
 	'color-converter': ColorConverter,
 	'contrast-checker': ContrastChecker,
 	palette: () => <Placeholder title="Palette Generator" />,
 	// Code Tools
-	formatter: () => <Placeholder title="Code Formatter" />,
+	formatter: CodeFormatter,
 	encoder: EncoderDecoder,
-	diff: () => <Placeholder title="Diff Checker" />,
-	'string-utils': () => <Placeholder title="String Utilities" />,
+	diff: DiffChecker,
+	'string-utils': StringUtilities,
 	// Generators
 	qrcode: QRCodeGenerator,
 	'placeholder-image': PlaceholderImageGenerator,
 	'lorem-ipsum': LoremIpsumGenerator,
-	table: () => <Placeholder title="HTML Table Generator" />,
-	'test-data': () => <Placeholder title="Test Data Generator" />,
+	table: TableGenerator,
+	'test-data': TestDataGenerator,
 	// SEO & Meta
-	'meta-tags': () => <Placeholder title="Meta Tag Generator" />,
-	schema: () => <Placeholder title="Schema.org Generator" />,
+	'meta-tags': MetaTagGenerator,
+	schema: SchemaGenerator,
 	// Converters
-	'svg-to-png': () => <Placeholder title="SVG to PNG Converter" />,
-	'html-to-markdown': () => <Placeholder title="HTML to Markdown" />,
-	'markdown-preview': () => <Placeholder title="Markdown Preview" />,
+	'svg-to-png': SvgToPng,
+	'html-to-markdown': HtmlToMarkdown,
+	'markdown-preview': MarkdownPreview,
 };
 
 export default function App() {
