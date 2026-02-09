@@ -23,4 +23,12 @@ define('MLC_WDT_VERSION', '1.0.0');
 define('MLC_WDT_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('MLC_WDT_PLUGIN_URL', plugin_dir_url(__FILE__));
 
-// TODO: Load includes and initialize plugin
+// Load main plugin class
+require_once MLC_WDT_PLUGIN_DIR . 'includes/class-plugin.php';
+
+// Initialize plugin
+function mlc_wdt_init() {
+	$plugin = new MLC_Web_Dev_Tools_Plugin();
+	$plugin->run();
+}
+add_action( 'plugins_loaded', 'mlc_wdt_init' );
