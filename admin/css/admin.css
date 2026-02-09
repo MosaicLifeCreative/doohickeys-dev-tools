@@ -907,6 +907,211 @@
 }
 
 /* ==========================================
+   Custom Color Picker
+   ========================================== */
+
+.mlc-wdt-cp {
+	position: relative;
+	display: inline-block;
+}
+
+.mlc-wdt-cp-trigger-row {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.mlc-wdt-cp-swatch {
+	width: 32px;
+	height: 32px;
+	border: 2px solid var(--mlc-border);
+	border-radius: var(--mlc-radius-sm);
+	cursor: pointer;
+	padding: 0;
+	flex-shrink: 0;
+	transition: border-color 0.15s;
+}
+
+.mlc-wdt-cp-swatch:hover {
+	border-color: var(--mlc-primary);
+}
+
+.mlc-wdt-cp-popover {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: 100;
+	width: 220px;
+	padding: 10px;
+	margin-top: 6px;
+	background: var(--mlc-bg-white);
+	border: 1px solid var(--mlc-border);
+	border-radius: var(--mlc-radius-md);
+	box-shadow: var(--mlc-shadow-lg);
+}
+
+.mlc-wdt-cp-sat-panel {
+	position: relative;
+	width: 100%;
+	height: 140px;
+	border-radius: var(--mlc-radius-sm);
+	cursor: crosshair;
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+
+.mlc-wdt-cp-sat-white {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(to right, #fff, transparent);
+}
+
+.mlc-wdt-cp-sat-black {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(to bottom, transparent, #000);
+}
+
+.mlc-wdt-cp-sat-cursor {
+	position: absolute;
+	width: 14px;
+	height: 14px;
+	border: 2px solid #fff;
+	border-radius: 50%;
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
+	transform: translate(-50%, -50%);
+	pointer-events: none;
+}
+
+.mlc-wdt-cp-hue-bar {
+	position: relative;
+	width: 100%;
+	height: 14px;
+	border-radius: 7px;
+	cursor: pointer;
+	margin-bottom: 10px;
+	background: linear-gradient(
+		to right,
+		hsl(0, 100%, 50%),
+		hsl(60, 100%, 50%),
+		hsl(120, 100%, 50%),
+		hsl(180, 100%, 50%),
+		hsl(240, 100%, 50%),
+		hsl(300, 100%, 50%),
+		hsl(360, 100%, 50%)
+	);
+}
+
+.mlc-wdt-cp-hue-cursor {
+	position: absolute;
+	top: -1px;
+	width: 8px;
+	height: 16px;
+	border: 2px solid #fff;
+	border-radius: 3px;
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
+	transform: translateX(-50%);
+	pointer-events: none;
+}
+
+.mlc-wdt-cp-footer {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.mlc-wdt-cp-preview-swatch {
+	width: 28px;
+	height: 28px;
+	border: 1px solid var(--mlc-border);
+	border-radius: var(--mlc-radius-sm);
+	flex-shrink: 0;
+}
+
+.mlc-wdt-cp-hex {
+	flex: 1;
+	width: auto;
+}
+
+/* ==========================================
+   Pro Badge / Feature Gate
+   ========================================== */
+
+.mlc-wdt-pro-gate {
+	position: relative;
+}
+
+.mlc-wdt-pro-gate-content {
+	opacity: 0.5;
+	pointer-events: none;
+	user-select: none;
+	filter: grayscale(30%);
+}
+
+.mlc-wdt-pro-gate-overlay {
+	position: absolute;
+	inset: 0;
+	z-index: 5;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+	background: rgba(255, 255, 255, 0.3);
+	border-radius: var(--mlc-radius-sm);
+}
+
+.mlc-wdt-pro-badge {
+	display: inline-block;
+	padding: 3px 10px;
+	font-size: 11px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	color: #23282d;
+	background: var(--mlc-warning);
+	border-radius: var(--mlc-radius-sm);
+}
+
+.mlc-wdt-pro-feature-label {
+	font-size: var(--mlc-text-sm);
+	color: var(--mlc-text-secondary);
+	text-align: center;
+}
+
+/* ==========================================
+   QR Code Logo Upload
+   ========================================== */
+
+.mlc-wdt-logo-upload {
+	margin-bottom: var(--mlc-space-xs);
+}
+
+.mlc-wdt-logo-preview-row {
+	display: flex;
+	align-items: center;
+	gap: var(--mlc-space-sm);
+}
+
+.mlc-wdt-logo-thumb {
+	width: 48px;
+	height: 48px;
+	object-fit: contain;
+	border: 1px solid var(--mlc-border);
+	border-radius: var(--mlc-radius-sm);
+	background: var(--mlc-bg-light);
+}
+
+.mlc-wdt-logo-info {
+	display: flex;
+	align-items: center;
+}
+
+.mlc-wdt-logo-size-control {
+	margin-top: var(--mlc-space-xs);
+}
+
+/* ==========================================
    Responsive
    ========================================== */
 

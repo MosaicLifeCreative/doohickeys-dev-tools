@@ -1,6 +1,7 @@
 import { useState, useCallback } from '@wordpress/element';
 import ToolCard from '../components/ToolCard';
 import CodeBlock from '../components/CodeBlock';
+import ColorPicker from '../components/ColorPicker';
 
 const PRESET_GRADIENTS = [
 	{ name: 'Sunset', colors: [ { color: '#FF6B6B', position: 0 }, { color: '#FFA07A', position: 50 }, { color: '#FFD700', position: 100 } ] },
@@ -221,24 +222,9 @@ export default function GradientGenerator() {
 				<div className="mlc-wdt-color-stops">
 					{ colors.map( ( colorStop, index ) => (
 						<div key={ index } className="mlc-wdt-color-stop">
-							<input
-								type="color"
-								value={ colorStop.color }
-								onChange={ ( e ) =>
-									updateColor( index, 'color', e.target.value )
-								}
-								className="mlc-wdt-color-picker"
-								aria-label={ `Color ${ index + 1 }` }
-							/>
-							<input
-								type="text"
-								value={ colorStop.color }
-								onChange={ ( e ) =>
-									updateColor( index, 'color', e.target.value )
-								}
-								className="mlc-wdt-hex-input"
-								maxLength={ 7 }
-								aria-label={ `Hex value for color ${ index + 1 }` }
+							<ColorPicker
+								color={ colorStop.color }
+								onChange={ ( val ) => updateColor( index, 'color', val ) }
 							/>
 							<div className="mlc-wdt-position-control">
 								<input

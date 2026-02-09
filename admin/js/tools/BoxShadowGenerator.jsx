@@ -1,6 +1,7 @@
 import { useState, useCallback } from '@wordpress/element';
 import ToolCard from '../components/ToolCard';
 import CodeBlock from '../components/CodeBlock';
+import ColorPicker from '../components/ColorPicker';
 
 const DEFAULT_SHADOW = {
 	h: 0,
@@ -86,42 +87,8 @@ export default function BoxShadowGenerator() {
 			<div className="mlc-wdt-control-group">
 				<label className="mlc-wdt-control-label">Preview Colors</label>
 				<div className="mlc-wdt-color-row">
-					<div className="mlc-wdt-color-field">
-						<label className="mlc-wdt-range-label">Box</label>
-						<div className="mlc-wdt-color-input-pair">
-							<input
-								type="color"
-								value={ boxColor }
-								onChange={ ( e ) => setBoxColor( e.target.value ) }
-								className="mlc-wdt-color-picker"
-							/>
-							<input
-								type="text"
-								value={ boxColor }
-								onChange={ ( e ) => setBoxColor( e.target.value ) }
-								className="mlc-wdt-hex-input"
-								maxLength={ 7 }
-							/>
-						</div>
-					</div>
-					<div className="mlc-wdt-color-field">
-						<label className="mlc-wdt-range-label">Background</label>
-						<div className="mlc-wdt-color-input-pair">
-							<input
-								type="color"
-								value={ bgColor }
-								onChange={ ( e ) => setBgColor( e.target.value ) }
-								className="mlc-wdt-color-picker"
-							/>
-							<input
-								type="text"
-								value={ bgColor }
-								onChange={ ( e ) => setBgColor( e.target.value ) }
-								className="mlc-wdt-hex-input"
-								maxLength={ 7 }
-							/>
-						</div>
-					</div>
+					<ColorPicker color={ boxColor } onChange={ setBoxColor } label="Box" />
+					<ColorPicker color={ bgColor } onChange={ setBgColor } label="Background" />
 				</div>
 			</div>
 
@@ -215,21 +182,10 @@ export default function BoxShadowGenerator() {
 					</div>
 
 					<div className="mlc-wdt-shadow-bottom-row">
-						<div className="mlc-wdt-color-input-pair">
-							<input
-								type="color"
-								value={ shadow.color }
-								onChange={ ( e ) => updateShadow( index, 'color', e.target.value ) }
-								className="mlc-wdt-color-picker"
-							/>
-							<input
-								type="text"
-								value={ shadow.color }
-								onChange={ ( e ) => updateShadow( index, 'color', e.target.value ) }
-								className="mlc-wdt-hex-input"
-								maxLength={ 7 }
-							/>
-						</div>
+						<ColorPicker
+							color={ shadow.color }
+							onChange={ ( val ) => updateShadow( index, 'color', val ) }
+						/>
 						<div className="mlc-wdt-shadow-field mlc-wdt-shadow-field-opacity">
 							<label className="mlc-wdt-range-label">Opacity</label>
 							<input
