@@ -14,8 +14,6 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 **Web Dev Tools by MLC** puts a full suite of developer utilities right inside your WordPress admin. No more juggling browser tabs and bookmarking random websites — everything you need is one click away.
 
-Inspired by the beloved (and now-defunct) smalldev.tools, Web Dev Tools brings the same convenience to WordPress with a modern React-powered interface.
-
 = Free Tools (18) =
 
 **CSS Tools**
