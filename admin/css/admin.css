@@ -1550,8 +1550,9 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	gap: 6px;
-	background: rgba(255, 255, 255, 0.3);
+	gap: 8px;
+	background: rgba(255, 255, 255, 0.7);
+	backdrop-filter: blur(1px);
 	border-radius: var(--mlc-radius-sm);
 }
 
@@ -1565,12 +1566,17 @@
 	color: #23282d;
 	background: var(--mlc-warning);
 	border-radius: var(--mlc-radius-sm);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
 }
 
 .mlc-wdt-pro-feature-label {
 	font-size: var(--mlc-text-sm);
-	color: var(--mlc-text-secondary);
+	font-weight: 600;
+	color: #1e1e1e;
 	text-align: center;
+	background: rgba(255, 255, 255, 0.85);
+	padding: 4px 12px;
+	border-radius: var(--mlc-radius-sm);
 }
 
 .mlc-wdt-sidebar-pro-tag {
