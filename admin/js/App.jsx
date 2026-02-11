@@ -22,6 +22,7 @@ import TestDataGenerator from './tools/TestDataGenerator';
 import TableGenerator from './tools/TableGenerator';
 import SchemaGenerator from './tools/SchemaGenerator';
 import MetaTagGenerator from './tools/MetaTagGenerator';
+import PaletteGenerator from './tools/PaletteGenerator';
 
 const Placeholder = ( { title } ) => (
 	<div className="mlc-wdt-placeholder"><h2>{ title }</h2><p>Coming soon...</p></div>
@@ -39,7 +40,7 @@ const toolComponents = {
 	// Color
 	'color-converter': ColorConverter,
 	'contrast-checker': ContrastChecker,
-	palette: () => <Placeholder title="Palette Generator" />,
+	palette: PaletteGenerator,
 	// Code Tools
 	formatter: CodeFormatter,
 	encoder: EncoderDecoder,
