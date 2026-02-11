@@ -330,19 +330,21 @@ export default function GridGenerator() {
 			<OptionRow label="align-content" value={ alignContent } options={ ALIGN_CONTENT_OPTIONS } onChange={ setAlignContent } />
 
 			{ /* Per-cell controls (Pro) */ }
-			{ selectedCell !== null && selectedCell < totalCells && (
-				<ProBadge feature="Per-cell span controls are a Pro feature">
-				<div className="mlc-wdt-flex-item-controls">
-					<label className="mlc-wdt-control-label">
-						Cell { selectedCell + 1 } Properties
+			<ProBadge feature="Per-cell span controls are a Pro feature">
+			<div className="mlc-wdt-flex-item-controls">
+				<label className="mlc-wdt-control-label">
+					Per-Cell Properties
+					{ selectedCell !== null && selectedCell < totalCells && (
 						<button
 							className="mlc-wdt-flex-deselect"
 							onClick={ () => setSelectedCell( null ) }
 						>
 							Close
 						</button>
-					</label>
+					) }
+				</label>
 
+				{ selectedCell !== null && selectedCell < totalCells ? (
 					<div className="mlc-wdt-flex-item-fields">
 						<div className="mlc-wdt-flex-item-field">
 							<span className="mlc-wdt-palette-slider-label">Column Span</span>
@@ -369,9 +371,13 @@ export default function GridGenerator() {
 							<span className="mlc-wdt-field-value">{ cells[ selectedCell ].rowSpan }</span>
 						</div>
 					</div>
-				</div>
-				</ProBadge>
-			) }
+				) : (
+					<p className="mlc-wdt-tip" style={ { margin: '8px 0 0' } }>
+						Click a cell in the preview to set its column and row span.
+					</p>
+				) }
+			</div>
+			</ProBadge>
 		</div>
 	);
 

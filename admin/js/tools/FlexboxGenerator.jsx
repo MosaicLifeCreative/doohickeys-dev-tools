@@ -197,19 +197,21 @@ export default function FlexboxGenerator() {
 			</div>
 
 			{ /* Per-item controls (Pro) */ }
-			{ selectedItem !== null && selectedItem < itemCount && (
-				<ProBadge feature="Per-item flex controls are a Pro feature">
-				<div className="mlc-wdt-flex-item-controls">
-					<label className="mlc-wdt-control-label">
-						Item { selectedItem + 1 } Properties
+			<ProBadge feature="Per-item flex controls are a Pro feature">
+			<div className="mlc-wdt-flex-item-controls">
+				<label className="mlc-wdt-control-label">
+					Per-Item Properties
+					{ selectedItem !== null && selectedItem < itemCount && (
 						<button
 							className="mlc-wdt-flex-deselect"
 							onClick={ () => setSelectedItem( null ) }
 						>
 							Close
 						</button>
-					</label>
+					) }
+				</label>
 
+				{ selectedItem !== null && selectedItem < itemCount ? (
 					<div className="mlc-wdt-flex-item-fields">
 						<div className="mlc-wdt-flex-item-field">
 							<span className="mlc-wdt-palette-slider-label">flex-grow</span>
@@ -285,9 +287,13 @@ export default function FlexboxGenerator() {
 							<span className="mlc-wdt-field-value">{ items[ selectedItem ].order }</span>
 						</div>
 					</div>
-				</div>
-				</ProBadge>
-			) }
+				) : (
+					<p className="mlc-wdt-tip" style={ { margin: '8px 0 0' } }>
+						Click an item in the preview to customize flex-grow, flex-shrink, flex-basis, align-self, and order.
+					</p>
+				) }
+			</div>
+			</ProBadge>
 		</div>
 	);
 
