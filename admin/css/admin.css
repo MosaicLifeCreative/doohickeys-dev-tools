@@ -2195,6 +2195,107 @@
 }
 
 /* ==========================================
+   Flexbox Generator
+   ========================================== */
+
+.mlc-wdt-flex-options {
+	display: flex;
+	gap: 4px;
+	flex-wrap: wrap;
+}
+
+.mlc-wdt-flex-option-btn {
+	padding: 5px 10px;
+	border: 1px solid var(--mlc-border);
+	background: var(--mlc-bg-white);
+	border-radius: var(--mlc-radius-sm);
+	font-size: 12px;
+	font-family: var(--mlc-font-mono);
+	cursor: pointer;
+	transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+
+.mlc-wdt-flex-option-btn:hover {
+	border-color: var(--mlc-primary);
+	background: #e8f0fe;
+}
+
+.mlc-wdt-flex-option-btn.active {
+	background: var(--mlc-primary);
+	color: #fff;
+	border-color: var(--mlc-primary);
+}
+
+.mlc-wdt-flex-item-controls {
+	margin-top: var(--mlc-space-sm);
+	padding: var(--mlc-space-sm);
+	background: #f0f6ff;
+	border: 1px solid #b3d4fc;
+	border-radius: var(--mlc-radius-sm);
+}
+
+.mlc-wdt-flex-item-controls > .mlc-wdt-control-label {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.mlc-wdt-flex-deselect {
+	padding: 2px 10px;
+	border: 1px solid var(--mlc-border);
+	background: var(--mlc-bg-white);
+	border-radius: var(--mlc-radius-sm);
+	font-size: 12px;
+	cursor: pointer;
+	color: var(--mlc-text-secondary);
+}
+
+.mlc-wdt-flex-deselect:hover {
+	border-color: var(--mlc-primary);
+	color: var(--mlc-primary);
+}
+
+.mlc-wdt-flex-item-fields {
+	display: flex;
+	flex-direction: column;
+	gap: var(--mlc-space-xs);
+}
+
+.mlc-wdt-flex-item-field {
+	display: flex;
+	align-items: center;
+	gap: var(--mlc-space-sm);
+}
+
+.mlc-wdt-flex-item-field .mlc-wdt-range {
+	flex: 1;
+}
+
+.mlc-wdt-flex-item-field .mlc-wdt-select {
+	flex: 1;
+}
+
+/* ==========================================
+   CSS Grid Generator
+   ========================================== */
+
+.mlc-wdt-grid-dims {
+	display: flex;
+	gap: var(--mlc-space-md);
+}
+
+.mlc-wdt-grid-dims > .mlc-wdt-control-group {
+	flex: 1;
+	min-width: 0;
+}
+
+.mlc-wdt-grid-templates {
+	display: flex;
+	gap: 4px;
+	flex-wrap: wrap;
+}
+
+/* ==========================================
    Responsive
    ========================================== */
 

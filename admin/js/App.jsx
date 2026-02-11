@@ -23,10 +23,8 @@ import TableGenerator from './tools/TableGenerator';
 import SchemaGenerator from './tools/SchemaGenerator';
 import MetaTagGenerator from './tools/MetaTagGenerator';
 import PaletteGenerator from './tools/PaletteGenerator';
-
-const Placeholder = ( { title } ) => (
-	<div className="mlc-wdt-placeholder"><h2>{ title }</h2><p>Coming soon...</p></div>
-);
+import FlexboxGenerator from './tools/FlexboxGenerator';
+import GridGenerator from './tools/GridGenerator';
 
 const toolComponents = {
 	// CSS Tools
@@ -34,8 +32,8 @@ const toolComponents = {
 	'box-shadow': BoxShadowGenerator,
 	border: BorderGenerator,
 	'border-radius': BorderRadiusGenerator,
-	flexbox: () => <Placeholder title="Flexbox Generator" />,
-	grid: () => <Placeholder title="CSS Grid Generator" />,
+	flexbox: FlexboxGenerator,
+	grid: GridGenerator,
 	'clip-path': ClipPathMaker,
 	// Color
 	'color-converter': ColorConverter,
