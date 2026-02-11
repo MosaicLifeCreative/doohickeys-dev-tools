@@ -1,6 +1,7 @@
 import { useState, useRef, useCallback, useMemo, useEffect } from '@wordpress/element';
 import ToolCard from '../components/ToolCard';
 import CopyButton from '../components/CopyButton';
+import ProBadge from '../components/ProBadge';
 
 /* ── Color math helpers ── */
 
@@ -401,12 +402,14 @@ export default function PaletteGenerator() {
 	);
 
 	return (
-		<ToolCard
-			title="Palette Generator"
-			help="Generate harmonious color palettes using color theory. Click the wheel to pick a base hue, choose a harmony rule, and adjust saturation/lightness. Export as CSS variables or SCSS."
-			preview={ preview }
-			controls={ controls }
-			output={ output }
-		/>
+		<ProBadge feature="Palette Generator is a Pro feature">
+			<ToolCard
+				title="Palette Generator"
+				help="Generate harmonious color palettes using color theory. Click the wheel to pick a base hue, choose a harmony rule, and adjust saturation/lightness. Export as CSS variables or SCSS."
+				preview={ preview }
+				controls={ controls }
+				output={ output }
+			/>
+		</ProBadge>
 	);
 }

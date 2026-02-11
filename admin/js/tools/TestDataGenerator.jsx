@@ -1,6 +1,7 @@
 import { useState, useMemo, useCallback } from '@wordpress/element';
 import ToolCard from '../components/ToolCard';
 import CopyButton from '../components/CopyButton';
+import ProBadge from '../components/ProBadge';
 
 const FIRST_NAMES = [
 	'James', 'Mary', 'Robert', 'Patricia', 'John', 'Jennifer', 'Michael', 'Linda',
@@ -218,11 +219,13 @@ export default function TestDataGenerator() {
 	);
 
 	return (
-		<ToolCard
-			title="Test Data Generator"
-			help="Generate realistic fake data for testing. Choose fields (name, email, phone, address, etc.), set the count, and export as JSON, CSV, or plain text table."
-			preview={ preview }
-			controls={ controls }
-		/>
+		<ProBadge feature="Test Data Generator is a Pro feature">
+			<ToolCard
+				title="Test Data Generator"
+				help="Generate realistic fake data for testing. Choose fields (name, email, phone, address, etc.), set the count, and export as JSON, CSV, or plain text table."
+				preview={ preview }
+				controls={ controls }
+			/>
+		</ProBadge>
 	);
 }

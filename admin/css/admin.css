@@ -1573,6 +1573,39 @@
 	text-align: center;
 }
 
+.mlc-wdt-sidebar-pro-tag {
+	display: inline-block;
+	margin-left: 6px;
+	padding: 1px 5px;
+	font-size: 9px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.3px;
+	color: #23282d;
+	background: var(--mlc-warning);
+	border-radius: 3px;
+	vertical-align: middle;
+}
+
+.mlc-wdt-pro-badge-inline {
+	display: inline-block;
+	margin-left: 4px;
+	padding: 1px 5px;
+	font-size: 9px;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: #23282d;
+	background: var(--mlc-warning);
+	border-radius: 3px;
+	vertical-align: middle;
+}
+
+.mlc-wdt-radio-disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+	pointer-events: none;
+}
+
 /* ==========================================
    QR Code Logo Upload
    ========================================== */

@@ -1,6 +1,7 @@
 import { useState, useMemo } from '@wordpress/element';
 import ToolCard from '../components/ToolCard';
 import CodeBlock from '../components/CodeBlock';
+import ProBadge from '../components/ProBadge';
 
 const FLEX_DIRECTIONS = [ 'row', 'row-reverse', 'column', 'column-reverse' ];
 const JUSTIFY_OPTIONS = [ 'flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'space-evenly' ];
@@ -195,8 +196,9 @@ export default function FlexboxGenerator() {
 				/>
 			</div>
 
-			{ /* Per-item controls */ }
+			{ /* Per-item controls (Pro) */ }
 			{ selectedItem !== null && selectedItem < itemCount && (
+				<ProBadge feature="Per-item flex controls are a Pro feature">
 				<div className="mlc-wdt-flex-item-controls">
 					<label className="mlc-wdt-control-label">
 						Item { selectedItem + 1 } Properties
@@ -284,6 +286,7 @@ export default function FlexboxGenerator() {
 						</div>
 					</div>
 				</div>
+				</ProBadge>
 			) }
 		</div>
 	);

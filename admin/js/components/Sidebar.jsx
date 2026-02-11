@@ -20,16 +20,16 @@ const tools = [
 		items: [
 			{ id: 'color-converter', label: 'Converter' },
 			{ id: 'contrast-checker', label: 'Contrast' },
-			{ id: 'palette', label: 'Palette' },
+			{ id: 'palette', label: 'Palette', pro: true },
 		],
 	},
 	{
 		category: 'Code Tools',
 		icon: '\uD83D\uDCDD',
 		items: [
-			{ id: 'formatter', label: 'Formatter' },
+			{ id: 'formatter', label: 'Formatter', pro: true },
 			{ id: 'encoder', label: 'Encoder/Decoder' },
-			{ id: 'diff', label: 'Diff Checker' },
+			{ id: 'diff', label: 'Diff Checker', pro: true },
 			{ id: 'string-utils', label: 'String Utilities' },
 		],
 	},
@@ -40,8 +40,8 @@ const tools = [
 			{ id: 'qrcode', label: 'QR Code' },
 			{ id: 'placeholder-image', label: 'Placeholder Image' },
 			{ id: 'lorem-ipsum', label: 'Lorem Ipsum' },
-			{ id: 'table', label: 'HTML Table' },
-			{ id: 'test-data', label: 'Test Data' },
+			{ id: 'table', label: 'HTML Table', pro: true },
+			{ id: 'test-data', label: 'Test Data', pro: true },
 		],
 	},
 	{
@@ -88,6 +88,7 @@ export default function Sidebar( { currentTool, onToolChange } ) {
 									}
 								>
 									{ tool.label }
+									{ tool.pro && ! isPro && <span className="mlc-wdt-sidebar-pro-tag">Pro</span> }
 								</button>
 							</li>
 						) ) }

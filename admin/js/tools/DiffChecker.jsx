@@ -1,5 +1,6 @@
 import { useState, useMemo } from '@wordpress/element';
 import ToolCard from '../components/ToolCard';
+import ProBadge from '../components/ProBadge';
 
 function computeDiff( a, b ) {
 	const linesA = a.split( '\n' );
@@ -112,11 +113,13 @@ export default function DiffChecker() {
 	);
 
 	return (
-		<ToolCard
-			title="Diff Checker"
-			help="Compare two pieces of text side by side. Shows additions, removals, and unchanged lines with color coding."
-			preview={ preview }
-			controls={ controls }
-		/>
+		<ProBadge feature="Diff Checker is a Pro feature">
+			<ToolCard
+				title="Diff Checker"
+				help="Compare two pieces of text side by side. Shows additions, removals, and unchanged lines with color coding."
+				preview={ preview }
+				controls={ controls }
+			/>
+		</ProBadge>
 	);
 }

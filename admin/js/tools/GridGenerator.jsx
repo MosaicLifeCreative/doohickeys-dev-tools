@@ -1,6 +1,7 @@
 import { useState, useMemo } from '@wordpress/element';
 import ToolCard from '../components/ToolCard';
 import CodeBlock from '../components/CodeBlock';
+import ProBadge from '../components/ProBadge';
 
 const JUSTIFY_ITEMS_OPTIONS = [ 'stretch', 'start', 'end', 'center' ];
 const ALIGN_ITEMS_OPTIONS = [ 'stretch', 'start', 'end', 'center' ];
@@ -182,21 +183,23 @@ export default function GridGenerator() {
 
 	const controls = (
 		<div className="mlc-wdt-grid-controls">
-			{ /* Templates */ }
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Templates</label>
-				<div className="mlc-wdt-grid-templates">
-					{ TEMPLATES.map( ( t ) => (
-						<button
-							key={ t.label }
-							className="mlc-wdt-flex-option-btn"
-							onClick={ () => applyTemplate( t ) }
-						>
-							{ t.label }
-						</button>
-					) ) }
+			{ /* Templates (Pro) */ }
+			<ProBadge feature="Grid templates are a Pro feature">
+				<div className="mlc-wdt-control-group">
+					<label className="mlc-wdt-control-label">Templates</label>
+					<div className="mlc-wdt-grid-templates">
+						{ TEMPLATES.map( ( t ) => (
+							<button
+								key={ t.label }
+								className="mlc-wdt-flex-option-btn"
+								onClick={ () => applyTemplate( t ) }
+							>
+								{ t.label }
+							</button>
+						) ) }
+					</div>
 				</div>
-			</div>
+			</ProBadge>
 
 			{ /* Columns / Rows */ }
 			<div className="mlc-wdt-grid-dims">
@@ -270,27 +273,29 @@ export default function GridGenerator() {
 				</div>
 			</div>
 
-			{ /* Custom definitions */ }
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Custom Column Definition</label>
-				<input
-					type="text"
-					className="mlc-wdt-text-input"
-					placeholder="e.g. 200px 1fr 200px"
-					value={ customCols }
-					onChange={ ( e ) => setCustomCols( e.target.value ) }
-				/>
-			</div>
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Custom Row Definition</label>
-				<input
-					type="text"
-					className="mlc-wdt-text-input"
-					placeholder="e.g. auto 1fr auto"
-					value={ customRows }
-					onChange={ ( e ) => setCustomRows( e.target.value ) }
-				/>
-			</div>
+			{ /* Custom definitions (Pro) */ }
+			<ProBadge feature="Custom grid definitions are a Pro feature">
+				<div className="mlc-wdt-control-group">
+					<label className="mlc-wdt-control-label">Custom Column Definition</label>
+					<input
+						type="text"
+						className="mlc-wdt-text-input"
+						placeholder="e.g. 200px 1fr 200px"
+						value={ customCols }
+						onChange={ ( e ) => setCustomCols( e.target.value ) }
+					/>
+				</div>
+				<div className="mlc-wdt-control-group">
+					<label className="mlc-wdt-control-label">Custom Row Definition</label>
+					<input
+						type="text"
+						className="mlc-wdt-text-input"
+						placeholder="e.g. auto 1fr auto"
+						value={ customRows }
+						onChange={ ( e ) => setCustomRows( e.target.value ) }
+					/>
+				</div>
+			</ProBadge>
 
 			{ /* Gaps */ }
 			<div className="mlc-wdt-grid-dims">
@@ -324,8 +329,9 @@ export default function GridGenerator() {
 			<OptionRow label="justify-content" value={ justifyContent } options={ JUSTIFY_CONTENT_OPTIONS } onChange={ setJustifyContent } />
 			<OptionRow label="align-content" value={ alignContent } options={ ALIGN_CONTENT_OPTIONS } onChange={ setAlignContent } />
 
-			{ /* Per-cell controls */ }
+			{ /* Per-cell controls (Pro) */ }
 			{ selectedCell !== null && selectedCell < totalCells && (
+				<ProBadge feature="Per-cell span controls are a Pro feature">
 				<div className="mlc-wdt-flex-item-controls">
 					<label className="mlc-wdt-control-label">
 						Cell { selectedCell + 1 } Properties
@@ -364,6 +370,7 @@ export default function GridGenerator() {
 						</div>
 					</div>
 				</div>
+				</ProBadge>
 			) }
 		</div>
 	);

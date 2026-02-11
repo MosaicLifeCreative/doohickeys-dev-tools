@@ -2,6 +2,7 @@ import { useState, useCallback } from '@wordpress/element';
 import ToolCard from '../components/ToolCard';
 import CodeBlock from '../components/CodeBlock';
 import ColorPicker from '../components/ColorPicker';
+import ProBadge from '../components/ProBadge';
 
 export default function TableGenerator() {
 	const [ rows, setRows ] = useState( 4 );
@@ -235,12 +236,14 @@ export default function TableGenerator() {
 	);
 
 	return (
-		<ToolCard
-			title="HTML Table Generator"
-			help="Build and style HTML tables with a visual editor. Set dimensions, edit cell content, customize header colors, and toggle borders, stripes, and hover effects."
-			preview={ preview }
-			controls={ controls }
-			output={ output }
-		/>
+		<ProBadge feature="HTML Table Generator is a Pro feature">
+			<ToolCard
+				title="HTML Table Generator"
+				help="Build and style HTML tables with a visual editor. Set dimensions, edit cell content, customize header colors, and toggle borders, stripes, and hover effects."
+				preview={ preview }
+				controls={ controls }
+				output={ output }
+			/>
+		</ProBadge>
 	);
 }

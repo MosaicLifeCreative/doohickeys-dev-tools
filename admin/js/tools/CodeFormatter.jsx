@@ -1,6 +1,7 @@
 import { useState, useCallback } from '@wordpress/element';
 import ToolCard from '../components/ToolCard';
 import CopyButton from '../components/CopyButton';
+import ProBadge from '../components/ProBadge';
 
 const LANGUAGES = [
 	{ id: 'json', label: 'JSON' },
@@ -241,11 +242,13 @@ export default function CodeFormatter() {
 	);
 
 	return (
-		<ToolCard
-			title="Code Formatter"
-			help="Format (beautify) or minify JSON, HTML, CSS, JavaScript, and SQL code. Paste your code, select the language, and click Beautify or Minify."
-			preview={ preview }
-			controls={ controls }
-		/>
+		<ProBadge feature="Code Formatter is a Pro feature">
+			<ToolCard
+				title="Code Formatter"
+				help="Format (beautify) or minify JSON, HTML, CSS, JavaScript, and SQL code. Paste your code, select the language, and click Beautify or Minify."
+				preview={ preview }
+				controls={ controls }
+			/>
+		</ProBadge>
 	);
 }

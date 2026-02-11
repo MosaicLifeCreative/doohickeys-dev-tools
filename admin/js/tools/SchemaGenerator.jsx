@@ -1,16 +1,17 @@
 import { useState, useMemo } from '@wordpress/element';
 import ToolCard from '../components/ToolCard';
 import CodeBlock from '../components/CodeBlock';
+import { usePro } from '../context/ProContext';
 
 const SCHEMA_TYPES = [
 	{ id: 'article', label: 'Article' },
 	{ id: 'local-business', label: 'Local Business' },
-	{ id: 'product', label: 'Product' },
-	{ id: 'person', label: 'Person' },
-	{ id: 'organization', label: 'Organization' },
 	{ id: 'faq', label: 'FAQ Page' },
-	{ id: 'event', label: 'Event' },
-	{ id: 'recipe', label: 'Recipe' },
+	{ id: 'product', label: 'Product', pro: true },
+	{ id: 'person', label: 'Person', pro: true },
+	{ id: 'organization', label: 'Organization', pro: true },
+	{ id: 'event', label: 'Event', pro: true },
+	{ id: 'recipe', label: 'Recipe', pro: true },
 ];
 
 const FIELDS = {
@@ -206,6 +207,7 @@ function buildSchema( type, values ) {
 }
 
 export default function SchemaGenerator() {
+	const { isPro } = usePro();
 	const [ schemaType, setSchemaType ] = useState( 'article' );
 	const [ values, setValues ] = useState( () => {
 		const defaults = {};
@@ -230,14 +232,20 @@ export default function SchemaGenerator() {
 				<label className="mlc-wdt-control-label">Schema Type</label>
 				<div className="mlc-wdt-radio-group" style={ { flexWrap: 'wrap' } }>
 					{ SCHEMA_TYPES.map( ( t ) => (
-						<label key={ t.id } className={ `mlc-wdt-radio${ schemaType === t.id ? ' active' : '' }` }>
+						<label
+							key={ t.id }
+							className={ `mlc-wdt-radio${ schemaType === t.id ? ' active' : '' }${ t.pro && ! isPro ? ' mlc-wdt-radio-disabled' : '' }` }
+							title={ t.pro && ! isPro ? 'Pro feature' : '' }
+						>
 							<input
 								type="radio"
 								value={ t.id }
 								checked={ schemaType === t.id }
 								onChange={ () => handleTypeChange( t.id ) }
+								disabled={ t.pro && ! isPro }
 							/>
 							{ t.label }
+							{ t.pro && ! isPro && <span className="mlc-wdt-pro-badge-inline">Pro</span> }
 						</label>
 					) ) }
 				</div>

@@ -2,6 +2,7 @@ import { useState, useRef, useCallback, useEffect } from '@wordpress/element';
 import ToolCard from '../components/ToolCard';
 import CopyButton from '../components/CopyButton';
 import ColorPicker from '../components/ColorPicker';
+import ProBadge from '../components/ProBadge';
 
 const PRESET_SIZES = [
 	{ label: 'Facebook Cover', w: 820, h: 312 },
@@ -100,21 +101,23 @@ export default function PlaceholderImageGenerator() {
 
 	const controls = (
 		<div className="mlc-wdt-placeholder-controls">
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Preset Sizes</label>
-				<div className="mlc-wdt-placeholder-presets">
-					{ PRESET_SIZES.map( ( preset ) => (
-						<button
-							key={ preset.label }
-							className="mlc-wdt-placeholder-preset-btn"
-							onClick={ () => applyPreset( preset ) }
-						>
-							<span className="mlc-wdt-placeholder-preset-name">{ preset.label }</span>
-							<span className="mlc-wdt-placeholder-preset-size">{ preset.w }&times;{ preset.h }</span>
-						</button>
-					) ) }
+			<ProBadge feature="Social media presets are a Pro feature">
+				<div className="mlc-wdt-control-group">
+					<label className="mlc-wdt-control-label">Preset Sizes</label>
+					<div className="mlc-wdt-placeholder-presets">
+						{ PRESET_SIZES.map( ( preset ) => (
+							<button
+								key={ preset.label }
+								className="mlc-wdt-placeholder-preset-btn"
+								onClick={ () => applyPreset( preset ) }
+							>
+								<span className="mlc-wdt-placeholder-preset-name">{ preset.label }</span>
+								<span className="mlc-wdt-placeholder-preset-size">{ preset.w }&times;{ preset.h }</span>
+							</button>
+						) ) }
+					</div>
 				</div>
-			</div>
+			</ProBadge>
 
 			<div className="mlc-wdt-control-group">
 				<label className="mlc-wdt-control-label">Dimensions</label>
@@ -197,13 +200,15 @@ export default function PlaceholderImageGenerator() {
 					Download SVG
 				</button>
 			</div>
-			<div className="mlc-wdt-placeholder-data-uri">
-				<div className="mlc-wdt-section-label" style={ { marginTop: '16px', display: 'flex', alignItems: 'center', gap: '8px' } }>
-					Inline Data URI
-					<CopyButton text={ canvasRef.current?.toDataURL( 'image/png' ) || '' } />
+			<ProBadge feature="Data URI export is a Pro feature">
+				<div className="mlc-wdt-placeholder-data-uri">
+					<div className="mlc-wdt-section-label" style={ { marginTop: '16px', display: 'flex', alignItems: 'center', gap: '8px' } }>
+						Inline Data URI
+						<CopyButton text={ canvasRef.current?.toDataURL( 'image/png' ) || '' } />
+					</div>
+					<p className="mlc-wdt-tip">Copy the base64 data URI to embed directly in HTML/CSS without a file.</p>
 				</div>
-				<p className="mlc-wdt-tip">Copy the base64 data URI to embed directly in HTML/CSS without a file.</p>
-			</div>
+			</ProBadge>
 		</div>
 	);
 
