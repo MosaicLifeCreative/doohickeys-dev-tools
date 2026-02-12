@@ -2388,8 +2388,9 @@
 	justify-content: center;
 	width: 36px;
 	height: 36px;
-	margin-bottom: 2px;
 	flex-shrink: 0;
+	align-self: flex-end;
+	margin-bottom: 3px;
 }
 
 .mlc-wdt-ar-swap {
