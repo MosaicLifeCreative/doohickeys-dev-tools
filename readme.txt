@@ -8,13 +8,13 @@ Requires PHP: 7.4
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-25 essential web development utilities right in your WordPress dashboard — CSS generators, color tools, code formatters, and more.
+26 essential web development utilities right in your WordPress dashboard — CSS generators, color tools, code formatters, and more.
 
 == Description ==
 
 **Web Dev Tools by MLC** puts a full suite of developer utilities right inside your WordPress admin. No more juggling browser tabs and bookmarking random websites — everything you need is one click away.
 
-= Free Tools (18) =
+= Free Tools (19) =
 
 **CSS Tools**
 * **Gradient Generator** — Linear and radial gradients with unlimited color stops
@@ -45,6 +45,7 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 * **SVG to PNG** — Client-side SVG conversion with scale options
 * **HTML to Markdown** — Convert HTML markup to clean Markdown
 * **Markdown Preview** — Live Markdown editor with rendered preview
+* **Aspect Ratio Calculator** — Calculate ratios from dimensions, scale with locked ratios, common size presets
 
 = Pro Tools & Features =
 
@@ -96,7 +97,7 @@ Never. All processing happens in your browser. Nothing is transmitted to externa
 
 == Screenshots ==
 
-1. Dashboard overview showing the full tool sidebar with all 25 utilities
+1. Dashboard overview showing the full tool sidebar with all 26 utilities
 2. Gradient Generator with live preview and CSS output
 3. Flexbox Generator with visual playground and container controls
 4. CSS Grid Generator with templates and per-cell span controls
@@ -109,7 +110,7 @@ Never. All processing happens in your browser. Nothing is transmitted to externa
 
 = 1.0.0 =
 * Initial release
-* 25 developer tools across 6 categories
+* 26 developer tools across 6 categories
 * Free and Pro tier with freemium gating
 * Modern React-powered interface
 * Fully client-side — no external API calls

@@ -25,6 +25,7 @@ import MetaTagGenerator from './tools/MetaTagGenerator';
 import PaletteGenerator from './tools/PaletteGenerator';
 import FlexboxGenerator from './tools/FlexboxGenerator';
 import GridGenerator from './tools/GridGenerator';
+import AspectRatioCalculator from './tools/AspectRatioCalculator';
 
 const toolComponents = {
 	// CSS Tools
@@ -57,6 +58,7 @@ const toolComponents = {
 	'svg-to-png': SvgToPng,
 	'html-to-markdown': HtmlToMarkdown,
 	'markdown-preview': MarkdownPreview,
+	'aspect-ratio': AspectRatioCalculator,
 };
 
 export default function App() {

@@ -59,6 +59,7 @@ const tools = [
 			{ id: 'svg-to-png', label: 'SVG to PNG' },
 			{ id: 'html-to-markdown', label: 'HTML to Markdown' },
 			{ id: 'markdown-preview', label: 'Markdown Preview' },
+			{ id: 'aspect-ratio', label: 'Aspect Ratio' },
 		],
 	},
 ];
