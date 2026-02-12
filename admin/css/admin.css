@@ -2372,11 +2372,11 @@
 
 .mlc-wdt-ar-dims {
 	display: flex;
-	align-items: flex-end;
+	align-items: center;
 	gap: var(--mlc-space-sm);
 }
 
-.mlc-wdt-ar-dims > .mlc-wdt-control-group {
+.mlc-wdt-ar-dims > .mlc-wdt-text-input {
 	flex: 1;
 	min-width: 0;
 }
@@ -2389,8 +2389,6 @@
 	width: 36px;
 	height: 36px;
 	flex-shrink: 0;
-	align-self: flex-end;
-	margin-bottom: 3px;
 }
 
 .mlc-wdt-ar-swap {

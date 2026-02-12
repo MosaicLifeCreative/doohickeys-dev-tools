@@ -180,16 +180,14 @@ export default function AspectRatioCalculator() {
 				<>
 					{ /* Dimension inputs */ }
 					<div className="mlc-wdt-ar-dims">
-						<div className="mlc-wdt-control-group">
-							<label className="mlc-wdt-control-label">Width</label>
-							<input
-								type="number"
-								className="mlc-wdt-text-input"
-								min="1"
-								value={ calcWidth }
-								onChange={ ( e ) => setCalcWidth( Math.max( 1, parseInt( e.target.value ) || 1 ) ) }
-							/>
-						</div>
+						<input
+							type="number"
+							className="mlc-wdt-text-input"
+							placeholder="Width"
+							min="1"
+							value={ calcWidth }
+							onChange={ ( e ) => setCalcWidth( Math.max( 1, parseInt( e.target.value ) || 1 ) ) }
+						/>
 						<button
 							className="mlc-wdt-ar-swap"
 							onClick={ handleSwapCalc }
@@ -197,16 +195,14 @@ export default function AspectRatioCalculator() {
 						>
 							&#8646;
 						</button>
-						<div className="mlc-wdt-control-group">
-							<label className="mlc-wdt-control-label">Height</label>
-							<input
-								type="number"
-								className="mlc-wdt-text-input"
-								min="1"
-								value={ calcHeight }
-								onChange={ ( e ) => setCalcHeight( Math.max( 1, parseInt( e.target.value ) || 1 ) ) }
-							/>
-						</div>
+						<input
+							type="number"
+							className="mlc-wdt-text-input"
+							placeholder="Height"
+							min="1"
+							value={ calcHeight }
+							onChange={ ( e ) => setCalcHeight( Math.max( 1, parseInt( e.target.value ) || 1 ) ) }
+						/>
 					</div>
 
 					{ /* Result */ }
@@ -258,27 +254,23 @@ export default function AspectRatioCalculator() {
 
 					{ /* Dimension inputs with lock */ }
 					<div className="mlc-wdt-ar-dims">
-						<div className="mlc-wdt-control-group">
-							<label className="mlc-wdt-control-label">Width</label>
-							<input
-								type="number"
-								className="mlc-wdt-text-input"
-								min="1"
-								value={ scaleWidth }
-								onChange={ ( e ) => handleScaleWidthChange( Math.max( 1, parseInt( e.target.value ) || 1 ) ) }
-							/>
-						</div>
+						<input
+							type="number"
+							className="mlc-wdt-text-input"
+							placeholder="Width"
+							min="1"
+							value={ scaleWidth }
+							onChange={ ( e ) => handleScaleWidthChange( Math.max( 1, parseInt( e.target.value ) || 1 ) ) }
+						/>
 						<span className="mlc-wdt-ar-lock" title="Ratio locked">&#128279;</span>
-						<div className="mlc-wdt-control-group">
-							<label className="mlc-wdt-control-label">Height</label>
-							<input
-								type="number"
-								className="mlc-wdt-text-input"
-								min="1"
-								value={ scaledHeight }
-								onChange={ ( e ) => handleScaleHeightChange( Math.max( 1, parseInt( e.target.value ) || 1 ) ) }
-							/>
-						</div>
+						<input
+							type="number"
+							className="mlc-wdt-text-input"
+							placeholder="Height"
+							min="1"
+							value={ scaledHeight }
+							onChange={ ( e ) => handleScaleHeightChange( Math.max( 1, parseInt( e.target.value ) || 1 ) ) }
+						/>
 					</div>
 
 					{ /* CSS output */ }
