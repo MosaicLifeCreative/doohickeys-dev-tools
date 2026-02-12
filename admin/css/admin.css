@@ -2414,6 +2414,7 @@
 	display: flex;
 	flex-direction: column;
 	gap: 6px;
+	margin-top: var(--mlc-space-sm);
 	padding: var(--mlc-space-sm);
 	background: var(--mlc-bg-light);
 	border: 1px solid var(--mlc-border);
