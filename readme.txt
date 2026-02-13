@@ -97,14 +97,14 @@ Never. All processing happens in your browser. Nothing is transmitted to externa
 
 == Screenshots ==
 
-1. Dashboard overview showing the full tool sidebar with all 26 utilities
-2. Gradient Generator with live preview and CSS output
-3. Flexbox Generator with visual playground and container controls
-4. CSS Grid Generator with templates and per-cell span controls
-5. Color Picker with HSV wheel and multi-format output
-6. Palette Generator with color wheel and harmony modes (Pro)
-7. Schema.org Generator with structured data output
-8. Contrast Checker with WCAG 2.1 compliance results
+1. CSS Gradient Generator with full sidebar navigation showing all 26 tools
+2. Box Shadow Generator with visual preview and layered shadow controls
+3. Color Converter with HEX, RGB, HSL, HWB, and CMYK output
+4. Contrast Checker with WCAG 2.1 AA/AAA compliance results
+5. Border Radius Generator with shape presets and per-corner controls
+6. Schema.org Generator with Article structured data and JSON-LD output
+7. QR Code Generator with custom colors and Pro logo overlay option
+8. SVG to PNG Converter with file upload and code paste options
 
 == Changelog ==
 
