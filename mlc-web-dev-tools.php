@@ -3,7 +3,7 @@
  * Plugin Name: Web Dev Tools by Mosaic Life Creative
  * Plugin URI: https://mosaiclifecreative.com/web-dev-tools
  * Description: Essential utilities for web developers—right in your WordPress dashboard.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Requires at least: 5.8
  * Requires PHP: 7.4
  * Author: Mosaic Life Creative
@@ -19,7 +19,7 @@ if (!defined('ABSPATH')) {
 }
 
 // Plugin constants
-define('MLC_WDT_VERSION', '1.0.0');
+define('MLC_WDT_VERSION', '1.0.1');
 define('MLC_WDT_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('MLC_WDT_PLUGIN_URL', plugin_dir_url(__FILE__));
 
