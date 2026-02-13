@@ -24,7 +24,9 @@ define('MLC_WDT_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('MLC_WDT_PLUGIN_URL', plugin_dir_url(__FILE__));
 
 // Freemius SDK integration
-if ( ! function_exists( 'mlc_wdt_fs' ) ) {
+if ( function_exists( 'mlc_wdt_fs' ) ) {
+	mlc_wdt_fs()->set_basename( true, __FILE__ );
+} else {
 	$freemius_sdk = dirname( __FILE__ ) . '/vendor/freemius/start.php';
 
 	if ( file_exists( $freemius_sdk ) ) {
