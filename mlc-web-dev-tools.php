@@ -46,9 +46,11 @@ if ( function_exists( 'mlc_wdt_fs' ) ) {
 					'has_premium_version' => true,
 					'has_addons'          => false,
 					'has_paid_plans'      => true,
+					'wp_org_gatekeeper'   => 'OA7#BoRiBNqdf52FvzEf!!074aRLPs8fspif$7K1#4u4Csys1fQlCecVcUTOs2mcpeVHi#C2j9d09fOTvbC0HloPT7fFee5WdS3G',
 					'menu'                => array(
-						'slug'    => 'mlc-web-dev-tools',
-						'support' => false,
+						'slug'       => 'mlc-web-dev-tools',
+						'first-path' => 'admin.php?page=mlc-web-dev-tools',
+						'support'    => false,
 					),
 				) );
 			}
