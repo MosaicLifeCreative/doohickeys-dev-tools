@@ -1,4 +1,4 @@
-=== Web Dev Tools by MLC ===
+=== Web Dev Tools by Mosaic Life Creative ===
 Contributors: mosaiclifecreative
 Tags: developer tools, css generator, color picker, web development, code tools
 Requires at least: 5.8
@@ -12,7 +12,7 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 == Description ==
 
-**Web Dev Tools by MLC** puts a full suite of developer utilities right inside your WordPress admin. No more juggling browser tabs and bookmarking random websites — everything you need is one click away.
+**Web Dev Tools by Mosaic Life Creative** puts a full suite of developer utilities right inside your WordPress admin. No more juggling browser tabs and bookmarking random websites — everything you need is one click away.
 
 = Free Tools (19) =
 

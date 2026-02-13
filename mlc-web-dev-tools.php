@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Web Dev Tools by MLC
+ * Plugin Name: Web Dev Tools by Mosaic Life Creative
  * Plugin URI: https://mosaiclifecreative.com/web-dev-tools
  * Description: Essential utilities for web developers—right in your WordPress dashboard.
  * Version: 1.0.0
