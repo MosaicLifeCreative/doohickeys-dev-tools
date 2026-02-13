@@ -23,6 +23,38 @@ define('MLC_WDT_VERSION', '1.0.0');
 define('MLC_WDT_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('MLC_WDT_PLUGIN_URL', plugin_dir_url(__FILE__));
 
+// Freemius SDK integration
+if ( ! function_exists( 'mlc_wdt_fs' ) ) {
+	function mlc_wdt_fs() {
+		global $mlc_wdt_fs;
+
+		if ( ! isset( $mlc_wdt_fs ) ) {
+			require_once dirname( __FILE__ ) . '/vendor/freemius/start.php';
+
+			$mlc_wdt_fs = fs_dynamic_init( array(
+				'id'                  => '24360',
+				'slug'                => 'web-dev-tools',
+				'type'                => 'plugin',
+				'public_key'          => 'pk_f812a361b02bf6fe21443b390efb8',
+				'is_premium'          => true,
+				'premium_suffix'      => 'Pro',
+				'has_premium_version' => true,
+				'has_addons'          => false,
+				'has_paid_plans'      => true,
+				'menu'                => array(
+					'slug'    => 'mlc-web-dev-tools',
+					'support' => false,
+				),
+			) );
+		}
+
+		return $mlc_wdt_fs;
+	}
+
+	mlc_wdt_fs();
+	do_action( 'mlc_wdt_fs_loaded' );
+}
+
 // Load main plugin class
 require_once MLC_WDT_PLUGIN_DIR . 'includes/class-plugin.php';
 

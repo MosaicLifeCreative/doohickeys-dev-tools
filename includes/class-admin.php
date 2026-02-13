@@ -75,15 +75,32 @@ class MLC_Web_Dev_Tools_Admin {
 			$asset['version']
 		);
 
+		// Check Pro status: Freemius first, fall back to dev toggle.
+		$is_pro = false;
+		if ( function_exists( 'mlc_wdt_fs' ) ) {
+			$is_pro = mlc_wdt_fs()->is_paying();
+		}
+		// Dev override: allow WP_DEBUG toggle to still work.
+		if ( ! $is_pro && defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+			$is_pro = (bool) get_option( 'mlc_wdt_pro_active', false );
+		}
+
+		// Build upgrade URL from Freemius.
+		$upgrade_url = '';
+		if ( function_exists( 'mlc_wdt_fs' ) ) {
+			$upgrade_url = mlc_wdt_fs()->get_upgrade_url();
+		}
+
 		wp_localize_script(
 			'mlc-wdt-admin',
 			'mlcWdtData',
 			array(
-				'pluginUrl' => MLC_WDT_PLUGIN_URL,
-				'nonce'     => wp_create_nonce( 'mlc_wdt_nonce' ),
-				'version'   => MLC_WDT_VERSION,
-				'isPro'     => (bool) get_option( 'mlc_wdt_pro_active', false ),
-				'isDebug'   => defined( 'WP_DEBUG' ) && WP_DEBUG,
+				'pluginUrl'  => MLC_WDT_PLUGIN_URL,
+				'nonce'      => wp_create_nonce( 'mlc_wdt_nonce' ),
+				'version'    => MLC_WDT_VERSION,
+				'isPro'      => $is_pro,
+				'isDebug'    => defined( 'WP_DEBUG' ) && WP_DEBUG,
+				'upgradeUrl' => $upgrade_url,
 			)
 		);
 	}

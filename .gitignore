@@ -26,6 +26,7 @@ yarn.lock
 # Plugin specific
 *.zip
 vendor/
+!vendor/freemius/
 
 # OS files
 .DS_Store

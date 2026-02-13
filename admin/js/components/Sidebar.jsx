@@ -101,9 +101,15 @@ export default function Sidebar( { currentTool, onToolChange } ) {
 				{ isPro ? (
 					<div className="mlc-wdt-pro-active">Pro Active</div>
 				) : (
-					<button className="mlc-wdt-pro-btn" disabled>
-						Upgrade to Pro
-					</button>
+					window.mlcWdtData?.upgradeUrl ? (
+						<a className="mlc-wdt-pro-btn" href={ window.mlcWdtData.upgradeUrl }>
+							Upgrade to Pro
+						</a>
+					) : (
+						<button className="mlc-wdt-pro-btn" disabled>
+							Upgrade to Pro
+						</button>
+					)
 				) }
 			</div>
 			{ isDebug && (
