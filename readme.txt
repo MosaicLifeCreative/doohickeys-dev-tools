@@ -2,7 +2,7 @@
 Contributors: mosaiclifecreative
 Tags: developer tools, css generator, color picker, web development, code tools
 Requires at least: 5.8
-Tested up to: 6.7
+Tested up to: 6.9
 Stable tag: 1.0.1
 Requires PHP: 7.4
 License: GPLv3 or later
