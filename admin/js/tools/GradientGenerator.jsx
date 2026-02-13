@@ -30,7 +30,8 @@ export default function GradientGenerator() {
 	const [ radialPosition, setRadialPosition ] = useState( { x: 50, y: 50 } );
 	const [ colors, setColors ] = useState( [
 		{ color: '#FF6B6B', position: 0 },
-		{ color: '#4ECDC4', position: 100 },
+		{ color: '#FFA07A', position: 50 },
+		{ color: '#FFD700', position: 100 },
 	] );
 
 	const updateColor = useCallback( ( index, field, value ) => {
