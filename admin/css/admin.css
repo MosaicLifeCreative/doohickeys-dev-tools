@@ -166,8 +166,9 @@
 
 .mlc-wdt-pro-btn {
 	display: block;
-	width: 100%;
-	padding: 8px 12px;
+	width: auto;
+	margin: 0 auto;
+	padding: 8px 20px;
 	border: none;
 	background: var(--mlc-warning);
 	color: #23282d;
