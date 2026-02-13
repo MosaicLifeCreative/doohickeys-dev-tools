@@ -8,113 +8,104 @@
 
 ---
 
-## Phase 1: Foundation & Core Tools (DONE)
+## v1.0 — Complete (26 Tools)
 
-| Tool | Status | Notes |
-|------|--------|-------|
-| Plugin foundation (PHP, React shell, sidebar nav) | Done | |
-| CSS Gradient Generator | Done | Linear/radial, presets, color stops |
-| Box Shadow Generator | Done | Multi-layer, inset, opacity |
-| QR Code Generator | Done | PNG/SVG download, FG/BG color |
-| Custom ColorPicker component | Done | HSV popover, replaces native pickers |
-| Pro feature gating system | Done | ProContext, ProBadge, WP_DEBUG toggle |
-| QR Code logo upload (Pro) | Done | Center logo with size control |
-| CSS Border Generator | Done | Per-side width/style/color, linked mode |
-| Border Radius Generator | Done | Per-corner, presets (pill/leaf/drop), px/% |
-| Contrast Checker | Done | WCAG 2.1 AA/AAA, normal/large text, UI components |
-| Color Converter | Done | HEX/RGB/HSL/HWB/CMYK, paste any format |
-| Placeholder Image Generator | Done | Presets, custom dims, PNG/SVG/data URI |
-
----
-
-## Phase 2: CSS Layout & Advanced Generators (Planned)
-
-| Tool | Status | Free/Pro | Notes |
-|------|--------|----------|-------|
-| Flexbox Generator | Planned | Free | Visual flexbox layout builder |
-| CSS Grid Generator | Planned | Free | Grid template builder with drag |
-| HTML Table Generator | Planned | Free | Build & style HTML tables |
-| Clip-Path Maker | Planned | Free | Polygon, circle, ellipse, inset paths |
-| SVG to PNG Converter | Planned | Free | Upload SVG, export as PNG at any size |
-
----
-
-## Phase 3: Color Tools (Planned)
-
-| Tool | Status | Free/Pro | Notes |
-|------|--------|----------|-------|
-| Palette Generator (Color Wheel) | Planned | Free (basic) / Pro (advanced) | Canva-style wheel with harmonies: complementary, monochromatic, analogous, triadic, tetradic |
-| Color Picker / Color Info | Planned | Free | Color meaning, variations, accessibility info |
-| Image Picker (extract palette) | Planned | Pro | Upload image, extract color palette |
-| Palette Visualizer | Planned | Pro | Preview colors on real UI mockups |
+| Category | Tool | Free/Pro | Status |
+|----------|------|----------|--------|
+| CSS | Gradient Generator | Free | Done |
+| CSS | Box Shadow Generator | Free | Done |
+| CSS | Border Generator | Free | Done |
+| CSS | Border Radius Generator | Free | Done |
+| CSS | Clip-Path Maker | Free | Done |
+| CSS | Flexbox Generator | Free (Pro per-item) | Done |
+| CSS | Grid Generator | Free (Pro templates/cells) | Done |
+| Color | Color Picker | Free | Done |
+| Color | Contrast Checker | Free | Done |
+| Color | Color Converter | Free | Done |
+| Color | Palette Generator | Pro | Done |
+| Code | Code Formatter | Pro | Done |
+| Code | String Utilities | Free | Done |
+| Code | Diff Checker | Pro | Done |
+| Code | Encoder/Decoder | Free | Done |
+| Generators | QR Code Generator | Free (Pro logo) | Done |
+| Generators | Placeholder Image | Free (Pro presets/URI) | Done |
+| Generators | Lorem Ipsum | Free | Done |
+| Generators | HTML Table Generator | Pro | Done |
+| Generators | Test Data Generator | Pro | Done |
+| SEO & Meta | Schema.org Generator | Free (Pro extra types) | Done |
+| SEO & Meta | Meta Tag Generator | Free | Done |
+| Converters | SVG to PNG | Free | Done |
+| Converters | HTML to Markdown | Free | Done |
+| Converters | Markdown Preview | Free | Done |
+| Converters | Aspect Ratio Calculator | Free | Done |
 
 ---
 
-## Phase 4: Code Tools (from smalldev.tools) (Planned)
+## v2.0 — Quick Wins (Easy to Build, High Use)
 
-| Tool | Status | Free/Pro | Notes |
-|------|--------|----------|-------|
-| Code Formatter | Planned | Free | JSON, HTML, CSS, JS, SQL beautify (single tool, language dropdown) |
-| Encoder/Decoder | Planned | Free | Base64, URL, UTF8, HTML entities (single tool, mode tabs) |
-| Diff Checker | Planned | Free | Side-by-side text/code comparison |
-| String Utilities | Planned | Free | Case convert, trim, find/replace, char count |
-| Lorem Ipsum Generator | Planned | Free | Paragraphs, sentences, words |
-| JSON Decoder | Planned | Free | JSON string to formatted object view |
-| HTML to Markdown | Planned | Free | Paste HTML, get Markdown output |
-| Markdown Preview | Planned | Free | Live Markdown editor with preview |
-| Test Data Generator | Planned | Free | Fake names, emails, addresses, phone numbers |
+| Tool | Category | Free/Pro | Notes |
+|------|----------|----------|-------|
+| CSS Text Shadow Generator | CSS | Free | Same pattern as Box Shadow, just for text |
+| CSS Filter Generator | CSS | Free | Blur, brightness, contrast, grayscale, sepia, hue-rotate — slider-based, live preview |
+| CSS Transform Generator | CSS | Free | Rotate, scale, skew, translate (2D/3D) with visual before/after |
+| Units Converter | Converters | Free | px ↔ rem ↔ em ↔ % with configurable base font size |
 
 ---
 
-## Phase 5: SEO & Meta Tools (Planned)
+## v2.x — Medium Effort, High Value
 
-| Tool | Status | Free/Pro | Notes |
-|------|--------|----------|-------|
-| Meta Tag Generator | Planned | Free | OG, Twitter Card, basic SEO meta tags with live preview (Google, Facebook, X, LinkedIn) |
-| Schema.org Generator | Planned | Free | JSON-LD structured data |
-
----
-
-## Phase 6: Advanced & Niche (Backlog)
-
-| Tool | Status | Free/Pro | Notes |
-|------|--------|----------|-------|
-| SVG Recolor | Backlog | Pro | Upload SVG, change colors |
-| CSS Animation Generator | Backlog | Pro | Keyframe animation builder |
-| Shape Divider | Backlog | Free | SVG section dividers |
-| Neumorphism/Soft UI Shadow | Backlog | Free | Soft shadow generator |
+| Tool | Category | Free/Pro | Notes |
+|------|----------|----------|-------|
+| Fluid Typography Calculator | CSS | Free | Generate CSS clamp() for responsive font sizes |
+| Regex Tester | Code | Free | Input pattern + test string, highlight matches, show capture groups |
+| Timestamp Converter | Converters | Free | Unix ↔ human readable, timezone support, "now" button |
+| Favicon Generator | Generators | Pro | Upload image → generate all sizes (16, 32, 180, 192, 512) + HTML link tags |
 
 ---
 
-## Pro Feature Summary
+## v3.0 — WordPress-Specific Tools
 
-**Free (core plugin):**
-- All CSS generators (gradient, shadow, border, radius, flexbox, grid, clip-path)
-- QR code generator (basic)
-- Color converter, contrast checker, palette generator (basic)
-- Placeholder image generator
-- All code tools (formatter, encoder, diff, string utils, lorem ipsum)
-- SEO meta tag generator, schema generator
-- SVG to PNG converter
-- HTML table generator
+| Tool | Category | Free/Pro | Notes |
+|------|----------|----------|-------|
+| Shortcode Builder | WordPress | Free | Define attributes, generate PHP scaffold |
+| Custom Post Type Generator | WordPress | Free | Labels, capabilities, supports → register_post_type() code |
+| wp_enqueue Helper | WordPress | Free | Generate enqueue code for scripts/styles with deps, versions, conditional loading |
+| .htaccess Snippets | WordPress | Free | Common redirects, security headers, caching rules — pick and copy |
 
-**Pro ($39/year):**
-- QR code center logo
-- Image palette extraction
-- Palette visualizer
-- Advanced color wheel harmonies & export
-- SVG recolor
-- CSS animation generator
-- Priority support
+---
+
+## Pro Tier Candidates (Backlog)
+
+| Tool | Category | Notes |
+|------|----------|-------|
+| Glassmorphism Generator | CSS | Frosted glass effect (backdrop-filter + transparency) |
+| Neumorphism Generator | CSS | Soft UI shadows — polarizing but high search volume |
+| Animation Keyframe Builder | CSS | Visual timeline for CSS animations — complex but high value |
+| Image to Base64 | Converters | Upload image → get data URI |
+| srcset Generator | Generators | Input breakpoints + URLs → responsive image markup |
+| Image Palette Extraction | Color | Upload image, extract color palette |
+| Palette Visualizer | Color | Preview colors on real UI mockups |
+| SVG Recolor | Color | Upload SVG, change colors |
+
+---
+
+## Release History
+
+| Version | Date | Notes |
+|---------|------|-------|
+| 1.0.0 | 2026-02-12 | Initial release — 26 tools, Freemius integration |
+| 1.0.1 | 2026-02-13 | Rename to "by Mosaic Life Creative", default gradient, tested up to 6.9 |
 
 ---
 
 ## Architecture Notes
 
-- All tools use ToolCard component pattern
-- Reusable: ToolCard, CodeBlock, CopyButton, ColorPicker
-- ProContext + ProBadge for feature gating
+- All tools use ToolCard component pattern (title, help, preview, controls, output)
+- Reusable components: ToolCard, CodeBlock, CopyButton, ColorPicker, ProBadge
+- ProContext + ProBadge for freemium gating; WP_DEBUG dev toggle
 - Hash-based routing for tool switching
 - CSS custom properties namespaced `--mlc-*`
 - Build: @wordpress/scripts (webpack)
-- Sidebar categories: CSS Tools, Color, Generators, Schema (expanding as tools are built)
+- Entry: admin/js/index.jsx → build/index.js
+- Freemius SDK for licensing, payments, updates
+- Sidebar categories: CSS Tools (💻), Color (🎨), Code Tools (📝), Generators (⚙️), SEO & Meta (🔍), Converters (🔄)
