@@ -65,8 +65,7 @@ const tools = [
 ];
 
 export default function Sidebar( { currentTool, onToolChange } ) {
-	const { isPro, togglePro } = usePro();
-	const isDebug = window.mlcWdtData?.isDebug || false;
+	const { isPro } = usePro();
 
 	return (
 		<nav className="mlc-wdt-sidebar" role="navigation" aria-label="Tool navigation">
@@ -112,21 +111,6 @@ export default function Sidebar( { currentTool, onToolChange } ) {
 					)
 				) }
 			</div>
-			{ isDebug && (
-				<>
-					<div className="mlc-wdt-sidebar-divider" />
-					<div className="mlc-wdt-sidebar-dev">
-						<label className="mlc-wdt-dev-toggle">
-							<input
-								type="checkbox"
-								checked={ isPro }
-								onChange={ togglePro }
-							/>
-							<span className="mlc-wdt-dev-toggle-label">Dev: Pro Mode</span>
-						</label>
-					</div>
-				</>
-			) }
 		</nav>
 	);
 }

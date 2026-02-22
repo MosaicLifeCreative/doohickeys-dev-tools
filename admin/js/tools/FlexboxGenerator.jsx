@@ -1,7 +1,6 @@
 import { useState, useMemo } from '@wordpress/element';
 import ToolCard from '../components/ToolCard';
 import CodeBlock from '../components/CodeBlock';
-import ProBadge from '../components/ProBadge';
 
 const FLEX_DIRECTIONS = [ 'row', 'row-reverse', 'column', 'column-reverse' ];
 const JUSTIFY_OPTIONS = [ 'flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'space-evenly' ];
@@ -43,28 +42,6 @@ export default function FlexboxGenerator() {
 	const [ gap, setGap ] = useState( 10 );
 	const [ itemCount, setItemCount ] = useState( 5 );
 
-	// Per-item overrides
-	const [ items, setItems ] = useState( () =>
-		Array.from( { length: 12 }, ( _, i ) => ( {
-			flexGrow: 0,
-			flexShrink: 1,
-			flexBasis: 'auto',
-			alignSelf: 'auto',
-			order: 0,
-			label: i + 1,
-		} ) )
-	);
-
-	const [ selectedItem, setSelectedItem ] = useState( null );
-
-	const updateItem = ( idx, field, val ) => {
-		setItems( ( prev ) => {
-			const next = [ ...prev ];
-			next[ idx ] = { ...next[ idx ], [ field ]: val };
-			return next;
-		} );
-	};
-
 	const containerStyle = useMemo( () => ( {
 		display: 'flex',
 		flexDirection: direction,
@@ -92,35 +69,13 @@ export default function FlexboxGenerator() {
 		if ( wrap !== 'nowrap' && alignContent !== 'stretch' ) lines.push( `align-content: ${ alignContent };` );
 		if ( gap > 0 ) lines.push( `gap: ${ gap }px;` );
 
-		let css = `.container {\n${ lines.map( ( l ) => `  ${ l }` ).join( '\n' ) }\n}`;
-
-		// Check for any non-default item overrides
-		const activeItems = items.slice( 0, itemCount );
-		const hasOverrides = activeItems.some( ( item ) =>
-			item.flexGrow !== 0 || item.flexShrink !== 1 || item.flexBasis !== 'auto' || item.alignSelf !== 'auto' || item.order !== 0
-		);
-
-		if ( hasOverrides ) {
-			activeItems.forEach( ( item, i ) => {
-				const itemLines = [];
-				if ( item.flexGrow !== 0 ) itemLines.push( `  flex-grow: ${ item.flexGrow };` );
-				if ( item.flexShrink !== 1 ) itemLines.push( `  flex-shrink: ${ item.flexShrink };` );
-				if ( item.flexBasis !== 'auto' ) itemLines.push( `  flex-basis: ${ item.flexBasis };` );
-				if ( item.alignSelf !== 'auto' ) itemLines.push( `  align-self: ${ item.alignSelf };` );
-				if ( item.order !== 0 ) itemLines.push( `  order: ${ item.order };` );
-				if ( itemLines.length > 0 ) {
-					css += `\n\n.item-${ i + 1 } {\n${ itemLines.join( '\n' ) }\n}`;
-				}
-			} );
-		}
-
-		return css;
-	}, [ direction, justify, alignItems, wrap, alignContent, gap, items, itemCount ] );
+		return `.container {\n${ lines.map( ( l ) => `  ${ l }` ).join( '\n' ) }\n}`;
+	}, [ direction, justify, alignItems, wrap, alignContent, gap ] );
 
 	const preview = (
 		<div>
 			<div style={ containerStyle }>
-				{ items.slice( 0, itemCount ).map( ( item, i ) => {
+				{ Array.from( { length: itemCount } ).map( ( _, i ) => {
 					const itemStyle = {
 						background: ITEM_COLORS[ i % ITEM_COLORS.length ],
 						color: '#fff',
@@ -128,33 +83,21 @@ export default function FlexboxGenerator() {
 						borderRadius: '4px',
 						fontSize: '14px',
 						fontWeight: 600,
-						cursor: 'pointer',
-						outline: selectedItem === i ? '3px solid #23282d' : 'none',
-						outlineOffset: '2px',
-						flexGrow: item.flexGrow,
-						flexShrink: item.flexShrink,
-						flexBasis: item.flexBasis,
-						alignSelf: item.alignSelf === 'auto' ? undefined : item.alignSelf,
-						order: item.order,
 						minWidth: '40px',
 						textAlign: 'center',
 						transition: 'all 0.2s',
 					};
 					return (
-						<div
-							key={ i }
-							style={ itemStyle }
-							onClick={ () => setSelectedItem( selectedItem === i ? null : i ) }
-							title={ `Item ${ i + 1 } — click to edit` }
-						>
-							{ item.label }
+						<div key={ i } style={ itemStyle }>
+							{ i + 1 }
 						</div>
 					);
 				} ) }
 			</div>
-			<p className="mlc-wdt-tip">Click an item to edit its individual flex properties.</p>
 		</div>
 	);
+
+	const upgradeUrl = window.mlcWdtData?.upgradeUrl;
 
 	const controls = (
 		<div className="mlc-wdt-flex-controls">
@@ -186,114 +129,15 @@ export default function FlexboxGenerator() {
 					min="1"
 					max="12"
 					value={ itemCount }
-					onChange={ ( e ) => {
-						const count = parseInt( e.target.value );
-						setItemCount( count );
-						if ( selectedItem !== null && selectedItem >= count ) {
-							setSelectedItem( null );
-						}
-					} }
+					onChange={ ( e ) => setItemCount( parseInt( e.target.value ) ) }
 				/>
 			</div>
 
-			{ /* Per-item controls (Pro) */ }
-			<ProBadge feature="Per-item flex controls are a Pro feature">
-			<div className="mlc-wdt-flex-item-controls">
-				<label className="mlc-wdt-control-label">
-					Per-Item Properties
-					{ selectedItem !== null && selectedItem < itemCount && (
-						<button
-							className="mlc-wdt-flex-deselect"
-							onClick={ () => setSelectedItem( null ) }
-						>
-							Close
-						</button>
-					) }
-				</label>
-
-				{ selectedItem !== null && selectedItem < itemCount ? (
-					<div className="mlc-wdt-flex-item-fields">
-						<div className="mlc-wdt-flex-item-field">
-							<span className="mlc-wdt-palette-slider-label">flex-grow</span>
-							<input
-								type="range"
-								className="mlc-wdt-range"
-								min="0"
-								max="5"
-								value={ items[ selectedItem ].flexGrow }
-								onChange={ ( e ) => updateItem( selectedItem, 'flexGrow', parseInt( e.target.value ) ) }
-							/>
-							<span className="mlc-wdt-field-value">{ items[ selectedItem ].flexGrow }</span>
-						</div>
-
-						<div className="mlc-wdt-flex-item-field">
-							<span className="mlc-wdt-palette-slider-label">flex-shrink</span>
-							<input
-								type="range"
-								className="mlc-wdt-range"
-								min="0"
-								max="5"
-								value={ items[ selectedItem ].flexShrink }
-								onChange={ ( e ) => updateItem( selectedItem, 'flexShrink', parseInt( e.target.value ) ) }
-							/>
-							<span className="mlc-wdt-field-value">{ items[ selectedItem ].flexShrink }</span>
-						</div>
-
-						<div className="mlc-wdt-flex-item-field">
-							<span className="mlc-wdt-palette-slider-label">flex-basis</span>
-							<select
-								className="mlc-wdt-select"
-								value={ items[ selectedItem ].flexBasis }
-								onChange={ ( e ) => updateItem( selectedItem, 'flexBasis', e.target.value ) }
-							>
-								<option value="auto">auto</option>
-								<option value="0">0</option>
-								<option value="50px">50px</option>
-								<option value="100px">100px</option>
-								<option value="150px">150px</option>
-								<option value="200px">200px</option>
-								<option value="25%">25%</option>
-								<option value="33.33%">33.33%</option>
-								<option value="50%">50%</option>
-							</select>
-						</div>
-
-						<div className="mlc-wdt-flex-item-field">
-							<span className="mlc-wdt-palette-slider-label">align-self</span>
-							<select
-								className="mlc-wdt-select"
-								value={ items[ selectedItem ].alignSelf }
-								onChange={ ( e ) => updateItem( selectedItem, 'alignSelf', e.target.value ) }
-							>
-								<option value="auto">auto</option>
-								<option value="flex-start">flex-start</option>
-								<option value="flex-end">flex-end</option>
-								<option value="center">center</option>
-								<option value="stretch">stretch</option>
-								<option value="baseline">baseline</option>
-							</select>
-						</div>
-
-						<div className="mlc-wdt-flex-item-field">
-							<span className="mlc-wdt-palette-slider-label">order</span>
-							<input
-								type="range"
-								className="mlc-wdt-range"
-								min="-5"
-								max="5"
-								value={ items[ selectedItem ].order }
-								onChange={ ( e ) => updateItem( selectedItem, 'order', parseInt( e.target.value ) ) }
-							/>
-							<span className="mlc-wdt-field-value">{ items[ selectedItem ].order }</span>
-						</div>
-					</div>
-				) : (
-					<p className="mlc-wdt-tip" style={ { margin: '8px 0 0' } }>
-						Click an item in the preview to customize flex-grow, flex-shrink, flex-basis, align-self, and order.
-					</p>
-				) }
+			<div className="mlc-wdt-pro-inline-note">
+				<span className="mlc-wdt-pro-badge-inline">Pro</span>
+				Per-item flex properties (flex-grow, flex-shrink, flex-basis, align-self, order) available in Pro.
+				{ upgradeUrl && <a href={ upgradeUrl } className="mlc-wdt-pro-inline-link">Upgrade</a> }
 			</div>
-			</ProBadge>
 		</div>
 	);
 
@@ -304,7 +148,7 @@ export default function FlexboxGenerator() {
 	return (
 		<ToolCard
 			title="Flexbox Generator"
-			help="Visual CSS flexbox playground. Adjust container properties and see changes in real-time. Click individual items to customize flex-grow, flex-shrink, flex-basis, align-self, and order."
+			help="Visual CSS flexbox playground. Adjust container properties and see changes in real-time. Per-item controls available in Pro."
 			preview={ preview }
 			controls={ controls }
 			output={ output }

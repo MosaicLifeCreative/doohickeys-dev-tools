@@ -2,8 +2,6 @@ import { useState, useRef, useCallback } from '@wordpress/element';
 import { QRCodeSVG, QRCodeCanvas } from 'qrcode.react';
 import ToolCard from '../components/ToolCard';
 import ColorPicker from '../components/ColorPicker';
-import ProBadge from '../components/ProBadge';
-import { usePro } from '../context/ProContext';
 
 const ERROR_LEVELS = [
 	{ value: 'L', label: 'Low (7%)' },
@@ -13,47 +11,13 @@ const ERROR_LEVELS = [
 ];
 
 export default function QRCodeGenerator() {
-	const { isPro } = usePro();
 	const [ content, setContent ] = useState( 'https://example.com' );
 	const [ size, setSize ] = useState( 256 );
 	const [ fgColor, setFgColor ] = useState( '#000000' );
 	const [ bgColor, setBgColor ] = useState( '#ffffff' );
 	const [ errorLevel, setErrorLevel ] = useState( 'M' );
-	const [ logoSrc, setLogoSrc ] = useState( null );
-	const [ logoSize, setLogoSize ] = useState( 20 );
 	const canvasRef = useRef( null );
 	const svgRef = useRef( null );
-	const fileInputRef = useRef( null );
-
-	const handleLogoUpload = useCallback( ( e ) => {
-		const file = e.target.files?.[ 0 ];
-		if ( ! file ) {
-			return;
-		}
-		const reader = new FileReader();
-		reader.onload = ( ev ) => {
-			setLogoSrc( ev.target.result );
-		};
-		reader.readAsDataURL( file );
-	}, [] );
-
-	const removeLogo = useCallback( () => {
-		setLogoSrc( null );
-		if ( fileInputRef.current ) {
-			fileInputRef.current.value = '';
-		}
-	}, [] );
-
-	const logoPixelSize = Math.round( size * ( logoSize / 100 ) );
-
-	const imageSettings = logoSrc && isPro
-		? {
-				src: logoSrc,
-				height: logoPixelSize,
-				width: logoPixelSize,
-				excavate: true,
-			}
-		: undefined;
 
 	const downloadPNG = useCallback( () => {
 		const canvas = canvasRef.current?.querySelector( 'canvas' );
@@ -91,7 +55,6 @@ export default function QRCodeGenerator() {
 					fgColor={ fgColor }
 					bgColor={ bgColor }
 					level={ errorLevel }
-					imageSettings={ imageSettings }
 				/>
 			</div>
 			{ /* Hidden canvas for PNG download */ }
@@ -102,11 +65,12 @@ export default function QRCodeGenerator() {
 					fgColor={ fgColor }
 					bgColor={ bgColor }
 					level={ errorLevel }
-					imageSettings={ imageSettings }
 				/>
 			</div>
 		</div>
 	);
+
+	const upgradeUrl = window.mlcWdtData?.upgradeUrl;
 
 	const controls = (
 		<div className="mlc-wdt-qr-controls">
@@ -163,60 +127,10 @@ export default function QRCodeGenerator() {
 				</select>
 			</div>
 
-			{ /* Logo (Pro) */ }
-			<div className="mlc-wdt-control-group">
-				<ProBadge feature="Add a logo to your QR code">
-					<label className="mlc-wdt-control-label">Center Logo</label>
-					<div className="mlc-wdt-logo-upload">
-						{ logoSrc ? (
-							<div className="mlc-wdt-logo-preview-row">
-								<img
-									src={ logoSrc }
-									alt="Logo preview"
-									className="mlc-wdt-logo-thumb"
-								/>
-								<div className="mlc-wdt-logo-info">
-									<button
-										className="mlc-wdt-remove-btn"
-										onClick={ removeLogo }
-										title="Remove logo"
-									>
-										&times;
-									</button>
-								</div>
-							</div>
-						) : (
-							<button
-								className="mlc-wdt-add-btn"
-								onClick={ () => fileInputRef.current?.click() }
-							>
-								+ Upload Logo
-							</button>
-						) }
-						<input
-							ref={ fileInputRef }
-							type="file"
-							accept="image/*"
-							onChange={ handleLogoUpload }
-							style={ { display: 'none' } }
-						/>
-					</div>
-					{ logoSrc && (
-						<div className="mlc-wdt-logo-size-control">
-							<label className="mlc-wdt-range-label">
-								Logo Size: { logoSize }%
-							</label>
-							<input
-								type="range"
-								min="10"
-								max="35"
-								value={ logoSize }
-								onChange={ ( e ) => setLogoSize( Number( e.target.value ) ) }
-								className="mlc-wdt-range"
-							/>
-						</div>
-					) }
-				</ProBadge>
+			<div className="mlc-wdt-pro-inline-note">
+				<span className="mlc-wdt-pro-badge-inline">Pro</span>
+				Add a custom center logo to your QR codes in Pro.
+				{ upgradeUrl && <a href={ upgradeUrl } className="mlc-wdt-pro-inline-link">Upgrade</a> }
 			</div>
 		</div>
 	);
@@ -235,7 +149,7 @@ export default function QRCodeGenerator() {
 	return (
 		<ToolCard
 			title="QR Code Generator"
-			help="Generate QR codes for URLs, text, or any data. Customize colors, size, and error correction level. Download as PNG or SVG. Pro users can add a center logo."
+			help="Generate QR codes for URLs, text, or any data. Customize colors, size, and error correction level. Download as PNG or SVG. Center logo available in Pro."
 			preview={ preview }
 			controls={ controls }
 			output={ output }

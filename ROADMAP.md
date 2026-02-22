@@ -1,4 +1,4 @@
-# Web Dev Tools - Full Roadmap
+# Doohickey's Dev Tools - Roadmap
 
 ## Status Legend
 - Done = shipped and working
@@ -8,7 +8,7 @@
 
 ---
 
-## v1.0 — Complete (26 Tools)
+## v1.0.2 — Current Release (26 Tools)
 
 | Category | Tool | Free/Pro | Status |
 |----------|------|----------|--------|
@@ -94,18 +94,21 @@
 | Version | Date | Notes |
 |---------|------|-------|
 | 1.0.0 | 2026-02-12 | Initial release — 26 tools, Freemius integration |
-| 1.0.1 | 2026-02-13 | Rename to "by Mosaic Life Creative", default gradient, tested up to 6.9 |
+| 1.0.1 | 2026-02-13 | Rename to "by Mosaic Life Creative", default gradient fix, tested up to 6.9 |
+| 1.0.2 | 2026-02-22 | Renamed to "Doohickey's Dev Tools", new slug doohickeys-dev-tools, WordPress.org compliance (removed Pro code from free version, fixed Freemius config, removed Plugin URI), updated banners/screenshots |
 
 ---
 
 ## Architecture Notes
 
 - All tools use ToolCard component pattern (title, help, preview, controls, output)
-- Reusable components: ToolCard, CodeBlock, CopyButton, ColorPicker, ProBadge
-- ProContext + ProBadge for freemium gating; WP_DEBUG dev toggle
+- Reusable components: ToolCard, CodeBlock, CopyButton, ColorPicker
+- ProContext provides `{ isPro }` — always false in WP.org version
+- Pro-only tools show upgrade placeholder cards
+- Hybrid tools show inline upgrade notes for Pro features
 - Hash-based routing for tool switching
 - CSS custom properties namespaced `--mlc-*`
 - Build: @wordpress/scripts (webpack)
 - Entry: admin/js/index.jsx → build/index.js
 - Freemius SDK for licensing, payments, updates
-- Sidebar categories: CSS Tools (💻), Color (🎨), Code Tools (📝), Generators (⚙️), SEO & Meta (🔍), Converters (🔄)
+- Sidebar categories: CSS Tools, Color, Code Tools, Generators, SEO & Meta, Converters

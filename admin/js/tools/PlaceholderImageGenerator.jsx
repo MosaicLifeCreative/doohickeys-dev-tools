@@ -1,19 +1,6 @@
 import { useState, useRef, useCallback, useEffect } from '@wordpress/element';
 import ToolCard from '../components/ToolCard';
-import CopyButton from '../components/CopyButton';
 import ColorPicker from '../components/ColorPicker';
-import ProBadge from '../components/ProBadge';
-
-const PRESET_SIZES = [
-	{ label: 'Facebook Cover', w: 820, h: 312 },
-	{ label: 'Twitter Header', w: 1500, h: 500 },
-	{ label: 'OG Image', w: 1200, h: 630 },
-	{ label: 'Instagram', w: 1080, h: 1080 },
-	{ label: 'YouTube Thumb', w: 1280, h: 720 },
-	{ label: 'Favicon', w: 512, h: 512 },
-	{ label: 'Blog Hero', w: 1920, h: 600 },
-	{ label: 'WP Thumb', w: 150, h: 150 },
-];
 
 export default function PlaceholderImageGenerator() {
 	const canvasRef = useRef( null );
@@ -77,11 +64,6 @@ export default function PlaceholderImageGenerator() {
 		URL.revokeObjectURL( link.href );
 	}, [ width, height, bgColor, textColor, displayText, autoFontSize ] );
 
-	const applyPreset = useCallback( ( preset ) => {
-		setWidth( preset.w );
-		setHeight( preset.h );
-	}, [] );
-
 	// Scale canvas display so it fits the preview area.
 	const maxDisplayW = 600;
 	const maxDisplayH = 300;
@@ -99,26 +81,10 @@ export default function PlaceholderImageGenerator() {
 		</div>
 	);
 
+	const upgradeUrl = window.mlcWdtData?.upgradeUrl;
+
 	const controls = (
 		<div className="mlc-wdt-placeholder-controls">
-			<ProBadge feature="Social media presets are a Pro feature">
-				<div className="mlc-wdt-control-group">
-					<label className="mlc-wdt-control-label">Preset Sizes</label>
-					<div className="mlc-wdt-placeholder-presets">
-						{ PRESET_SIZES.map( ( preset ) => (
-							<button
-								key={ preset.label }
-								className="mlc-wdt-placeholder-preset-btn"
-								onClick={ () => applyPreset( preset ) }
-							>
-								<span className="mlc-wdt-placeholder-preset-name">{ preset.label }</span>
-								<span className="mlc-wdt-placeholder-preset-size">{ preset.w }&times;{ preset.h }</span>
-							</button>
-						) ) }
-					</div>
-				</div>
-			</ProBadge>
-
 			<div className="mlc-wdt-control-group">
 				<label className="mlc-wdt-control-label">Dimensions</label>
 				<div className="mlc-wdt-placeholder-dims">
@@ -186,6 +152,12 @@ export default function PlaceholderImageGenerator() {
 				</div>
 				<p className="mlc-wdt-tip">Set to 0 for automatic sizing based on dimensions</p>
 			</div>
+
+			<div className="mlc-wdt-pro-inline-note">
+				<span className="mlc-wdt-pro-badge-inline">Pro</span>
+				Social media preset sizes and inline Data URI export available in Pro.
+				{ upgradeUrl && <a href={ upgradeUrl } className="mlc-wdt-pro-inline-link">Upgrade</a> }
+			</div>
 		</div>
 	);
 
@@ -200,22 +172,13 @@ export default function PlaceholderImageGenerator() {
 					Download SVG
 				</button>
 			</div>
-			<ProBadge feature="Data URI export is a Pro feature">
-				<div className="mlc-wdt-placeholder-data-uri">
-					<div className="mlc-wdt-section-label" style={ { marginTop: '16px', display: 'flex', alignItems: 'center', gap: '8px' } }>
-						Inline Data URI
-						<CopyButton text={ canvasRef.current?.toDataURL( 'image/png' ) || '' } />
-					</div>
-					<p className="mlc-wdt-tip">Copy the base64 data URI to embed directly in HTML/CSS without a file.</p>
-				</div>
-			</ProBadge>
 		</div>
 	);
 
 	return (
 		<ToolCard
 			title="Placeholder Image Generator"
-			help="Generate placeholder images for mockups and development. Choose preset sizes for social media, or set custom dimensions. Download as PNG or SVG."
+			help="Generate placeholder images for mockups and development. Set custom dimensions, colors, and text. Download as PNG or SVG. Social media presets available in Pro."
 			preview={ preview }
 			controls={ controls }
 			output={ output }

@@ -1,30 +1,14 @@
-import { createContext, useContext, useState, useCallback } from '@wordpress/element';
+import { createContext, useContext, useState } from '@wordpress/element';
 
 const ProContext = createContext( {
 	isPro: false,
-	togglePro: () => {},
 } );
 
 export function ProProvider( { children } ) {
-	const [ isPro, setIsPro ] = useState( () => window.mlcWdtData?.isPro || false );
-
-	const togglePro = useCallback( () => {
-		const newVal = ! isPro;
-		setIsPro( newVal );
-
-		// Persist via AJAX.
-		fetch( window.ajaxurl, {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-			body: new URLSearchParams( {
-				action: 'mlc_wdt_toggle_pro',
-				nonce: window.mlcWdtData?.nonce || '',
-			} ),
-		} );
-	}, [ isPro ] );
+	const [ isPro ] = useState( () => window.mlcWdtData?.isPro || false );
 
 	return (
-		<ProContext.Provider value={ { isPro, togglePro } }>
+		<ProContext.Provider value={ { isPro } }>
 			{ children }
 		</ProContext.Provider>
 	);
