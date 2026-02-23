@@ -37,7 +37,7 @@ if ( function_exists( 'dkdt_fs' ) ) {
 
 				$dkdt_fs = fs_dynamic_init( array(
 					'id'                  => '24360',
-					'slug'                => 'web-dev-tools',
+					'slug'                => 'doohickeys-dev-tools',
 					'premium_slug'        => 'doohickeys-dev-tools-premium',
 					'type'                => 'plugin',
 					'public_key'          => 'pk_f812a361b02bf6fe21443b390efb8',
