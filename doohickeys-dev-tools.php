@@ -26,9 +26,9 @@ define('DKDT_PLUGIN_URL', plugin_dir_url(__FILE__));
 if ( function_exists( 'dkdt_fs' ) ) {
 	dkdt_fs()->set_basename( true, __FILE__ );
 } else {
-	$freemius_sdk = dirname( __FILE__ ) . '/vendor/freemius/start.php';
+	$dkdt_freemius_sdk = dirname( __FILE__ ) . '/vendor/freemius/start.php';
 
-	if ( file_exists( $freemius_sdk ) ) {
+	if ( file_exists( $dkdt_freemius_sdk ) ) {
 		function dkdt_fs() {
 			global $dkdt_fs;
 
