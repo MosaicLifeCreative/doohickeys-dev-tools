@@ -2,19 +2,19 @@
 /**
  * Main plugin class.
  *
- * @package MLC_Web_Dev_Tools
+ * @package Dkdt
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class MLC_Web_Dev_Tools_Plugin {
+class Dkdt_Plugin {
 
 	/**
 	 * Admin instance.
 	 *
-	 * @var MLC_Web_Dev_Tools_Admin
+	 * @var Dkdt_Admin
 	 */
 	private $admin;
 
@@ -25,7 +25,7 @@ class MLC_Web_Dev_Tools_Plugin {
 		$this->load_dependencies();
 
 		if ( is_admin() ) {
-			$this->admin = new MLC_Web_Dev_Tools_Admin();
+			$this->admin = new Dkdt_Admin();
 			$this->admin->init();
 		}
 	}
@@ -34,6 +34,6 @@ class MLC_Web_Dev_Tools_Plugin {
 	 * Load required files.
 	 */
 	private function load_dependencies() {
-		require_once MLC_WDT_PLUGIN_DIR . 'includes/class-admin.php';
+		require_once DKDT_PLUGIN_DIR . 'includes/class-admin.php';
 	}
 }

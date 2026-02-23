@@ -92,35 +92,35 @@ export default function StringUtilities() {
 	};
 
 	const preview = (
-		<div className="mlc-wdt-string-stats">
-			<div className="mlc-wdt-string-stat">
-				<span className="mlc-wdt-string-stat-value">{ stats.chars }</span>
-				<span className="mlc-wdt-string-stat-label">Characters</span>
+		<div className="dkdt-string-stats">
+			<div className="dkdt-string-stat">
+				<span className="dkdt-string-stat-value">{ stats.chars }</span>
+				<span className="dkdt-string-stat-label">Characters</span>
 			</div>
-			<div className="mlc-wdt-string-stat">
-				<span className="mlc-wdt-string-stat-value">{ stats.words }</span>
-				<span className="mlc-wdt-string-stat-label">Words</span>
+			<div className="dkdt-string-stat">
+				<span className="dkdt-string-stat-value">{ stats.words }</span>
+				<span className="dkdt-string-stat-label">Words</span>
 			</div>
-			<div className="mlc-wdt-string-stat">
-				<span className="mlc-wdt-string-stat-value">{ stats.lines }</span>
-				<span className="mlc-wdt-string-stat-label">Lines</span>
+			<div className="dkdt-string-stat">
+				<span className="dkdt-string-stat-value">{ stats.lines }</span>
+				<span className="dkdt-string-stat-label">Lines</span>
 			</div>
-			<div className="mlc-wdt-string-stat">
-				<span className="mlc-wdt-string-stat-value">{ stats.sentences }</span>
-				<span className="mlc-wdt-string-stat-label">Sentences</span>
+			<div className="dkdt-string-stat">
+				<span className="dkdt-string-stat-value">{ stats.sentences }</span>
+				<span className="dkdt-string-stat-label">Sentences</span>
 			</div>
 		</div>
 	);
 
 	const controls = (
-		<div className="mlc-wdt-string-controls">
-			<div className="mlc-wdt-control-group">
+		<div className="dkdt-string-controls">
+			<div className="dkdt-control-group">
 				<div style={ { display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' } }>
-					<label className="mlc-wdt-control-label" style={ { margin: 0 } }>Text</label>
+					<label className="dkdt-control-label" style={ { margin: 0 } }>Text</label>
 					<CopyButton text={ input } />
 				</div>
 				<textarea
-					className="mlc-wdt-textarea"
+					className="dkdt-textarea"
 					rows="8"
 					value={ input }
 					onChange={ ( e ) => setInput( e.target.value ) }
@@ -128,13 +128,13 @@ export default function StringUtilities() {
 				/>
 			</div>
 
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Transform</label>
-				<div className="mlc-wdt-string-transforms">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Transform</label>
+				<div className="dkdt-string-transforms">
 					{ TRANSFORMS.map( ( t ) => (
 						<button
 							key={ t.id }
-							className="mlc-wdt-string-transform-btn"
+							className="dkdt-string-transform-btn"
 							onClick={ () => handleTransform( t.fn ) }
 						>
 							{ t.label }
@@ -143,24 +143,24 @@ export default function StringUtilities() {
 				</div>
 			</div>
 
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Find & Replace</label>
-				<div className="mlc-wdt-string-find-row">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Find & Replace</label>
+				<div className="dkdt-string-find-row">
 					<input
 						type="text"
-						className="mlc-wdt-text-input"
+						className="dkdt-text-input"
 						placeholder="Find..."
 						value={ findText }
 						onChange={ ( e ) => setFindText( e.target.value ) }
 					/>
 					<input
 						type="text"
-						className="mlc-wdt-text-input"
+						className="dkdt-text-input"
 						placeholder="Replace with..."
 						value={ replaceText }
 						onChange={ ( e ) => setReplaceText( e.target.value ) }
 					/>
-					<button className="mlc-wdt-download-btn" onClick={ handleFindReplace }>
+					<button className="dkdt-download-btn" onClick={ handleFindReplace }>
 						Replace All
 					</button>
 				</div>

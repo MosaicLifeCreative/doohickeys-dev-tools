@@ -69,9 +69,9 @@ export default function BorderRadiusGenerator() {
 		: `${ corners.topLeft }${ unit } ${ corners.topRight }${ unit } ${ corners.bottomRight }${ unit } ${ corners.bottomLeft }${ unit }`;
 
 	const preview = (
-		<div className="mlc-wdt-radius-preview" style={ { background: bgColor } }>
+		<div className="dkdt-radius-preview" style={ { background: bgColor } }>
 			<div
-				className="mlc-wdt-radius-box"
+				className="dkdt-radius-box"
 				style={ {
 					borderRadius: styleRadius,
 					background: boxColor,
@@ -81,42 +81,42 @@ export default function BorderRadiusGenerator() {
 	);
 
 	const controls = (
-		<div className="mlc-wdt-radius-controls">
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Preview Colors</label>
-				<div className="mlc-wdt-color-row">
+		<div className="dkdt-radius-controls">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Preview Colors</label>
+				<div className="dkdt-color-row">
 					<ColorPicker color={ boxColor } onChange={ setBoxColor } label="Box" />
 					<ColorPicker color={ bgColor } onChange={ setBgColor } label="Background" />
 				</div>
 			</div>
 
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Presets</label>
-				<div className="mlc-wdt-radius-presets">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Presets</label>
+				<div className="dkdt-radius-presets">
 					{ PRESETS.map( ( preset ) => (
 						<button
 							key={ preset.name }
-							className="mlc-wdt-radius-preset-btn"
+							className="dkdt-radius-preset-btn"
 							onClick={ () => applyPreset( preset ) }
 							title={ preset.name }
 						>
 							<div
-								className="mlc-wdt-radius-preset-shape"
+								className="dkdt-radius-preset-shape"
 								style={ {
 									borderRadius: `${ preset.values.topLeft }px ${ preset.values.topRight }px ${ preset.values.bottomRight }px ${ preset.values.bottomLeft }px`,
 								} }
 							/>
-							<span className="mlc-wdt-radius-preset-name">{ preset.name }</span>
+							<span className="dkdt-radius-preset-name">{ preset.name }</span>
 						</button>
 					) ) }
 				</div>
 			</div>
 
-			<div className="mlc-wdt-control-group">
-				<div className="mlc-wdt-border-link-row">
-					<label className="mlc-wdt-control-label">Corners</label>
-					<div className="mlc-wdt-radius-options">
-						<label className="mlc-wdt-checkbox">
+			<div className="dkdt-control-group">
+				<div className="dkdt-border-link-row">
+					<label className="dkdt-control-label">Corners</label>
+					<div className="dkdt-radius-options">
+						<label className="dkdt-checkbox">
 							<input
 								type="checkbox"
 								checked={ linked }
@@ -124,8 +124,8 @@ export default function BorderRadiusGenerator() {
 							/>
 							Link
 						</label>
-						<div className="mlc-wdt-radio-group">
-							<label className={ `mlc-wdt-radio${ unit === 'px' ? ' active' : '' }` }>
+						<div className="dkdt-radio-group">
+							<label className={ `dkdt-radio${ unit === 'px' ? ' active' : '' }` }>
 								<input
 									type="radio"
 									value="px"
@@ -134,7 +134,7 @@ export default function BorderRadiusGenerator() {
 								/>
 								px
 							</label>
-							<label className={ `mlc-wdt-radio${ unit === '%' ? ' active' : '' }` }>
+							<label className={ `dkdt-radio${ unit === '%' ? ' active' : '' }` }>
 								<input
 									type="radio"
 									value="%"
@@ -149,20 +149,20 @@ export default function BorderRadiusGenerator() {
 			</div>
 
 			{ ( linked ? [ 'topLeft' ] : CORNERS ).map( ( corner ) => (
-				<div key={ corner } className="mlc-wdt-range-row">
-					<label className="mlc-wdt-range-label">
+				<div key={ corner } className="dkdt-range-row">
+					<label className="dkdt-range-label">
 						{ linked ? 'All Corners' : CORNER_LABELS[ corner ] }
 					</label>
-					<div className="mlc-wdt-range-with-value">
+					<div className="dkdt-range-with-value">
 						<input
 							type="range"
 							min="0"
 							max={ maxVal }
 							value={ corners[ corner ] }
 							onChange={ ( e ) => updateCorner( corner, Number( e.target.value ) ) }
-							className="mlc-wdt-range"
+							className="dkdt-range"
 						/>
-						<span className="mlc-wdt-field-value">{ corners[ corner ] }{ unit }</span>
+						<span className="dkdt-field-value">{ corners[ corner ] }{ unit }</span>
 					</div>
 				</div>
 			) ) }

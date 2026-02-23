@@ -26,7 +26,7 @@ export default function CopyButton( { text } ) {
 	return (
 		<button
 			onClick={ handleCopy }
-			className={ `mlc-wdt-copy-btn${ copied ? ' copied' : '' }` }
+			className={ `dkdt-copy-btn${ copied ? ' copied' : '' }` }
 			aria-label={ copied ? 'Copied' : 'Copy to clipboard' }
 		>
 			{ copied ? 'Copied!' : 'Copy' }

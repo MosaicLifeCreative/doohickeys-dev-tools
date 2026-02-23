@@ -57,3 +57,8 @@ Desktop.ini
 # Testing
 /tests/coverage/
 .phpunit.result.cache
+
+# Internal dev files
+claude.md
+ROADMAP.md
+WIREFRAMES.md

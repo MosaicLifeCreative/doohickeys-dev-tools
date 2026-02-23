@@ -87,14 +87,14 @@ export default function App() {
 	const ToolComponent = toolComponents[ currentTool ];
 
 	return (
-		<div className="mlc-wdt">
+		<div className="dkdt">
 			<Header />
-			<div className="mlc-wdt-layout">
+			<div className="dkdt-layout">
 				<Sidebar
 					currentTool={ currentTool }
 					onToolChange={ setCurrentTool }
 				/>
-				<main className="mlc-wdt-content">
+				<main className="dkdt-content">
 					{ ToolComponent && <ToolComponent /> }
 				</main>
 			</div>

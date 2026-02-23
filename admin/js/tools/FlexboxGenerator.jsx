@@ -16,13 +16,13 @@ const ITEM_COLORS = [
 
 function OptionRow( { label, value, options, onChange } ) {
 	return (
-		<div className="mlc-wdt-control-group">
-			<label className="mlc-wdt-control-label">{ label }</label>
-			<div className="mlc-wdt-flex-options">
+		<div className="dkdt-control-group">
+			<label className="dkdt-control-label">{ label }</label>
+			<div className="dkdt-flex-options">
 				{ options.map( ( opt ) => (
 					<button
 						key={ opt }
-						className={ `mlc-wdt-flex-option-btn${ value === opt ? ' active' : '' }` }
+						className={ `dkdt-flex-option-btn${ value === opt ? ' active' : '' }` }
 						onClick={ () => onChange( opt ) }
 					>
 						{ opt }
@@ -97,10 +97,10 @@ export default function FlexboxGenerator() {
 		</div>
 	);
 
-	const upgradeUrl = window.mlcWdtData?.upgradeUrl;
+	const upgradeUrl = window.dkdtData?.upgradeUrl;
 
 	const controls = (
-		<div className="mlc-wdt-flex-controls">
+		<div className="dkdt-flex-controls">
 			<OptionRow label="flex-direction" value={ direction } options={ FLEX_DIRECTIONS } onChange={ setDirection } />
 			<OptionRow label="justify-content" value={ justify } options={ JUSTIFY_OPTIONS } onChange={ setJustify } />
 			<OptionRow label="align-items" value={ alignItems } options={ ALIGN_OPTIONS } onChange={ setAlignItems } />
@@ -109,11 +109,11 @@ export default function FlexboxGenerator() {
 				<OptionRow label="align-content" value={ alignContent } options={ ALIGN_CONTENT_OPTIONS } onChange={ setAlignContent } />
 			) }
 
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">gap: { gap }px</label>
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">gap: { gap }px</label>
 				<input
 					type="range"
-					className="mlc-wdt-range"
+					className="dkdt-range"
 					min="0"
 					max="40"
 					value={ gap }
@@ -121,11 +121,11 @@ export default function FlexboxGenerator() {
 				/>
 			</div>
 
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Items: { itemCount }</label>
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Items: { itemCount }</label>
 				<input
 					type="range"
-					className="mlc-wdt-range"
+					className="dkdt-range"
 					min="1"
 					max="12"
 					value={ itemCount }
@@ -133,10 +133,10 @@ export default function FlexboxGenerator() {
 				/>
 			</div>
 
-			<div className="mlc-wdt-pro-inline-note">
-				<span className="mlc-wdt-pro-badge-inline">Pro</span>
+			<div className="dkdt-pro-inline-note">
+				<span className="dkdt-pro-badge-inline">Pro</span>
 				Per-item flex properties (flex-grow, flex-shrink, flex-basis, align-self, order) available in Pro.
-				{ upgradeUrl && <a href={ upgradeUrl } className="mlc-wdt-pro-inline-link">Upgrade</a> }
+				{ upgradeUrl && <a href={ upgradeUrl } className="dkdt-pro-inline-link">Upgrade</a> }
 			</div>
 		</div>
 	);

@@ -111,9 +111,9 @@ export default function LoremIpsumGenerator() {
 	const charCount = output.length;
 
 	const preview = (
-		<div className="mlc-wdt-lorem-preview">
-			<div className="mlc-wdt-lorem-text">{ output }</div>
-			<div className="mlc-wdt-lorem-stats">
+		<div className="dkdt-lorem-preview">
+			<div className="dkdt-lorem-text">{ output }</div>
+			<div className="dkdt-lorem-stats">
 				<span>{ wordCount } words</span>
 				<span>{ charCount } characters</span>
 			</div>
@@ -121,12 +121,12 @@ export default function LoremIpsumGenerator() {
 	);
 
 	const controls = (
-		<div className="mlc-wdt-lorem-controls">
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Type</label>
-				<div className="mlc-wdt-radio-group">
+		<div className="dkdt-lorem-controls">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Type</label>
+				<div className="dkdt-radio-group">
 					{ [ 'paragraphs', 'sentences', 'words' ].map( ( m ) => (
-						<label key={ m } className={ `mlc-wdt-radio${ mode === m ? ' active' : '' }` }>
+						<label key={ m } className={ `dkdt-radio${ mode === m ? ' active' : '' }` }>
 							<input
 								type="radio"
 								value={ m }
@@ -139,26 +139,26 @@ export default function LoremIpsumGenerator() {
 				</div>
 			</div>
 
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">
 					Count: { count }
 				</label>
-				<div className="mlc-wdt-range-with-value">
+				<div className="dkdt-range-with-value">
 					<input
 						type="range"
-						className="mlc-wdt-range"
+						className="dkdt-range"
 						min="1"
 						max={ mode === 'words' ? 500 : mode === 'sentences' ? 50 : 20 }
 						value={ count }
 						onChange={ ( e ) => setCount( Number( e.target.value ) ) }
 					/>
-					<span className="mlc-wdt-field-value">{ count }</span>
+					<span className="dkdt-field-value">{ count }</span>
 				</div>
 			</div>
 
-			<div className="mlc-wdt-control-group">
-				<div className="mlc-wdt-lorem-options">
-					<label className="mlc-wdt-checkbox">
+			<div className="dkdt-control-group">
+				<div className="dkdt-lorem-options">
+					<label className="dkdt-checkbox">
 						<input
 							type="checkbox"
 							checked={ startClassic }
@@ -167,7 +167,7 @@ export default function LoremIpsumGenerator() {
 						Start with "Lorem ipsum dolor sit amet..."
 					</label>
 					{ mode === 'paragraphs' && (
-						<label className="mlc-wdt-checkbox">
+						<label className="dkdt-checkbox">
 							<input
 								type="checkbox"
 								checked={ includeHtml }
@@ -179,19 +179,19 @@ export default function LoremIpsumGenerator() {
 				</div>
 			</div>
 
-			<button className="mlc-wdt-add-btn" onClick={ regenerate }>
+			<button className="dkdt-add-btn" onClick={ regenerate }>
 				Regenerate
 			</button>
 		</div>
 	);
 
 	const outputSection = (
-		<div className="mlc-wdt-lorem-output">
+		<div className="dkdt-lorem-output">
 			<div style={ { display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' } }>
-				<span className="mlc-wdt-section-label" style={ { margin: 0 } }>Output</span>
+				<span className="dkdt-section-label" style={ { margin: 0 } }>Output</span>
 				<CopyButton text={ output } />
 			</div>
-			<pre className="mlc-wdt-code-pre"><code>{ output }</code></pre>
+			<pre className="dkdt-code-pre"><code>{ output }</code></pre>
 		</div>
 	);
 

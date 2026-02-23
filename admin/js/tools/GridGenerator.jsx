@@ -17,13 +17,13 @@ const CELL_COLORS = [
 
 function OptionRow( { label, value, options, onChange } ) {
 	return (
-		<div className="mlc-wdt-control-group">
-			<label className="mlc-wdt-control-label">{ label }</label>
-			<div className="mlc-wdt-flex-options">
+		<div className="dkdt-control-group">
+			<label className="dkdt-control-label">{ label }</label>
+			<div className="dkdt-flex-options">
 				{ options.map( ( opt ) => (
 					<button
 						key={ opt }
-						className={ `mlc-wdt-flex-option-btn${ value === opt ? ' active' : '' }` }
+						className={ `dkdt-flex-option-btn${ value === opt ? ' active' : '' }` }
 						onClick={ () => onChange( opt ) }
 					>
 						{ opt }
@@ -117,28 +117,28 @@ export default function GridGenerator() {
 		</div>
 	);
 
-	const upgradeUrl = window.mlcWdtData?.upgradeUrl;
+	const upgradeUrl = window.dkdtData?.upgradeUrl;
 
 	const controls = (
-		<div className="mlc-wdt-grid-controls">
+		<div className="dkdt-grid-controls">
 			{ /* Columns / Rows */ }
-			<div className="mlc-wdt-grid-dims">
-				<div className="mlc-wdt-control-group">
-					<label className="mlc-wdt-control-label">Columns: { cols }</label>
+			<div className="dkdt-grid-dims">
+				<div className="dkdt-control-group">
+					<label className="dkdt-control-label">Columns: { cols }</label>
 					<input
 						type="range"
-						className="mlc-wdt-range"
+						className="dkdt-range"
 						min="1"
 						max="6"
 						value={ cols }
 						onChange={ ( e ) => setCols( parseInt( e.target.value ) ) }
 					/>
 				</div>
-				<div className="mlc-wdt-control-group">
-					<label className="mlc-wdt-control-label">Rows: { rows }</label>
+				<div className="dkdt-control-group">
+					<label className="dkdt-control-label">Rows: { rows }</label>
 					<input
 						type="range"
-						className="mlc-wdt-range"
+						className="dkdt-range"
 						min="1"
 						max="6"
 						value={ rows }
@@ -148,11 +148,11 @@ export default function GridGenerator() {
 			</div>
 
 			{ /* Sizing */ }
-			<div className="mlc-wdt-grid-dims">
-				<div className="mlc-wdt-control-group">
-					<label className="mlc-wdt-control-label">Column Sizing</label>
+			<div className="dkdt-grid-dims">
+				<div className="dkdt-control-group">
+					<label className="dkdt-control-label">Column Sizing</label>
 					<select
-						className="mlc-wdt-select"
+						className="dkdt-select"
 						value={ colSizing }
 						onChange={ ( e ) => setColSizing( e.target.value ) }
 					>
@@ -164,10 +164,10 @@ export default function GridGenerator() {
 						<option value="minmax(100px, 1fr)">minmax(100px, 1fr)</option>
 					</select>
 				</div>
-				<div className="mlc-wdt-control-group">
-					<label className="mlc-wdt-control-label">Row Sizing</label>
+				<div className="dkdt-control-group">
+					<label className="dkdt-control-label">Row Sizing</label>
 					<select
-						className="mlc-wdt-select"
+						className="dkdt-select"
 						value={ rowSizing }
 						onChange={ ( e ) => setRowSizing( e.target.value ) }
 					>
@@ -182,23 +182,23 @@ export default function GridGenerator() {
 			</div>
 
 			{ /* Gaps */ }
-			<div className="mlc-wdt-grid-dims">
-				<div className="mlc-wdt-control-group">
-					<label className="mlc-wdt-control-label">Column Gap: { colGap }px</label>
+			<div className="dkdt-grid-dims">
+				<div className="dkdt-control-group">
+					<label className="dkdt-control-label">Column Gap: { colGap }px</label>
 					<input
 						type="range"
-						className="mlc-wdt-range"
+						className="dkdt-range"
 						min="0"
 						max="40"
 						value={ colGap }
 						onChange={ ( e ) => setColGap( parseInt( e.target.value ) ) }
 					/>
 				</div>
-				<div className="mlc-wdt-control-group">
-					<label className="mlc-wdt-control-label">Row Gap: { rowGap }px</label>
+				<div className="dkdt-control-group">
+					<label className="dkdt-control-label">Row Gap: { rowGap }px</label>
 					<input
 						type="range"
-						className="mlc-wdt-range"
+						className="dkdt-range"
 						min="0"
 						max="40"
 						value={ rowGap }
@@ -213,10 +213,10 @@ export default function GridGenerator() {
 			<OptionRow label="justify-content" value={ justifyContent } options={ JUSTIFY_CONTENT_OPTIONS } onChange={ setJustifyContent } />
 			<OptionRow label="align-content" value={ alignContent } options={ ALIGN_CONTENT_OPTIONS } onChange={ setAlignContent } />
 
-			<div className="mlc-wdt-pro-inline-note">
-				<span className="mlc-wdt-pro-badge-inline">Pro</span>
+			<div className="dkdt-pro-inline-note">
+				<span className="dkdt-pro-badge-inline">Pro</span>
 				Grid templates (Holy Grail, Dashboard, 12-Col, etc.), custom column/row definitions, and per-cell span controls available in Pro.
-				{ upgradeUrl && <a href={ upgradeUrl } className="mlc-wdt-pro-inline-link">Upgrade</a> }
+				{ upgradeUrl && <a href={ upgradeUrl } className="dkdt-pro-inline-link">Upgrade</a> }
 			</div>
 		</div>
 	);

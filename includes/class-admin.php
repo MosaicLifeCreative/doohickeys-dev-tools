@@ -2,14 +2,14 @@
 /**
  * Admin interface class.
  *
- * @package MLC_Web_Dev_Tools
+ * @package Dkdt
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class MLC_Web_Dev_Tools_Admin {
+class Dkdt_Admin {
 
 	/**
 	 * The admin page hook suffix.
@@ -51,7 +51,7 @@ class MLC_Web_Dev_Tools_Admin {
 			return;
 		}
 
-		$asset_file = MLC_WDT_PLUGIN_DIR . 'build/index.asset.php';
+		$asset_file = DKDT_PLUGIN_DIR . 'build/index.asset.php';
 
 		if ( ! file_exists( $asset_file ) ) {
 			return;
@@ -60,33 +60,33 @@ class MLC_Web_Dev_Tools_Admin {
 		$asset = require $asset_file;
 
 		wp_enqueue_script(
-			'mlc-wdt-admin',
-			MLC_WDT_PLUGIN_URL . 'build/index.js',
+			'dkdt-admin',
+			DKDT_PLUGIN_URL . 'build/index.js',
 			$asset['dependencies'],
 			$asset['version'],
 			true
 		);
 
 		wp_enqueue_style(
-			'mlc-wdt-admin',
-			MLC_WDT_PLUGIN_URL . 'build/index.css',
+			'dkdt-admin',
+			DKDT_PLUGIN_URL . 'build/index.css',
 			array(),
 			$asset['version']
 		);
 
 		// Build upgrade URL from Freemius.
 		$upgrade_url = '';
-		if ( function_exists( 'mlc_wdt_fs' ) ) {
-			$upgrade_url = mlc_wdt_fs()->get_upgrade_url();
+		if ( function_exists( 'dkdt_fs' ) ) {
+			$upgrade_url = dkdt_fs()->get_upgrade_url();
 		}
 
 		wp_localize_script(
-			'mlc-wdt-admin',
-			'mlcWdtData',
+			'dkdt-admin',
+			'dkdtData',
 			array(
-				'pluginUrl'  => MLC_WDT_PLUGIN_URL,
-				'nonce'      => wp_create_nonce( 'mlc_wdt_nonce' ),
-				'version'    => MLC_WDT_VERSION,
+				'pluginUrl'  => DKDT_PLUGIN_URL,
+				'nonce'      => wp_create_nonce( 'dkdt_nonce' ),
+				'version'    => DKDT_VERSION,
 				'upgradeUrl' => $upgrade_url,
 			)
 		);
@@ -100,6 +100,6 @@ class MLC_Web_Dev_Tools_Admin {
 			return;
 		}
 
-		echo '<div class="wrap"><div id="mlc-wdt-app"></div></div>';
+		echo '<div class="wrap"><div id="dkdt-app"></div></div>';
 	}
 }

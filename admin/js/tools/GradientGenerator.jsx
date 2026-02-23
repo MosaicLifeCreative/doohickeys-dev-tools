@@ -90,18 +90,18 @@ export default function GradientGenerator() {
 
 	const preview = (
 		<div
-			className="mlc-wdt-gradient-preview"
+			className="dkdt-gradient-preview"
 			style={ { background: gradientValue } }
 		/>
 	);
 
 	const controls = (
-		<div className="mlc-wdt-gradient-controls">
+		<div className="dkdt-gradient-controls">
 			{ /* Gradient Type */ }
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Type</label>
-				<div className="mlc-wdt-radio-group">
-					<label className={ `mlc-wdt-radio${ gradientType === 'linear' ? ' active' : '' }` }>
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Type</label>
+				<div className="dkdt-radio-group">
+					<label className={ `dkdt-radio${ gradientType === 'linear' ? ' active' : '' }` }>
 						<input
 							type="radio"
 							name="gradientType"
@@ -111,7 +111,7 @@ export default function GradientGenerator() {
 						/>
 						Linear
 					</label>
-					<label className={ `mlc-wdt-radio${ gradientType === 'radial' ? ' active' : '' }` }>
+					<label className={ `dkdt-radio${ gradientType === 'radial' ? ' active' : '' }` }>
 						<input
 							type="radio"
 							name="gradientType"
@@ -126,15 +126,15 @@ export default function GradientGenerator() {
 
 			{ /* Direction (linear) or Shape/Position (radial) */ }
 			{ gradientType === 'linear' ? (
-				<div className="mlc-wdt-control-group">
-					<label className="mlc-wdt-control-label">
+				<div className="dkdt-control-group">
+					<label className="dkdt-control-label">
 						Direction: { direction }&deg;
 					</label>
-					<div className="mlc-wdt-direction-presets">
+					<div className="dkdt-direction-presets">
 						{ DIRECTION_PRESETS.map( ( preset ) => (
 							<button
 								key={ preset.value }
-								className={ `mlc-wdt-direction-btn${ direction === preset.value ? ' active' : '' }` }
+								className={ `dkdt-direction-btn${ direction === preset.value ? ' active' : '' }` }
 								onClick={ () => setDirection( preset.value ) }
 								title={ preset.title }
 							>
@@ -148,14 +148,14 @@ export default function GradientGenerator() {
 						max="360"
 						value={ direction }
 						onChange={ ( e ) => setDirection( Number( e.target.value ) ) }
-						className="mlc-wdt-range"
+						className="dkdt-range"
 					/>
 				</div>
 			) : (
-				<div className="mlc-wdt-control-group">
-					<label className="mlc-wdt-control-label">Shape</label>
-					<div className="mlc-wdt-radio-group">
-						<label className={ `mlc-wdt-radio${ radialShape === 'circle' ? ' active' : '' }` }>
+				<div className="dkdt-control-group">
+					<label className="dkdt-control-label">Shape</label>
+					<div className="dkdt-radio-group">
+						<label className={ `dkdt-radio${ radialShape === 'circle' ? ' active' : '' }` }>
 							<input
 								type="radio"
 								name="radialShape"
@@ -165,7 +165,7 @@ export default function GradientGenerator() {
 							/>
 							Circle
 						</label>
-						<label className={ `mlc-wdt-radio${ radialShape === 'ellipse' ? ' active' : '' }` }>
+						<label className={ `dkdt-radio${ radialShape === 'ellipse' ? ' active' : '' }` }>
 							<input
 								type="radio"
 								name="radialShape"
@@ -176,9 +176,9 @@ export default function GradientGenerator() {
 							Ellipse
 						</label>
 					</div>
-					<div className="mlc-wdt-radial-position">
-						<div className="mlc-wdt-range-row">
-							<label className="mlc-wdt-range-label">
+					<div className="dkdt-radial-position">
+						<div className="dkdt-range-row">
+							<label className="dkdt-range-label">
 								Center X: { radialPosition.x }%
 							</label>
 							<input
@@ -192,11 +192,11 @@ export default function GradientGenerator() {
 										x: Number( e.target.value ),
 									} ) )
 								}
-								className="mlc-wdt-range"
+								className="dkdt-range"
 							/>
 						</div>
-						<div className="mlc-wdt-range-row">
-							<label className="mlc-wdt-range-label">
+						<div className="dkdt-range-row">
+							<label className="dkdt-range-label">
 								Center Y: { radialPosition.y }%
 							</label>
 							<input
@@ -210,7 +210,7 @@ export default function GradientGenerator() {
 										y: Number( e.target.value ),
 									} ) )
 								}
-								className="mlc-wdt-range"
+								className="dkdt-range"
 							/>
 						</div>
 					</div>
@@ -218,16 +218,16 @@ export default function GradientGenerator() {
 			) }
 
 			{ /* Color Stops */ }
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Colors</label>
-				<div className="mlc-wdt-color-stops">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Colors</label>
+				<div className="dkdt-color-stops">
 					{ colors.map( ( colorStop, index ) => (
-						<div key={ index } className="mlc-wdt-color-stop">
+						<div key={ index } className="dkdt-color-stop">
 							<ColorPicker
 								color={ colorStop.color }
 								onChange={ ( val ) => updateColor( index, 'color', val ) }
 							/>
-							<div className="mlc-wdt-position-control">
+							<div className="dkdt-position-control">
 								<input
 									type="range"
 									min="0"
@@ -240,16 +240,16 @@ export default function GradientGenerator() {
 											Number( e.target.value )
 										)
 									}
-									className="mlc-wdt-range mlc-wdt-range-sm"
+									className="dkdt-range dkdt-range-sm"
 									aria-label={ `Position for color ${ index + 1 }` }
 								/>
-								<span className="mlc-wdt-position-value">
+								<span className="dkdt-position-value">
 									{ colorStop.position }%
 								</span>
 							</div>
 							{ colors.length > 2 && (
 								<button
-									className="mlc-wdt-remove-btn"
+									className="dkdt-remove-btn"
 									onClick={ () => removeColor( index ) }
 									aria-label={ `Remove color ${ index + 1 }` }
 									title="Remove color"
@@ -260,15 +260,15 @@ export default function GradientGenerator() {
 						</div>
 					) ) }
 				</div>
-				<button className="mlc-wdt-add-btn" onClick={ addColor }>
+				<button className="dkdt-add-btn" onClick={ addColor }>
 					+ Add Color Stop
 				</button>
 			</div>
 
 			{ /* Presets */ }
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Presets</label>
-				<div className="mlc-wdt-presets">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Presets</label>
+				<div className="dkdt-presets">
 					{ PRESET_GRADIENTS.map( ( preset ) => {
 						const presetStops = preset.colors
 							.map( ( c ) => `${ c.color } ${ c.position }%` )
@@ -276,14 +276,14 @@ export default function GradientGenerator() {
 						return (
 							<button
 								key={ preset.name }
-								className="mlc-wdt-preset-btn"
+								className="dkdt-preset-btn"
 								onClick={ () => applyPreset( preset ) }
 								title={ preset.name }
 								style={ {
 									background: `linear-gradient(90deg, ${ presetStops })`,
 								} }
 							>
-								<span className="mlc-wdt-preset-label">
+								<span className="dkdt-preset-label">
 									{ preset.name }
 								</span>
 							</button>
@@ -297,7 +297,7 @@ export default function GradientGenerator() {
 	const output = (
 		<div>
 			<CodeBlock code={ generateCSS() } label="Generated CSS" />
-			<p className="mlc-wdt-tip">
+			<p className="dkdt-tip">
 				Tip: Try adding a third color in the middle for depth.
 			</p>
 		</div>

@@ -98,11 +98,11 @@ export default function EncoderDecoder() {
 	}, [ result ] );
 
 	const preview = input ? (
-		<div className="mlc-wdt-encoder-preview">
-			<pre className="mlc-wdt-code-pre"><code>{ result }</code></pre>
+		<div className="dkdt-encoder-preview">
+			<pre className="dkdt-code-pre"><code>{ result }</code></pre>
 			<div style={ { display: 'flex', alignItems: 'center', gap: '8px', marginTop: '8px' } }>
 				<CopyButton text={ result } />
-				<span className="mlc-wdt-encoder-stats">
+				<span className="dkdt-encoder-stats">
 					{ input.length } chars &rarr; { result.length } chars
 				</span>
 			</div>
@@ -110,12 +110,12 @@ export default function EncoderDecoder() {
 	) : null;
 
 	const controls = (
-		<div className="mlc-wdt-encoder-controls">
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Mode</label>
-				<div className="mlc-wdt-radio-group">
+		<div className="dkdt-encoder-controls">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Mode</label>
+				<div className="dkdt-radio-group">
 					{ MODES.map( ( m ) => (
-						<label key={ m.id } className={ `mlc-wdt-radio${ mode === m.id ? ' active' : '' }` }>
+						<label key={ m.id } className={ `dkdt-radio${ mode === m.id ? ' active' : '' }` }>
 							<input
 								type="radio"
 								value={ m.id }
@@ -128,11 +128,11 @@ export default function EncoderDecoder() {
 				</div>
 			</div>
 
-			<div className="mlc-wdt-control-group">
-				<div className="mlc-wdt-encoder-direction-row">
-					<label className="mlc-wdt-control-label">Direction</label>
-					<div className="mlc-wdt-radio-group">
-						<label className={ `mlc-wdt-radio${ direction === 'encode' ? ' active' : '' }` }>
+			<div className="dkdt-control-group">
+				<div className="dkdt-encoder-direction-row">
+					<label className="dkdt-control-label">Direction</label>
+					<div className="dkdt-radio-group">
+						<label className={ `dkdt-radio${ direction === 'encode' ? ' active' : '' }` }>
 							<input
 								type="radio"
 								value="encode"
@@ -141,7 +141,7 @@ export default function EncoderDecoder() {
 							/>
 							Encode
 						</label>
-						<label className={ `mlc-wdt-radio${ direction === 'decode' ? ' active' : '' }` }>
+						<label className={ `dkdt-radio${ direction === 'decode' ? ' active' : '' }` }>
 							<input
 								type="radio"
 								value="decode"
@@ -151,18 +151,18 @@ export default function EncoderDecoder() {
 							Decode
 						</label>
 					</div>
-					<button className="mlc-wdt-contrast-swap-btn" onClick={ handleSwap } title="Swap input/output">
+					<button className="dkdt-contrast-swap-btn" onClick={ handleSwap } title="Swap input/output">
 						&#8646;
 					</button>
 				</div>
 			</div>
 
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">
 					Input ({ direction === 'encode' ? 'plain text' : `${ MODES.find( ( m ) => m.id === mode )?.label } encoded` })
 				</label>
 				<textarea
-					className="mlc-wdt-textarea"
+					className="dkdt-textarea"
 					rows="6"
 					value={ input }
 					onChange={ ( e ) => setInput( e.target.value ) }

@@ -103,9 +103,9 @@ export default function ClipPathMaker() {
 	};
 
 	const preview = (
-		<div className="mlc-wdt-clip-preview" style={ { background: shapeBg } }>
+		<div className="dkdt-clip-preview" style={ { background: shapeBg } }>
 			<div
-				className="mlc-wdt-clip-shape"
+				className="dkdt-clip-shape"
 				style={ {
 					clipPath,
 					WebkitClipPath: clipPath,
@@ -116,27 +116,27 @@ export default function ClipPathMaker() {
 	);
 
 	const controls = (
-		<div className="mlc-wdt-clip-controls">
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Colors</label>
-				<div className="mlc-wdt-color-row">
+		<div className="dkdt-clip-controls">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Colors</label>
+				<div className="dkdt-color-row">
 					<ColorPicker color={ bgColor } onChange={ setBgColor } label="Shape" />
 					<ColorPicker color={ shapeBg } onChange={ setShapeBg } label="Background" />
 				</div>
 			</div>
 
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Presets</label>
-				<div className="mlc-wdt-clip-presets">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Presets</label>
+				<div className="dkdt-clip-presets">
 					{ PRESETS.map( ( p, i ) => (
 						<button
 							key={ p.name }
-							className={ `mlc-wdt-clip-preset-btn${ activePreset === i && ! customValue ? ' active' : '' }` }
+							className={ `dkdt-clip-preset-btn${ activePreset === i && ! customValue ? ' active' : '' }` }
 							onClick={ () => { setActivePreset( i ); setCustomValue( '' ); } }
 							title={ p.name }
 						>
 							<div
-								className="mlc-wdt-clip-preset-thumb"
+								className="dkdt-clip-preset-thumb"
 								style={ {
 									clipPath: p.type === 'polygon'
 										? `polygon(${ p.points })`
@@ -154,22 +154,22 @@ export default function ClipPathMaker() {
 												: `inset(${ p.value })`,
 								} }
 							/>
-							<span className="mlc-wdt-clip-preset-name">{ p.name }</span>
+							<span className="dkdt-clip-preset-name">{ p.name }</span>
 						</button>
 					) ) }
 				</div>
 			</div>
 
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Custom clip-path value</label>
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Custom clip-path value</label>
 				<input
 					type="text"
-					className="mlc-wdt-text-input"
+					className="dkdt-text-input"
 					value={ customValue || clipPath }
 					onChange={ ( e ) => setCustomValue( e.target.value ) }
 					placeholder="polygon(50% 0%, 0% 100%, 100% 100%)"
 				/>
-				<p className="mlc-wdt-tip">Edit the clip-path value directly for fine control. Clear to return to presets.</p>
+				<p className="dkdt-tip">Edit the clip-path value directly for fine control. Clear to return to presets.</p>
 			</div>
 		</div>
 	);

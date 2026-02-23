@@ -43,47 +43,47 @@ export default function MetaTagGenerator() {
 	}, [ title, description, url, image, siteName, twitterHandle, type, robots ] );
 
 	const preview = (
-		<div className="mlc-wdt-meta-previews">
+		<div className="dkdt-meta-previews">
 			{ /* Google Preview */ }
-			<div className="mlc-wdt-meta-preview-block">
-				<label className="mlc-wdt-control-label">Google Search</label>
-				<div className="mlc-wdt-meta-google">
-					<div className="mlc-wdt-meta-google-url">{ url }</div>
-					<div className="mlc-wdt-meta-google-title">{ title }</div>
-					<div className="mlc-wdt-meta-google-desc">{ description }</div>
+			<div className="dkdt-meta-preview-block">
+				<label className="dkdt-control-label">Google Search</label>
+				<div className="dkdt-meta-google">
+					<div className="dkdt-meta-google-url">{ url }</div>
+					<div className="dkdt-meta-google-title">{ title }</div>
+					<div className="dkdt-meta-google-desc">{ description }</div>
 				</div>
 			</div>
 
 			{ /* Facebook / OG Preview */ }
-			<div className="mlc-wdt-meta-preview-block">
-				<label className="mlc-wdt-control-label">Facebook / LinkedIn</label>
-				<div className="mlc-wdt-meta-social">
+			<div className="dkdt-meta-preview-block">
+				<label className="dkdt-control-label">Facebook / LinkedIn</label>
+				<div className="dkdt-meta-social">
 					{ image && (
-						<div className="mlc-wdt-meta-social-image" style={ { background: '#e0e0e0' } }>
-							<span className="mlc-wdt-meta-social-image-placeholder">OG Image: { image.split( '/' ).pop() }</span>
+						<div className="dkdt-meta-social-image" style={ { background: '#e0e0e0' } }>
+							<span className="dkdt-meta-social-image-placeholder">OG Image: { image.split( '/' ).pop() }</span>
 						</div>
 					) }
-					<div className="mlc-wdt-meta-social-body">
-						<div className="mlc-wdt-meta-social-domain">{ siteName }</div>
-						<div className="mlc-wdt-meta-social-title">{ title }</div>
-						<div className="mlc-wdt-meta-social-desc">{ description }</div>
+					<div className="dkdt-meta-social-body">
+						<div className="dkdt-meta-social-domain">{ siteName }</div>
+						<div className="dkdt-meta-social-title">{ title }</div>
+						<div className="dkdt-meta-social-desc">{ description }</div>
 					</div>
 				</div>
 			</div>
 
 			{ /* Twitter Preview */ }
-			<div className="mlc-wdt-meta-preview-block">
-				<label className="mlc-wdt-control-label">X (Twitter)</label>
-				<div className="mlc-wdt-meta-social mlc-wdt-meta-twitter">
+			<div className="dkdt-meta-preview-block">
+				<label className="dkdt-control-label">X (Twitter)</label>
+				<div className="dkdt-meta-social dkdt-meta-twitter">
 					{ image && (
-						<div className="mlc-wdt-meta-social-image" style={ { background: '#e0e0e0' } }>
-							<span className="mlc-wdt-meta-social-image-placeholder">Card Image: { image.split( '/' ).pop() }</span>
+						<div className="dkdt-meta-social-image" style={ { background: '#e0e0e0' } }>
+							<span className="dkdt-meta-social-image-placeholder">Card Image: { image.split( '/' ).pop() }</span>
 						</div>
 					) }
-					<div className="mlc-wdt-meta-social-body">
-						<div className="mlc-wdt-meta-social-title">{ title }</div>
-						<div className="mlc-wdt-meta-social-desc">{ description }</div>
-						<div className="mlc-wdt-meta-social-domain">{ url.replace( /^https?:\/\//, '' ).split( '/' )[ 0 ] }</div>
+					<div className="dkdt-meta-social-body">
+						<div className="dkdt-meta-social-title">{ title }</div>
+						<div className="dkdt-meta-social-desc">{ description }</div>
+						<div className="dkdt-meta-social-domain">{ url.replace( /^https?:\/\//, '' ).split( '/' )[ 0 ] }</div>
 					</div>
 				</div>
 			</div>
@@ -91,74 +91,74 @@ export default function MetaTagGenerator() {
 	);
 
 	const controls = (
-		<div className="mlc-wdt-meta-controls">
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">
+		<div className="dkdt-meta-controls">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">
 					Title
-					<span className="mlc-wdt-meta-char-count">{ title.length }/60</span>
+					<span className="dkdt-meta-char-count">{ title.length }/60</span>
 				</label>
 				<input
 					type="text"
-					className="mlc-wdt-text-input"
+					className="dkdt-text-input"
 					value={ title }
 					onChange={ ( e ) => setTitle( e.target.value ) }
 				/>
 			</div>
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">
 					Description
-					<span className="mlc-wdt-meta-char-count">{ description.length }/160</span>
+					<span className="dkdt-meta-char-count">{ description.length }/160</span>
 				</label>
 				<textarea
-					className="mlc-wdt-textarea"
+					className="dkdt-textarea"
 					rows="3"
 					value={ description }
 					onChange={ ( e ) => setDescription( e.target.value ) }
 				/>
 			</div>
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">URL</label>
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">URL</label>
 				<input
 					type="text"
-					className="mlc-wdt-text-input"
+					className="dkdt-text-input"
 					value={ url }
 					onChange={ ( e ) => setUrl( e.target.value ) }
 				/>
 			</div>
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Image URL (1200x630 recommended)</label>
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Image URL (1200x630 recommended)</label>
 				<input
 					type="text"
-					className="mlc-wdt-text-input"
+					className="dkdt-text-input"
 					value={ image }
 					onChange={ ( e ) => setImage( e.target.value ) }
 				/>
 			</div>
-			<div className="mlc-wdt-meta-row">
-				<div className="mlc-wdt-control-group" style={ { flex: 1 } }>
-					<label className="mlc-wdt-control-label">Site Name</label>
+			<div className="dkdt-meta-row">
+				<div className="dkdt-control-group" style={ { flex: 1 } }>
+					<label className="dkdt-control-label">Site Name</label>
 					<input
 						type="text"
-						className="mlc-wdt-text-input"
+						className="dkdt-text-input"
 						value={ siteName }
 						onChange={ ( e ) => setSiteName( e.target.value ) }
 					/>
 				</div>
-				<div className="mlc-wdt-control-group" style={ { flex: 1 } }>
-					<label className="mlc-wdt-control-label">Twitter Handle</label>
+				<div className="dkdt-control-group" style={ { flex: 1 } }>
+					<label className="dkdt-control-label">Twitter Handle</label>
 					<input
 						type="text"
-						className="mlc-wdt-text-input"
+						className="dkdt-text-input"
 						value={ twitterHandle }
 						onChange={ ( e ) => setTwitterHandle( e.target.value ) }
 					/>
 				</div>
 			</div>
-			<div className="mlc-wdt-meta-row">
-				<div className="mlc-wdt-control-group" style={ { flex: 1 } }>
-					<label className="mlc-wdt-control-label">Page Type</label>
+			<div className="dkdt-meta-row">
+				<div className="dkdt-control-group" style={ { flex: 1 } }>
+					<label className="dkdt-control-label">Page Type</label>
 					<select
-						className="mlc-wdt-select"
+						className="dkdt-select"
 						value={ type }
 						onChange={ ( e ) => setType( e.target.value ) }
 					>
@@ -168,10 +168,10 @@ export default function MetaTagGenerator() {
 						<option value="profile">Profile</option>
 					</select>
 				</div>
-				<div className="mlc-wdt-control-group" style={ { flex: 1 } }>
-					<label className="mlc-wdt-control-label">Robots</label>
+				<div className="dkdt-control-group" style={ { flex: 1 } }>
+					<label className="dkdt-control-label">Robots</label>
 					<select
-						className="mlc-wdt-select"
+						className="dkdt-select"
 						value={ robots }
 						onChange={ ( e ) => setRobots( e.target.value ) }
 					>

@@ -123,23 +123,23 @@ export default function MarkdownPreview() {
 	const html = useMemo( () => markdownToHtml( input ), [ input ] );
 
 	const preview = (
-		<div className="mlc-wdt-md-preview">
+		<div className="dkdt-md-preview">
 			<div
-				className="mlc-wdt-md-rendered"
+				className="dkdt-md-rendered"
 				dangerouslySetInnerHTML={ { __html: html } }
 			/>
 		</div>
 	);
 
 	const controls = (
-		<div className="mlc-wdt-md-controls">
-			<div className="mlc-wdt-control-group">
+		<div className="dkdt-md-controls">
+			<div className="dkdt-control-group">
 				<div style={ { display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' } }>
-					<label className="mlc-wdt-control-label" style={ { margin: 0 } }>Markdown</label>
+					<label className="dkdt-control-label" style={ { margin: 0 } }>Markdown</label>
 					<CopyButton text={ input } />
 				</div>
 				<textarea
-					className="mlc-wdt-textarea mlc-wdt-textarea-mono"
+					className="dkdt-textarea dkdt-textarea-mono"
 					rows="14"
 					value={ input }
 					onChange={ ( e ) => setInput( e.target.value ) }
@@ -152,10 +152,10 @@ export default function MarkdownPreview() {
 	const output = (
 		<div>
 			<div style={ { display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' } }>
-				<span className="mlc-wdt-section-label" style={ { margin: 0 } }>HTML Output</span>
+				<span className="dkdt-section-label" style={ { margin: 0 } }>HTML Output</span>
 				<CopyButton text={ html } />
 			</div>
-			<pre className="mlc-wdt-code-pre"><code>{ html }</code></pre>
+			<pre className="dkdt-code-pre"><code>{ html }</code></pre>
 		</div>
 	);
 

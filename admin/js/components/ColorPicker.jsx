@@ -136,7 +136,7 @@ export default function ColorPicker( { color, onChange, label } ) {
 				? e.currentTarget.getBoundingClientRect()
 				: e.target.getBoundingClientRect();
 			// Try getting the hue bar rect from a stored ref
-			const hueBar = pickerRef.current?.querySelector( '.mlc-wdt-cp-hue-bar' );
+			const hueBar = pickerRef.current?.querySelector( '.dkdt-cp-hue-bar' );
 			const barRect = hueBar ? hueBar.getBoundingClientRect() : rect;
 			const x = Math.max( 0, Math.min( e.clientX - barRect.left, barRect.width ) );
 			const h = ( x / barRect.width ) * 360;
@@ -165,7 +165,7 @@ export default function ColorPicker( { color, onChange, label } ) {
 				} );
 			}
 			if ( isDraggingHue.current ) {
-				const hueBar = pickerRef.current?.querySelector( '.mlc-wdt-cp-hue-bar' );
+				const hueBar = pickerRef.current?.querySelector( '.dkdt-cp-hue-bar' );
 				if ( hueBar ) {
 					const barRect = hueBar.getBoundingClientRect();
 					const x = Math.max( 0, Math.min( e.clientX - barRect.left, barRect.width ) );
@@ -204,11 +204,11 @@ export default function ColorPicker( { color, onChange, label } ) {
 	const hueColor = hsvToHex( hsv.h, 1, 1 );
 
 	return (
-		<div className="mlc-wdt-cp" ref={ pickerRef }>
-			{ label && <label className="mlc-wdt-range-label">{ label }</label> }
-			<div className="mlc-wdt-cp-trigger-row">
+		<div className="dkdt-cp" ref={ pickerRef }>
+			{ label && <label className="dkdt-range-label">{ label }</label> }
+			<div className="dkdt-cp-trigger-row">
 				<button
-					className="mlc-wdt-cp-swatch"
+					className="dkdt-cp-swatch"
 					onClick={ () => setIsOpen( ! isOpen ) }
 					style={ { background: color } }
 					aria-label="Open color picker"
@@ -217,24 +217,24 @@ export default function ColorPicker( { color, onChange, label } ) {
 					type="text"
 					value={ hexInput }
 					onChange={ handleHexChange }
-					className="mlc-wdt-hex-input"
+					className="dkdt-hex-input"
 					maxLength={ 7 }
 				/>
 			</div>
 
 			{ isOpen && (
-				<div className="mlc-wdt-cp-popover">
+				<div className="dkdt-cp-popover">
 					{ /* Saturation/Brightness panel */ }
 					<div
 						ref={ satCanvasRef }
-						className="mlc-wdt-cp-sat-panel"
+						className="dkdt-cp-sat-panel"
 						style={ { background: hueColor } }
 						onMouseDown={ handleSatMouseDown }
 					>
-						<div className="mlc-wdt-cp-sat-white" />
-						<div className="mlc-wdt-cp-sat-black" />
+						<div className="dkdt-cp-sat-white" />
+						<div className="dkdt-cp-sat-black" />
 						<div
-							className="mlc-wdt-cp-sat-cursor"
+							className="dkdt-cp-sat-cursor"
 							style={ {
 								left: `${ hsv.s * 100 }%`,
 								top: `${ ( 1 - hsv.v ) * 100 }%`,
@@ -244,26 +244,26 @@ export default function ColorPicker( { color, onChange, label } ) {
 
 					{ /* Hue bar */ }
 					<div
-						className="mlc-wdt-cp-hue-bar"
+						className="dkdt-cp-hue-bar"
 						onMouseDown={ handleHueMouseDown }
 					>
 						<div
-							className="mlc-wdt-cp-hue-cursor"
+							className="dkdt-cp-hue-cursor"
 							style={ { left: `${ ( hsv.h / 360 ) * 100 }%` } }
 						/>
 					</div>
 
 					{ /* Preview + hex */ }
-					<div className="mlc-wdt-cp-footer">
+					<div className="dkdt-cp-footer">
 						<div
-							className="mlc-wdt-cp-preview-swatch"
+							className="dkdt-cp-preview-swatch"
 							style={ { background: color } }
 						/>
 						<input
 							type="text"
 							value={ hexInput }
 							onChange={ handleHexChange }
-							className="mlc-wdt-hex-input mlc-wdt-cp-hex"
+							className="dkdt-hex-input dkdt-cp-hex"
 							maxLength={ 7 }
 						/>
 					</div>

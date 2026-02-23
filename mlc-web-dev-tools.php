@@ -18,24 +18,24 @@ if (!defined('ABSPATH')) {
 }
 
 // Plugin constants
-define('MLC_WDT_VERSION', '1.0.2');
-define('MLC_WDT_PLUGIN_DIR', plugin_dir_path(__FILE__));
-define('MLC_WDT_PLUGIN_URL', plugin_dir_url(__FILE__));
+define('DKDT_VERSION', '1.0.2');
+define('DKDT_PLUGIN_DIR', plugin_dir_path(__FILE__));
+define('DKDT_PLUGIN_URL', plugin_dir_url(__FILE__));
 
 // Freemius SDK integration
-if ( function_exists( 'mlc_wdt_fs' ) ) {
-	mlc_wdt_fs()->set_basename( true, __FILE__ );
+if ( function_exists( 'dkdt_fs' ) ) {
+	dkdt_fs()->set_basename( true, __FILE__ );
 } else {
 	$freemius_sdk = dirname( __FILE__ ) . '/vendor/freemius/start.php';
 
 	if ( file_exists( $freemius_sdk ) ) {
-		function mlc_wdt_fs() {
-			global $mlc_wdt_fs;
+		function dkdt_fs() {
+			global $dkdt_fs;
 
-			if ( ! isset( $mlc_wdt_fs ) ) {
+			if ( ! isset( $dkdt_fs ) ) {
 				require_once dirname( __FILE__ ) . '/vendor/freemius/start.php';
 
-				$mlc_wdt_fs = fs_dynamic_init( array(
+				$dkdt_fs = fs_dynamic_init( array(
 					'id'                  => '24360',
 					'slug'                => 'web-dev-tools',
 					'premium_slug'        => 'doohickeys-dev-tools-premium',
@@ -55,20 +55,20 @@ if ( function_exists( 'mlc_wdt_fs' ) ) {
 				) );
 			}
 
-			return $mlc_wdt_fs;
+			return $dkdt_fs;
 		}
 
-		mlc_wdt_fs();
-		do_action( 'mlc_wdt_fs_loaded' );
+		dkdt_fs();
+		do_action( 'dkdt_fs_loaded' );
 	}
 }
 
 // Load main plugin class
-require_once MLC_WDT_PLUGIN_DIR . 'includes/class-plugin.php';
+require_once DKDT_PLUGIN_DIR . 'includes/class-plugin.php';
 
 // Initialize plugin
-function mlc_wdt_init() {
-	$plugin = new MLC_Web_Dev_Tools_Plugin();
+function dkdt_init() {
+	$plugin = new Dkdt_Plugin();
 	$plugin->run();
 }
-add_action( 'plugins_loaded', 'mlc_wdt_init' );
+add_action( 'plugins_loaded', 'dkdt_init' );

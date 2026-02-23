@@ -1,17 +1,17 @@
 import ToolCard from '../components/ToolCard';
 
 export default function CodeFormatter() {
-	const upgradeUrl = window.mlcWdtData?.upgradeUrl;
+	const upgradeUrl = window.dkdtData?.upgradeUrl;
 
 	const preview = (
-		<div className="mlc-wdt-pro-upgrade-card">
-			<span className="mlc-wdt-pro-upgrade-badge">Pro</span>
-			<h3 className="mlc-wdt-pro-upgrade-title">Code Formatter</h3>
-			<p className="mlc-wdt-pro-upgrade-desc">
+		<div className="dkdt-pro-upgrade-card">
+			<span className="dkdt-pro-upgrade-badge">Pro</span>
+			<h3 className="dkdt-pro-upgrade-title">Code Formatter</h3>
+			<p className="dkdt-pro-upgrade-desc">
 				Auto-format and beautify JSON, HTML, CSS, JavaScript, and SQL. Paste messy code, get clean output instantly.
 			</p>
 			{ upgradeUrl && (
-				<a href={ upgradeUrl } className="mlc-wdt-pro-btn">
+				<a href={ upgradeUrl } className="dkdt-pro-btn">
 					Upgrade to Pro
 				</a>
 			) }

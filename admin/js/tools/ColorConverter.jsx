@@ -75,9 +75,9 @@ function rgbToHwb( { r, g, b } ) {
 
 function FormatRow( { label, value } ) {
 	return (
-		<div className="mlc-wdt-convert-row">
-			<span className="mlc-wdt-convert-label">{ label }</span>
-			<code className="mlc-wdt-convert-value">{ value }</code>
+		<div className="dkdt-convert-row">
+			<span className="dkdt-convert-label">{ label }</span>
+			<code className="dkdt-convert-value">{ value }</code>
 			<CopyButton text={ value } />
 		</div>
 	);
@@ -166,31 +166,31 @@ export default function ColorConverter() {
 	}, [] );
 
 	const preview = (
-		<div className="mlc-wdt-convert-preview">
-			<div className="mlc-wdt-convert-swatch-large" style={ { background: color } } />
+		<div className="dkdt-convert-preview">
+			<div className="dkdt-convert-swatch-large" style={ { background: color } } />
 		</div>
 	);
 
 	const controls = (
-		<div className="mlc-wdt-convert-controls">
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Input Color</label>
-				<div className="mlc-wdt-convert-input-row">
+		<div className="dkdt-convert-controls">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Input Color</label>
+				<div className="dkdt-convert-input-row">
 					<ColorPicker color={ color } onChange={ handlePickerChange } />
 					<input
 						type="text"
-						className="mlc-wdt-text-input"
+						className="dkdt-text-input"
 						value={ inputText }
 						onChange={ handleTextInput }
 						placeholder="#hex, rgb(), or hsl()"
 					/>
 				</div>
-				<p className="mlc-wdt-tip">Accepts HEX (#ff0000), RGB (rgb(255,0,0)), or HSL (hsl(0,100%,50%))</p>
+				<p className="dkdt-tip">Accepts HEX (#ff0000), RGB (rgb(255,0,0)), or HSL (hsl(0,100%,50%))</p>
 			</div>
 
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">All Formats</label>
-				<div className="mlc-wdt-convert-formats">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">All Formats</label>
+				<div className="dkdt-convert-formats">
 					<FormatRow label="HEX" value={ formats.hex } />
 					<FormatRow label="RGB" value={ formats.rgb } />
 					<FormatRow label="RGB %" value={ formats.rgbPercent } />

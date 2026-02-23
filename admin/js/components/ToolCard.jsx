@@ -4,13 +4,13 @@ export default function ToolCard( { title, help, preview, controls, output } ) {
 	const [ showHelp, setShowHelp ] = useState( false );
 
 	return (
-		<div className="mlc-wdt-tool-card">
-			<header className="mlc-wdt-tool-header">
-				<h2 className="mlc-wdt-tool-title">{ title }</h2>
+		<div className="dkdt-tool-card">
+			<header className="dkdt-tool-header">
+				<h2 className="dkdt-tool-title">{ title }</h2>
 				{ help && (
-					<div className="mlc-wdt-tool-help-wrap">
+					<div className="dkdt-tool-help-wrap">
 						<button
-							className="mlc-wdt-help-btn"
+							className="dkdt-help-btn"
 							onClick={ () => setShowHelp( ! showHelp ) }
 							aria-label="Toggle help"
 							title="Help"
@@ -18,7 +18,7 @@ export default function ToolCard( { title, help, preview, controls, output } ) {
 							?
 						</button>
 						{ showHelp && (
-							<div className="mlc-wdt-help-tooltip">
+							<div className="dkdt-help-tooltip">
 								{ help }
 							</div>
 						) }
@@ -27,20 +27,20 @@ export default function ToolCard( { title, help, preview, controls, output } ) {
 			</header>
 
 			{ preview && (
-				<div className="mlc-wdt-preview-area">
+				<div className="dkdt-preview-area">
 					{ preview }
 				</div>
 			) }
 
 			{ controls && (
-				<div className="mlc-wdt-controls-area">
-					<h3 className="mlc-wdt-section-label">Controls</h3>
+				<div className="dkdt-controls-area">
+					<h3 className="dkdt-section-label">Controls</h3>
 					{ controls }
 				</div>
 			) }
 
 			{ output && (
-				<div className="mlc-wdt-output-area">
+				<div className="dkdt-output-area">
 					{ output }
 				</div>
 			) }

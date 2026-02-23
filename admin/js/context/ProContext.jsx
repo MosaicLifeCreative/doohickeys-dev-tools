@@ -5,7 +5,7 @@ const ProContext = createContext( {
 } );
 
 export function ProProvider( { children } ) {
-	const [ isPro ] = useState( () => window.mlcWdtData?.isPro || false );
+	const [ isPro ] = useState( () => window.dkdtData?.isPro || false );
 
 	return (
 		<ProContext.Provider value={ { isPro } }>

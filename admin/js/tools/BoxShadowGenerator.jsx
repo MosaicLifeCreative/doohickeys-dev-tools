@@ -70,9 +70,9 @@ export default function BoxShadowGenerator() {
 	};
 
 	const preview = (
-		<div className="mlc-wdt-shadow-preview" style={ { background: bgColor } }>
+		<div className="dkdt-shadow-preview" style={ { background: bgColor } }>
 			<div
-				className="mlc-wdt-shadow-box"
+				className="dkdt-shadow-box"
 				style={ {
 					boxShadow: combinedShadow,
 					background: boxColor,
@@ -82,11 +82,11 @@ export default function BoxShadowGenerator() {
 	);
 
 	const controls = (
-		<div className="mlc-wdt-shadow-controls">
+		<div className="dkdt-shadow-controls">
 			{ /* Box/BG colors */ }
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Preview Colors</label>
-				<div className="mlc-wdt-color-row">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Preview Colors</label>
+				<div className="dkdt-color-row">
 					<ColorPicker color={ boxColor } onChange={ setBoxColor } label="Box" />
 					<ColorPicker color={ bgColor } onChange={ setBgColor } label="Background" />
 				</div>
@@ -94,16 +94,16 @@ export default function BoxShadowGenerator() {
 
 			{ /* Shadow layers */ }
 			{ shadows.map( ( shadow, index ) => (
-				<div key={ index } className="mlc-wdt-shadow-layer">
-					<div className="mlc-wdt-shadow-layer-header">
-						<span className="mlc-wdt-shadow-layer-title">
+				<div key={ index } className="dkdt-shadow-layer">
+					<div className="dkdt-shadow-layer-header">
+						<span className="dkdt-shadow-layer-title">
 							Shadow { index + 1 }
 						</span>
-						<div className="mlc-wdt-shadow-layer-actions">
+						<div className="dkdt-shadow-layer-actions">
 							{ shadows.length > 1 && (
 								<>
 									<button
-										className="mlc-wdt-icon-btn"
+										className="dkdt-icon-btn"
 										onClick={ () => moveShadow( index, -1 ) }
 										disabled={ index === 0 }
 										title="Move up"
@@ -111,7 +111,7 @@ export default function BoxShadowGenerator() {
 										&#9650;
 									</button>
 									<button
-										className="mlc-wdt-icon-btn"
+										className="dkdt-icon-btn"
 										onClick={ () => moveShadow( index, 1 ) }
 										disabled={ index === shadows.length - 1 }
 										title="Move down"
@@ -119,7 +119,7 @@ export default function BoxShadowGenerator() {
 										&#9660;
 									</button>
 									<button
-										className="mlc-wdt-remove-btn"
+										className="dkdt-remove-btn"
 										onClick={ () => removeShadow( index ) }
 										title="Remove shadow"
 									>
@@ -130,75 +130,75 @@ export default function BoxShadowGenerator() {
 						</div>
 					</div>
 
-					<div className="mlc-wdt-shadow-fields">
-						<div className="mlc-wdt-shadow-field">
-							<label className="mlc-wdt-range-label">H-Offset</label>
+					<div className="dkdt-shadow-fields">
+						<div className="dkdt-shadow-field">
+							<label className="dkdt-range-label">H-Offset</label>
 							<input
 								type="range"
 								min="-50"
 								max="50"
 								value={ shadow.h }
 								onChange={ ( e ) => updateShadow( index, 'h', Number( e.target.value ) ) }
-								className="mlc-wdt-range"
+								className="dkdt-range"
 							/>
-							<span className="mlc-wdt-field-value">{ shadow.h }px</span>
+							<span className="dkdt-field-value">{ shadow.h }px</span>
 						</div>
-						<div className="mlc-wdt-shadow-field">
-							<label className="mlc-wdt-range-label">V-Offset</label>
+						<div className="dkdt-shadow-field">
+							<label className="dkdt-range-label">V-Offset</label>
 							<input
 								type="range"
 								min="-50"
 								max="50"
 								value={ shadow.v }
 								onChange={ ( e ) => updateShadow( index, 'v', Number( e.target.value ) ) }
-								className="mlc-wdt-range"
+								className="dkdt-range"
 							/>
-							<span className="mlc-wdt-field-value">{ shadow.v }px</span>
+							<span className="dkdt-field-value">{ shadow.v }px</span>
 						</div>
-						<div className="mlc-wdt-shadow-field">
-							<label className="mlc-wdt-range-label">Blur</label>
+						<div className="dkdt-shadow-field">
+							<label className="dkdt-range-label">Blur</label>
 							<input
 								type="range"
 								min="0"
 								max="100"
 								value={ shadow.blur }
 								onChange={ ( e ) => updateShadow( index, 'blur', Number( e.target.value ) ) }
-								className="mlc-wdt-range"
+								className="dkdt-range"
 							/>
-							<span className="mlc-wdt-field-value">{ shadow.blur }px</span>
+							<span className="dkdt-field-value">{ shadow.blur }px</span>
 						</div>
-						<div className="mlc-wdt-shadow-field">
-							<label className="mlc-wdt-range-label">Spread</label>
+						<div className="dkdt-shadow-field">
+							<label className="dkdt-range-label">Spread</label>
 							<input
 								type="range"
 								min="-50"
 								max="50"
 								value={ shadow.spread }
 								onChange={ ( e ) => updateShadow( index, 'spread', Number( e.target.value ) ) }
-								className="mlc-wdt-range"
+								className="dkdt-range"
 							/>
-							<span className="mlc-wdt-field-value">{ shadow.spread }px</span>
+							<span className="dkdt-field-value">{ shadow.spread }px</span>
 						</div>
 					</div>
 
-					<div className="mlc-wdt-shadow-bottom-row">
+					<div className="dkdt-shadow-bottom-row">
 						<ColorPicker
 							color={ shadow.color }
 							onChange={ ( val ) => updateShadow( index, 'color', val ) }
 						/>
-						<div className="mlc-wdt-shadow-field mlc-wdt-shadow-field-opacity">
-							<label className="mlc-wdt-range-label">Opacity</label>
+						<div className="dkdt-shadow-field dkdt-shadow-field-opacity">
+							<label className="dkdt-range-label">Opacity</label>
 							<input
 								type="range"
 								min="0"
 								max="100"
 								value={ shadow.opacity }
 								onChange={ ( e ) => updateShadow( index, 'opacity', Number( e.target.value ) ) }
-								className="mlc-wdt-range"
+								className="dkdt-range"
 							/>
-							<span className="mlc-wdt-field-value">{ shadow.opacity }%</span>
+							<span className="dkdt-field-value">{ shadow.opacity }%</span>
 						</div>
-						<label className="mlc-wdt-checkbox">
+						<label className="dkdt-checkbox">
 							<input
 								type="checkbox"
 								checked={ shadow.inset }
@@ -210,7 +210,7 @@ export default function BoxShadowGenerator() {
 				</div>
 			) ) }
 
-			<button className="mlc-wdt-add-btn" onClick={ addShadow }>
+			<button className="dkdt-add-btn" onClick={ addShadow }>
 				+ Add Shadow
 			</button>
 		</div>

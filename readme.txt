@@ -72,6 +72,20 @@ Upgrade to Doohickey's Dev Tools Pro for additional tools and features:
 * **Consistent interface** — Every tool follows the same clean, intuitive layout
 * **Lightweight** — Single JavaScript bundle, loads only on the tools page
 
+== Source Code & Build Instructions ==
+
+The full source code for this plugin, including uncompiled JavaScript and CSS, is available at:
+https://github.com/mosaiclifecreative/doohickeys-dev-tools
+
+To build from source:
+
+1. Clone the repository
+2. Run `npm install` to install dependencies
+3. Run `npm run build` to compile the production bundle
+4. The compiled files are output to the `build/` directory
+
+The project uses `@wordpress/scripts` for building. Source files are in `admin/js/` (JSX) and `admin/css/` (CSS).
+
 == Installation ==
 
 1. Upload the plugin folder to `/wp-content/plugins/`

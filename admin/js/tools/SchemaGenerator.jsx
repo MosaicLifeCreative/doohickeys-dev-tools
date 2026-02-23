@@ -109,17 +109,17 @@ export default function SchemaGenerator() {
 	const jsonLd = useMemo( () => JSON.stringify( schema, null, 2 ), [ schema ] );
 	const scriptTag = `<script type="application/ld+json">\n${ jsonLd }\n</script>`;
 
-	const upgradeUrl = window.mlcWdtData?.upgradeUrl;
+	const upgradeUrl = window.dkdtData?.upgradeUrl;
 
 	const controls = (
-		<div className="mlc-wdt-schema-controls">
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Schema Type</label>
-				<div className="mlc-wdt-radio-group" style={ { flexWrap: 'wrap' } }>
+		<div className="dkdt-schema-controls">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Schema Type</label>
+				<div className="dkdt-radio-group" style={ { flexWrap: 'wrap' } }>
 					{ SCHEMA_TYPES.map( ( t ) => (
 						<label
 							key={ t.id }
-							className={ `mlc-wdt-radio${ schemaType === t.id ? ' active' : '' }` }
+							className={ `dkdt-radio${ schemaType === t.id ? ' active' : '' }` }
 						>
 							<input
 								type="radio"
@@ -131,19 +131,19 @@ export default function SchemaGenerator() {
 						</label>
 					) ) }
 				</div>
-				<div className="mlc-wdt-pro-inline-note" style={ { marginTop: '8px' } }>
-					<span className="mlc-wdt-pro-badge-inline">Pro</span>
+				<div className="dkdt-pro-inline-note" style={ { marginTop: '8px' } }>
+					<span className="dkdt-pro-badge-inline">Pro</span>
 					5 additional schema types (Product, Person, Organization, Event, Recipe) available in Pro.
-					{ upgradeUrl && <a href={ upgradeUrl } className="mlc-wdt-pro-inline-link">Upgrade</a> }
+					{ upgradeUrl && <a href={ upgradeUrl } className="dkdt-pro-inline-link">Upgrade</a> }
 				</div>
 			</div>
 
 			{ ( FIELDS[ schemaType ] || [] ).map( ( field ) => (
-				<div key={ field.key } className="mlc-wdt-control-group">
-					<label className="mlc-wdt-control-label">{ field.label }</label>
+				<div key={ field.key } className="dkdt-control-group">
+					<label className="dkdt-control-label">{ field.label }</label>
 					{ field.type === 'textarea' ? (
 						<textarea
-							className="mlc-wdt-textarea"
+							className="dkdt-textarea"
 							rows="2"
 							value={ values[ field.key ] || '' }
 							onChange={ ( e ) => setValues( ( prev ) => ( { ...prev, [ field.key ]: e.target.value } ) ) }
@@ -151,7 +151,7 @@ export default function SchemaGenerator() {
 					) : (
 						<input
 							type="text"
-							className="mlc-wdt-text-input"
+							className="dkdt-text-input"
 							value={ values[ field.key ] || '' }
 							onChange={ ( e ) => setValues( ( prev ) => ( { ...prev, [ field.key ]: e.target.value } ) ) }
 						/>

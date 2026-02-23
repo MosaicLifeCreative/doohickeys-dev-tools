@@ -86,43 +86,43 @@ export default function SvgToPng() {
 	}, [ rendered, scale, dimensions ] );
 
 	const preview = (
-		<div className="mlc-wdt-svg-preview">
+		<div className="dkdt-svg-preview">
 			<canvas
 				ref={ canvasRef }
 				style={ {
 					maxWidth: '100%',
 					display: rendered ? 'block' : 'none',
-					border: '1px solid var(--mlc-border)',
+					border: '1px solid var(--dkdt-border)',
 					borderRadius: '4px',
 				} }
 			/>
 			{ ! rendered && ! error && (
-				<div className="mlc-wdt-svg-empty">
+				<div className="dkdt-svg-empty">
 					Paste SVG code or upload a file, then click "Convert to PNG"
 				</div>
 			) }
 			{ error && (
-				<div className="mlc-wdt-svg-error">{ error }</div>
+				<div className="dkdt-svg-error">{ error }</div>
 			) }
 		</div>
 	);
 
 	const controls = (
-		<div className="mlc-wdt-svg-controls">
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Upload SVG File</label>
+		<div className="dkdt-svg-controls">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Upload SVG File</label>
 				<input
 					type="file"
 					accept=".svg"
 					onChange={ handleFileUpload }
-					className="mlc-wdt-file-input"
+					className="dkdt-file-input"
 				/>
 			</div>
 
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Or Paste SVG Code</label>
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Or Paste SVG Code</label>
 				<textarea
-					className="mlc-wdt-textarea"
+					className="dkdt-textarea"
 					rows="8"
 					value={ svgInput }
 					onChange={ ( e ) => { setSvgInput( e.target.value ); setError( '' ); } }
@@ -130,31 +130,31 @@ export default function SvgToPng() {
 				/>
 			</div>
 
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">
 					Scale: { scale }x
 					{ dimensions && ` (${ Math.round( dimensions.w * scale ) } x ${ Math.round( dimensions.h * scale ) }px)` }
 				</label>
-				<div className="mlc-wdt-range-with-value">
+				<div className="dkdt-range-with-value">
 					<input
 						type="range"
-						className="mlc-wdt-range"
+						className="dkdt-range"
 						min="0.5"
 						max="8"
 						step="0.5"
 						value={ scale }
 						onChange={ ( e ) => setScale( Number( e.target.value ) ) }
 					/>
-					<span className="mlc-wdt-field-value">{ scale }x</span>
+					<span className="dkdt-field-value">{ scale }x</span>
 				</div>
 			</div>
 
-			<div className="mlc-wdt-qr-download-row">
-				<button className="mlc-wdt-download-btn" onClick={ renderSvg }>
+			<div className="dkdt-qr-download-row">
+				<button className="dkdt-download-btn" onClick={ renderSvg }>
 					Convert to PNG
 				</button>
 				{ rendered && (
-					<button className="mlc-wdt-download-btn mlc-wdt-download-btn-outline" onClick={ downloadPNG }>
+					<button className="dkdt-download-btn dkdt-download-btn-outline" onClick={ downloadPNG }>
 						Download PNG
 					</button>
 				) }

@@ -91,21 +91,21 @@ export default function HtmlToMarkdown() {
 	const result = useMemo( () => htmlToMarkdown( input ), [ input ] );
 
 	const preview = result ? (
-		<div className="mlc-wdt-htm-preview">
+		<div className="dkdt-htm-preview">
 			<div style={ { display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' } }>
-				<span className="mlc-wdt-section-label" style={ { margin: 0 } }>Markdown Output</span>
+				<span className="dkdt-section-label" style={ { margin: 0 } }>Markdown Output</span>
 				<CopyButton text={ result } />
 			</div>
-			<pre className="mlc-wdt-code-pre"><code>{ result }</code></pre>
+			<pre className="dkdt-code-pre"><code>{ result }</code></pre>
 		</div>
 	) : null;
 
 	const controls = (
-		<div className="mlc-wdt-htm-controls">
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">HTML Input</label>
+		<div className="dkdt-htm-controls">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">HTML Input</label>
 				<textarea
-					className="mlc-wdt-textarea"
+					className="dkdt-textarea"
 					rows="10"
 					value={ input }
 					onChange={ ( e ) => setInput( e.target.value ) }

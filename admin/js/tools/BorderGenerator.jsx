@@ -64,28 +64,28 @@ export default function BorderGenerator() {
 	} );
 
 	const preview = (
-		<div className="mlc-wdt-border-preview" style={ { background: bgColor } }>
+		<div className="dkdt-border-preview" style={ { background: bgColor } }>
 			<div
-				className="mlc-wdt-border-box"
+				className="dkdt-border-box"
 				style={ { ...borderStyle, background: boxColor } }
 			/>
 		</div>
 	);
 
 	const controls = (
-		<div className="mlc-wdt-border-controls">
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Preview Colors</label>
-				<div className="mlc-wdt-color-row">
+		<div className="dkdt-border-controls">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Preview Colors</label>
+				<div className="dkdt-color-row">
 					<ColorPicker color={ boxColor } onChange={ setBoxColor } label="Box" />
 					<ColorPicker color={ bgColor } onChange={ setBgColor } label="Background" />
 				</div>
 			</div>
 
-			<div className="mlc-wdt-control-group">
-				<div className="mlc-wdt-border-link-row">
-					<label className="mlc-wdt-control-label">Border Sides</label>
-					<label className="mlc-wdt-checkbox">
+			<div className="dkdt-control-group">
+				<div className="dkdt-border-link-row">
+					<label className="dkdt-control-label">Border Sides</label>
+					<label className="dkdt-checkbox">
 						<input
 							type="checkbox"
 							checked={ linked }
@@ -97,31 +97,31 @@ export default function BorderGenerator() {
 			</div>
 
 			{ ( linked ? [ 'top' ] : SIDES ).map( ( side ) => (
-				<div key={ side } className="mlc-wdt-border-side">
+				<div key={ side } className="dkdt-border-side">
 					{ ! linked && (
-						<span className="mlc-wdt-border-side-label">
+						<span className="dkdt-border-side-label">
 							{ side.charAt( 0 ).toUpperCase() + side.slice( 1 ) }
 						</span>
 					) }
-					<div className="mlc-wdt-border-side-fields">
-						<div className="mlc-wdt-border-field">
-							<label className="mlc-wdt-range-label">Width</label>
-							<div className="mlc-wdt-range-with-value">
+					<div className="dkdt-border-side-fields">
+						<div className="dkdt-border-field">
+							<label className="dkdt-range-label">Width</label>
+							<div className="dkdt-range-with-value">
 								<input
 									type="range"
 									min="0"
 									max="20"
 									value={ sides[ side ].width }
 									onChange={ ( e ) => updateSide( side, 'width', Number( e.target.value ) ) }
-									className="mlc-wdt-range"
+									className="dkdt-range"
 								/>
-								<span className="mlc-wdt-field-value">{ sides[ side ].width }px</span>
+								<span className="dkdt-field-value">{ sides[ side ].width }px</span>
 							</div>
 						</div>
-						<div className="mlc-wdt-border-field">
-							<label className="mlc-wdt-range-label">Style</label>
+						<div className="dkdt-border-field">
+							<label className="dkdt-range-label">Style</label>
 							<select
-								className="mlc-wdt-select"
+								className="dkdt-select"
 								value={ sides[ side ].style }
 								onChange={ ( e ) => updateSide( side, 'style', e.target.value ) }
 							>
@@ -132,8 +132,8 @@ export default function BorderGenerator() {
 								) ) }
 							</select>
 						</div>
-						<div className="mlc-wdt-border-field">
-							<label className="mlc-wdt-range-label">Color</label>
+						<div className="dkdt-border-field">
+							<label className="dkdt-range-label">Color</label>
 							<ColorPicker
 								color={ sides[ side ].color }
 								onChange={ ( val ) => updateSide( side, 'color', val ) }

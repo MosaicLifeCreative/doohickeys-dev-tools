@@ -137,18 +137,18 @@ export default function AspectRatioCalculator() {
 	const displayRatio = mode === 'calculate' ? calculatedRatio : { rw: selectedRatio.w, rh: selectedRatio.h };
 
 	const preview = (
-		<div className="mlc-wdt-ar-preview-wrap">
+		<div className="dkdt-ar-preview-wrap">
 			<div
-				className="mlc-wdt-ar-preview-box"
+				className="dkdt-ar-preview-box"
 				style={ {
 					width: `${ previewW }px`,
 					height: `${ previewH }px`,
 				} }
 			>
-				<span className="mlc-wdt-ar-preview-dims">
+				<span className="dkdt-ar-preview-dims">
 					{ displayWidth } &times; { displayHeight }
 				</span>
-				<span className="mlc-wdt-ar-preview-ratio">
+				<span className="dkdt-ar-preview-ratio">
 					{ displayRatio.rw }:{ displayRatio.rh }
 				</span>
 			</div>
@@ -156,19 +156,19 @@ export default function AspectRatioCalculator() {
 	);
 
 	const controls = (
-		<div className="mlc-wdt-ar-controls">
+		<div className="dkdt-ar-controls">
 			{ /* Mode toggle */ }
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Mode</label>
-				<div className="mlc-wdt-flex-options">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Mode</label>
+				<div className="dkdt-flex-options">
 					<button
-						className={ `mlc-wdt-flex-option-btn${ mode === 'calculate' ? ' active' : '' }` }
+						className={ `dkdt-flex-option-btn${ mode === 'calculate' ? ' active' : '' }` }
 						onClick={ () => setMode( 'calculate' ) }
 					>
 						Calculate Ratio
 					</button>
 					<button
-						className={ `mlc-wdt-flex-option-btn${ mode === 'scale' ? ' active' : '' }` }
+						className={ `dkdt-flex-option-btn${ mode === 'scale' ? ' active' : '' }` }
 						onClick={ () => setMode( 'scale' ) }
 					>
 						Scale from Ratio
@@ -179,17 +179,17 @@ export default function AspectRatioCalculator() {
 			{ mode === 'calculate' ? (
 				<>
 					{ /* Dimension inputs */ }
-					<div className="mlc-wdt-ar-dims">
+					<div className="dkdt-ar-dims">
 						<input
 							type="number"
-							className="mlc-wdt-text-input"
+							className="dkdt-text-input"
 							placeholder="Width"
 							min="1"
 							value={ calcWidth }
 							onChange={ ( e ) => setCalcWidth( Math.max( 1, parseInt( e.target.value ) || 1 ) ) }
 						/>
 						<button
-							className="mlc-wdt-ar-swap"
+							className="dkdt-ar-swap"
 							onClick={ handleSwapCalc }
 							title="Swap width and height"
 						>
@@ -197,7 +197,7 @@ export default function AspectRatioCalculator() {
 						</button>
 						<input
 							type="number"
-							className="mlc-wdt-text-input"
+							className="dkdt-text-input"
 							placeholder="Height"
 							min="1"
 							value={ calcHeight }
@@ -206,15 +206,15 @@ export default function AspectRatioCalculator() {
 					</div>
 
 					{ /* Result */ }
-					<div className="mlc-wdt-ar-result">
-						<span className="mlc-wdt-control-label">Aspect Ratio</span>
-						<div className="mlc-wdt-ar-result-value">
-							<span className="mlc-wdt-ar-ratio-display">
+					<div className="dkdt-ar-result">
+						<span className="dkdt-control-label">Aspect Ratio</span>
+						<div className="dkdt-ar-result-value">
+							<span className="dkdt-ar-ratio-display">
 								{ calculatedRatio.rw }:{ calculatedRatio.rh }
 							</span>
 							<CopyButton text={ `${ calculatedRatio.rw }:${ calculatedRatio.rh }` } />
 						</div>
-						<span className="mlc-wdt-ar-css-value">
+						<span className="dkdt-ar-css-value">
 							CSS: <code>aspect-ratio: { calculatedRatio.rw } / { calculatedRatio.rh };</code>
 							<CopyButton text={ `aspect-ratio: ${ calculatedRatio.rw } / ${ calculatedRatio.rh };` } />
 						</span>
@@ -223,13 +223,13 @@ export default function AspectRatioCalculator() {
 			) : (
 				<>
 					{ /* Ratio picker */ }
-					<div className="mlc-wdt-control-group">
-						<label className="mlc-wdt-control-label">Aspect Ratio</label>
-						<div className="mlc-wdt-flex-options">
+					<div className="dkdt-control-group">
+						<label className="dkdt-control-label">Aspect Ratio</label>
+						<div className="dkdt-flex-options">
 							{ COMMON_RATIOS.map( ( r ) => (
 								<button
 									key={ `${ r.w }:${ r.h }` }
-									className={ `mlc-wdt-flex-option-btn${ selectedRatio.w === r.w && selectedRatio.h === r.h ? ' active' : '' }` }
+									className={ `dkdt-flex-option-btn${ selectedRatio.w === r.w && selectedRatio.h === r.h ? ' active' : '' }` }
 									onClick={ () => handleSelectRatio( r ) }
 								>
 									{ r.label }
@@ -239,11 +239,11 @@ export default function AspectRatioCalculator() {
 					</div>
 
 					{ /* Scale slider */ }
-					<div className="mlc-wdt-control-group">
-						<label className="mlc-wdt-control-label">Width: { scaleWidth }px</label>
+					<div className="dkdt-control-group">
+						<label className="dkdt-control-label">Width: { scaleWidth }px</label>
 						<input
 							type="range"
-							className="mlc-wdt-range"
+							className="dkdt-range"
 							min="100"
 							max="7680"
 							step="10"
@@ -253,19 +253,19 @@ export default function AspectRatioCalculator() {
 					</div>
 
 					{ /* Dimension inputs with lock */ }
-					<div className="mlc-wdt-ar-dims">
+					<div className="dkdt-ar-dims">
 						<input
 							type="number"
-							className="mlc-wdt-text-input"
+							className="dkdt-text-input"
 							placeholder="Width"
 							min="1"
 							value={ scaleWidth }
 							onChange={ ( e ) => handleScaleWidthChange( Math.max( 1, parseInt( e.target.value ) || 1 ) ) }
 						/>
-						<span className="mlc-wdt-ar-lock" title="Ratio locked">&#128279;</span>
+						<span className="dkdt-ar-lock" title="Ratio locked">&#128279;</span>
 						<input
 							type="number"
-							className="mlc-wdt-text-input"
+							className="dkdt-text-input"
 							placeholder="Height"
 							min="1"
 							value={ scaledHeight }
@@ -274,8 +274,8 @@ export default function AspectRatioCalculator() {
 					</div>
 
 					{ /* CSS output */ }
-					<div className="mlc-wdt-ar-result">
-						<span className="mlc-wdt-ar-css-value">
+					<div className="dkdt-ar-result">
+						<span className="dkdt-ar-css-value">
 							CSS: <code>aspect-ratio: { selectedRatio.w } / { selectedRatio.h };</code>
 							<CopyButton text={ `aspect-ratio: ${ selectedRatio.w } / ${ selectedRatio.h };` } />
 						</span>
@@ -283,9 +283,9 @@ export default function AspectRatioCalculator() {
 
 					{ /* Presets table */ }
 					{ presets.length > 0 && (
-						<div className="mlc-wdt-ar-presets">
-							<label className="mlc-wdt-control-label">Common { ratioKey } Sizes</label>
-							<table className="mlc-wdt-ar-table">
+						<div className="dkdt-ar-presets">
+							<label className="dkdt-control-label">Common { ratioKey } Sizes</label>
+							<table className="dkdt-ar-table">
 								<thead>
 									<tr>
 										<th>Name</th>
@@ -298,7 +298,7 @@ export default function AspectRatioCalculator() {
 									{ presets.map( ( p ) => (
 										<tr
 											key={ p.label }
-											className="mlc-wdt-ar-table-row"
+											className="dkdt-ar-table-row"
 											onClick={ () => handleScaleWidthChange( p.w ) }
 											title="Click to use these dimensions"
 										>

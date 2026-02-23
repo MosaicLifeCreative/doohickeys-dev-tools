@@ -28,7 +28,7 @@ function contrastRatio( hex1, hex2 ) {
 function RatingBadge( { pass, label } ) {
 	return (
 		<span
-			className={ `mlc-wdt-contrast-badge ${ pass ? 'mlc-wdt-contrast-pass' : 'mlc-wdt-contrast-fail' }` }
+			className={ `dkdt-contrast-badge ${ pass ? 'dkdt-contrast-pass' : 'dkdt-contrast-fail' }` }
 		>
 			{ pass ? 'Pass' : 'Fail' } { label }
 		</span>
@@ -55,71 +55,71 @@ export default function ContrastChecker() {
 	};
 
 	const preview = (
-		<div className="mlc-wdt-contrast-preview">
+		<div className="dkdt-contrast-preview">
 			<div
-				className="mlc-wdt-contrast-sample"
+				className="dkdt-contrast-sample"
 				style={ { color: fgColor, backgroundColor: bgColor } }
 			>
-				<span className="mlc-wdt-contrast-sample-large">Large Text (18px+)</span>
-				<span className="mlc-wdt-contrast-sample-normal">
+				<span className="dkdt-contrast-sample-large">Large Text (18px+)</span>
+				<span className="dkdt-contrast-sample-normal">
 					Normal body text at 14px — The quick brown fox jumps over the lazy dog.
 				</span>
-				<span className="mlc-wdt-contrast-sample-small">Small UI text at 11px</span>
+				<span className="dkdt-contrast-sample-small">Small UI text at 11px</span>
 			</div>
-			<div className="mlc-wdt-contrast-ratio-display">
-				<span className="mlc-wdt-contrast-ratio-value">{ ratioStr }</span>
-				<span className="mlc-wdt-contrast-ratio-label">:1 ratio</span>
+			<div className="dkdt-contrast-ratio-display">
+				<span className="dkdt-contrast-ratio-value">{ ratioStr }</span>
+				<span className="dkdt-contrast-ratio-label">:1 ratio</span>
 			</div>
 		</div>
 	);
 
 	const controls = (
-		<div className="mlc-wdt-contrast-controls">
-			<div className="mlc-wdt-control-group">
-				<div className="mlc-wdt-contrast-color-row">
-					<div className="mlc-wdt-color-field">
-						<label className="mlc-wdt-control-label">Foreground (Text)</label>
+		<div className="dkdt-contrast-controls">
+			<div className="dkdt-control-group">
+				<div className="dkdt-contrast-color-row">
+					<div className="dkdt-color-field">
+						<label className="dkdt-control-label">Foreground (Text)</label>
 						<ColorPicker color={ fgColor } onChange={ setFgColor } />
 					</div>
 					<button
-						className="mlc-wdt-contrast-swap-btn"
+						className="dkdt-contrast-swap-btn"
 						onClick={ swap }
 						title="Swap colors"
 					>
 						&#8646;
 					</button>
-					<div className="mlc-wdt-color-field">
-						<label className="mlc-wdt-control-label">Background</label>
+					<div className="dkdt-color-field">
+						<label className="dkdt-control-label">Background</label>
 						<ColorPicker color={ bgColor } onChange={ setBgColor } />
 					</div>
 				</div>
 			</div>
 
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">WCAG 2.1 Results</label>
-				<div className="mlc-wdt-contrast-results">
-					<div className="mlc-wdt-contrast-result-row">
-						<span className="mlc-wdt-contrast-result-label">Normal Text</span>
-						<div className="mlc-wdt-contrast-badges">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">WCAG 2.1 Results</label>
+				<div className="dkdt-contrast-results">
+					<div className="dkdt-contrast-result-row">
+						<span className="dkdt-contrast-result-label">Normal Text</span>
+						<div className="dkdt-contrast-badges">
 							<RatingBadge pass={ aaNormal } label="AA" />
 							<RatingBadge pass={ aaaNormal } label="AAA" />
 						</div>
-						<span className="mlc-wdt-contrast-req">Requires 4.5:1 (AA) / 7:1 (AAA)</span>
+						<span className="dkdt-contrast-req">Requires 4.5:1 (AA) / 7:1 (AAA)</span>
 					</div>
-					<div className="mlc-wdt-contrast-result-row">
-						<span className="mlc-wdt-contrast-result-label">Large Text (18px+ / 14px bold)</span>
-						<div className="mlc-wdt-contrast-badges">
+					<div className="dkdt-contrast-result-row">
+						<span className="dkdt-contrast-result-label">Large Text (18px+ / 14px bold)</span>
+						<div className="dkdt-contrast-badges">
 							<RatingBadge pass={ aaLarge } label="AA" />
 							<RatingBadge pass={ aaaLarge } label="AAA" />
 						</div>
-						<span className="mlc-wdt-contrast-req">Requires 3:1 (AA) / 4.5:1 (AAA)</span>
+						<span className="dkdt-contrast-req">Requires 3:1 (AA) / 4.5:1 (AAA)</span>
 					</div>
-					<div className="mlc-wdt-contrast-result-row">
-						<span className="mlc-wdt-contrast-result-label">UI Components</span>
-						<div className="mlc-wdt-contrast-badges">
+					<div className="dkdt-contrast-result-row">
+						<span className="dkdt-contrast-result-label">UI Components</span>
+						<div className="dkdt-contrast-badges">
 							<RatingBadge pass={ aaLarge } label="AA" />
 						</div>
-						<span className="mlc-wdt-contrast-req">Requires 3:1</span>
+						<span className="dkdt-contrast-req">Requires 3:1</span>
 					</div>
 				</div>
 			</div>
