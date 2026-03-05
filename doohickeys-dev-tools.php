@@ -17,10 +17,27 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+// If the premium version is already active, deactivate this free version gracefully.
+if ( function_exists( 'dkdt_init' ) ) {
+    if ( ! function_exists( 'dkdt_free_deactivate_self' ) ) {
+        function dkdt_free_deactivate_self() {
+            deactivate_plugins( plugin_basename( __FILE__ ) );
+        }
+    }
+    add_action( 'admin_init', 'dkdt_free_deactivate_self' );
+    return;
+}
+
 // Plugin constants
-define('DKDT_VERSION', '1.0.2');
-define('DKDT_PLUGIN_DIR', plugin_dir_path(__FILE__));
-define('DKDT_PLUGIN_URL', plugin_dir_url(__FILE__));
+if ( ! defined( 'DKDT_VERSION' ) ) {
+    define('DKDT_VERSION', '1.0.2');
+}
+if ( ! defined( 'DKDT_PLUGIN_DIR' ) ) {
+    define('DKDT_PLUGIN_DIR', plugin_dir_path(__FILE__));
+}
+if ( ! defined( 'DKDT_PLUGIN_URL' ) ) {
+    define('DKDT_PLUGIN_URL', plugin_dir_url(__FILE__));
+}
 
 // Freemius SDK integration
 if ( function_exists( 'dkdt_fs' ) ) {

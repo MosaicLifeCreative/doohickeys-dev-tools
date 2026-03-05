@@ -88,10 +88,11 @@ The project uses `@wordpress/scripts` for building. Source files are in `admin/j
 
 == Installation ==
 
-1. Upload the plugin folder to `/wp-content/plugins/`
-2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Navigate to **Dev Tools** in your admin sidebar
-4. Start building!
+1. Go to **Plugins → Add New** in your WordPress admin
+2. Search for "Doohickey's Dev Tools"
+3. Click **Install Now**, then **Activate**
+4. Navigate to **Doohickey's** in your admin sidebar
+5. Start building!
 
 == Frequently Asked Questions ==
 
