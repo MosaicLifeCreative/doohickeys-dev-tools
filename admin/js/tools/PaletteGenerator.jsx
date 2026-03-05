@@ -225,22 +225,22 @@ export default function PaletteGenerator() {
 	const allHexes = palette.map( ( c ) => c.hex.toUpperCase() ).join( ', ' );
 
 	const preview = (
-		<div className="mlc-wdt-palette-preview">
-			<div className="mlc-wdt-palette-wheel-wrap">
+		<div className="dkdt-palette-preview">
+			<div className="dkdt-palette-wheel-wrap">
 				{ /* Color wheel */ }
-				<div className="mlc-wdt-palette-wheel-container">
+				<div className="dkdt-palette-wheel-container">
 					<canvas
 						ref={ canvasRef }
 						width={ WHEEL_SIZE }
 						height={ WHEEL_SIZE }
-						className="mlc-wdt-palette-wheel"
+						className="dkdt-palette-wheel"
 						onMouseDown={ handleWheelMouseDown }
 					/>
 					{ /* Harmony markers */ }
 					{ markers.map( ( m, i ) => (
 						<div
 							key={ i }
-							className={ `mlc-wdt-palette-marker${ i === 0 ? ' mlc-wdt-palette-marker-base' : '' }` }
+							className={ `dkdt-palette-marker${ i === 0 ? ' dkdt-palette-marker-base' : '' }` }
 							style={ {
 								left: `${ m.x }px`,
 								top: `${ m.y }px`,
@@ -250,10 +250,10 @@ export default function PaletteGenerator() {
 					) ) }
 					{ /* Center swatch */ }
 					<div
-						className="mlc-wdt-palette-center"
+						className="dkdt-palette-center"
 						style={ { background: palette[ 0 ]?.hex } }
 					>
-						<span className="mlc-wdt-palette-center-hex">
+						<span className="dkdt-palette-center-hex">
 							{ palette[ 0 ]?.hex.toUpperCase() }
 						</span>
 					</div>
@@ -261,14 +261,14 @@ export default function PaletteGenerator() {
 			</div>
 
 			{ /* Palette strip */ }
-			<div className="mlc-wdt-palette-strip">
+			<div className="dkdt-palette-strip">
 				{ palette.map( ( color, i ) => (
-					<div key={ i } className="mlc-wdt-palette-swatch-col">
+					<div key={ i } className="dkdt-palette-swatch-col">
 						<div
-							className="mlc-wdt-palette-swatch"
+							className="dkdt-palette-swatch"
 							style={ { background: color.hex } }
 						/>
-						<span className="mlc-wdt-palette-swatch-hex">
+						<span className="dkdt-palette-swatch-hex">
 							{ color.hex.toUpperCase() }
 						</span>
 						<CopyButton text={ color.hex.toUpperCase() } />
@@ -279,15 +279,15 @@ export default function PaletteGenerator() {
 	);
 
 	const controls = (
-		<div className="mlc-wdt-palette-controls">
+		<div className="dkdt-palette-controls">
 			{ /* Harmony mode */ }
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Color Harmony</label>
-				<div className="mlc-wdt-palette-harmonies">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Color Harmony</label>
+				<div className="dkdt-palette-harmonies">
 					{ Object.entries( HARMONIES ).map( ( [ key, rule ] ) => (
 						<button
 							key={ key }
-							className={ `mlc-wdt-palette-harmony-btn${ harmony === key ? ' active' : '' }` }
+							className={ `dkdt-palette-harmony-btn${ harmony === key ? ' active' : '' }` }
 							onClick={ () => setHarmony( key ) }
 							title={ rule.desc }
 						>
@@ -298,14 +298,14 @@ export default function PaletteGenerator() {
 			</div>
 
 			{ /* Base color sliders */ }
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Base Color</label>
-				<div className="mlc-wdt-palette-slider-group">
-					<div className="mlc-wdt-palette-slider-row">
-						<span className="mlc-wdt-palette-slider-label">Hue</span>
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Base Color</label>
+				<div className="dkdt-palette-slider-group">
+					<div className="dkdt-palette-slider-row">
+						<span className="dkdt-palette-slider-label">Hue</span>
 						<input
 							type="range"
-							className="mlc-wdt-range mlc-wdt-palette-hue-range"
+							className="dkdt-range dkdt-palette-hue-range"
 							min="0"
 							max="359"
 							value={ baseHue }
@@ -314,43 +314,43 @@ export default function PaletteGenerator() {
 								background: `linear-gradient(to right, hsl(0,100%,50%), hsl(60,100%,50%), hsl(120,100%,50%), hsl(180,100%,50%), hsl(240,100%,50%), hsl(300,100%,50%), hsl(360,100%,50%))`,
 							} }
 						/>
-						<span className="mlc-wdt-field-value">{ baseHue }°</span>
+						<span className="dkdt-field-value">{ baseHue }°</span>
 					</div>
-					<div className="mlc-wdt-palette-slider-row">
-						<span className="mlc-wdt-palette-slider-label">Saturation</span>
+					<div className="dkdt-palette-slider-row">
+						<span className="dkdt-palette-slider-label">Saturation</span>
 						<input
 							type="range"
-							className="mlc-wdt-range"
+							className="dkdt-range"
 							min="0"
 							max="100"
 							value={ baseSat }
 							onChange={ ( e ) => setBaseSat( parseInt( e.target.value ) ) }
 						/>
-						<span className="mlc-wdt-field-value">{ baseSat }%</span>
+						<span className="dkdt-field-value">{ baseSat }%</span>
 					</div>
 					{ harmony !== 'monochromatic' && (
-						<div className="mlc-wdt-palette-slider-row">
-							<span className="mlc-wdt-palette-slider-label">Lightness</span>
+						<div className="dkdt-palette-slider-row">
+							<span className="dkdt-palette-slider-label">Lightness</span>
 							<input
 								type="range"
-								className="mlc-wdt-range"
+								className="dkdt-range"
 								min="10"
 								max="90"
 								value={ baseLit }
 								onChange={ ( e ) => setBaseLit( parseInt( e.target.value ) ) }
 							/>
-							<span className="mlc-wdt-field-value">{ baseLit }%</span>
+							<span className="dkdt-field-value">{ baseLit }%</span>
 						</div>
 					) }
 				</div>
 			</div>
 
 			{ /* Quick base color input */ }
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Paste Base Color</label>
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Paste Base Color</label>
 				<input
 					type="text"
-					className="mlc-wdt-text-input"
+					className="dkdt-text-input"
 					placeholder="#0073aa or any hex"
 					style={ { maxWidth: '200px' } }
 					onBlur={ ( e ) => {
@@ -374,29 +374,29 @@ export default function PaletteGenerator() {
 	);
 
 	const output = (
-		<div className="mlc-wdt-palette-output">
-			<div className="mlc-wdt-control-group">
+		<div className="dkdt-palette-output">
+			<div className="dkdt-control-group">
 				<div style={ { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' } }>
-					<label className="mlc-wdt-control-label" style={ { margin: 0 } }>All Colors</label>
+					<label className="dkdt-control-label" style={ { margin: 0 } }>All Colors</label>
 					<CopyButton text={ allHexes } />
 				</div>
-				<code className="mlc-wdt-palette-all-hex">{ allHexes }</code>
+				<code className="dkdt-palette-all-hex">{ allHexes }</code>
 			</div>
 
-			<div className="mlc-wdt-control-group">
+			<div className="dkdt-control-group">
 				<div style={ { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' } }>
-					<label className="mlc-wdt-control-label" style={ { margin: 0 } }>CSS Variables</label>
+					<label className="dkdt-control-label" style={ { margin: 0 } }>CSS Variables</label>
 					<CopyButton text={ cssOutput } />
 				</div>
-				<pre className="mlc-wdt-code-pre"><code>{ cssOutput }</code></pre>
+				<pre className="dkdt-code-pre"><code>{ cssOutput }</code></pre>
 			</div>
 
-			<div className="mlc-wdt-control-group">
+			<div className="dkdt-control-group">
 				<div style={ { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' } }>
-					<label className="mlc-wdt-control-label" style={ { margin: 0 } }>SCSS Variables</label>
+					<label className="dkdt-control-label" style={ { margin: 0 } }>SCSS Variables</label>
 					<CopyButton text={ scssVars } />
 				</div>
-				<pre className="mlc-wdt-code-pre"><code>{ scssVars }</code></pre>
+				<pre className="dkdt-code-pre"><code>{ scssVars }</code></pre>
 			</div>
 		</div>
 	);

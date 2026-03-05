@@ -8,16 +8,16 @@ export default function ProBadge( { children, feature } ) {
 	}
 
 	return (
-		<div className="mlc-wdt-pro-gate">
-			<div className="mlc-wdt-pro-gate-overlay">
-				<span className="mlc-wdt-pro-badge">Pro</span>
+		<div className="dkdt-pro-gate">
+			<div className="dkdt-pro-gate-overlay">
+				<span className="dkdt-pro-badge">Pro</span>
 				{ feature && (
-					<span className="mlc-wdt-pro-feature-label">
+					<span className="dkdt-pro-feature-label">
 						{ feature }
 					</span>
 				) }
 			</div>
-			<div className="mlc-wdt-pro-gate-content">
+			<div className="dkdt-pro-gate-content">
 				{ children }
 			</div>
 		</div>

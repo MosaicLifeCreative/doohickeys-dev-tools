@@ -90,7 +90,7 @@ export default function TableGenerator() {
 	}
 
 	const preview = (
-		<div className="mlc-wdt-table-preview">
+		<div className="dkdt-table-preview">
 			<table style={ { width: '100%', borderCollapse: 'collapse' } }>
 				{ hasHeader && cells.length > 0 && (
 					<thead>
@@ -139,27 +139,27 @@ export default function TableGenerator() {
 	);
 
 	const controls = (
-		<div className="mlc-wdt-table-controls">
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Dimensions</label>
-				<div className="mlc-wdt-placeholder-dims">
-					<div className="mlc-wdt-placeholder-dim">
-						<label className="mlc-wdt-range-label">Rows</label>
+		<div className="dkdt-table-controls">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Dimensions</label>
+				<div className="dkdt-placeholder-dims">
+					<div className="dkdt-placeholder-dim">
+						<label className="dkdt-range-label">Rows</label>
 						<input
 							type="number"
-							className="mlc-wdt-text-input"
+							className="dkdt-text-input"
 							value={ rows }
 							min="1"
 							max="20"
 							onChange={ ( e ) => updateDimensions( Math.max( 1, Math.min( 20, Number( e.target.value ) || 1 ) ), cols ) }
 						/>
 					</div>
-					<span className="mlc-wdt-placeholder-x">&times;</span>
-					<div className="mlc-wdt-placeholder-dim">
-						<label className="mlc-wdt-range-label">Columns</label>
+					<span className="dkdt-placeholder-x">&times;</span>
+					<div className="dkdt-placeholder-dim">
+						<label className="dkdt-range-label">Columns</label>
 						<input
 							type="number"
-							className="mlc-wdt-text-input"
+							className="dkdt-text-input"
 							value={ cols }
 							min="1"
 							max="10"
@@ -169,22 +169,22 @@ export default function TableGenerator() {
 				</div>
 			</div>
 
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Options</label>
-				<div className="mlc-wdt-lorem-options">
-					<label className="mlc-wdt-checkbox">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Options</label>
+				<div className="dkdt-lorem-options">
+					<label className="dkdt-checkbox">
 						<input type="checkbox" checked={ hasHeader } onChange={ ( e ) => setHasHeader( e.target.checked ) } />
 						Header row
 					</label>
-					<label className="mlc-wdt-checkbox">
+					<label className="dkdt-checkbox">
 						<input type="checkbox" checked={ bordered } onChange={ ( e ) => setBordered( e.target.checked ) } />
 						Bordered
 					</label>
-					<label className="mlc-wdt-checkbox">
+					<label className="dkdt-checkbox">
 						<input type="checkbox" checked={ striped } onChange={ ( e ) => setStriped( e.target.checked ) } />
 						Striped rows
 					</label>
-					<label className="mlc-wdt-checkbox">
+					<label className="dkdt-checkbox">
 						<input type="checkbox" checked={ hover } onChange={ ( e ) => setHover( e.target.checked ) } />
 						Hover highlight
 					</label>
@@ -192,18 +192,18 @@ export default function TableGenerator() {
 			</div>
 
 			{ hasHeader && (
-				<div className="mlc-wdt-control-group">
-					<label className="mlc-wdt-control-label">Header Colors</label>
-					<div className="mlc-wdt-color-row">
+				<div className="dkdt-control-group">
+					<label className="dkdt-control-label">Header Colors</label>
+					<div className="dkdt-color-row">
 						<ColorPicker color={ headerBg } onChange={ setHeaderBg } label="Background" />
 						<ColorPicker color={ headerText } onChange={ setHeaderText } label="Text" />
 					</div>
 				</div>
 			) }
 
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Edit Cells</label>
-				<div className="mlc-wdt-table-edit" style={ { overflowX: 'auto' } }>
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Edit Cells</label>
+				<div className="dkdt-table-edit" style={ { overflowX: 'auto' } }>
 					<table style={ { borderCollapse: 'collapse' } }>
 						<tbody>
 							{ cells.map( ( row, i ) => (
@@ -212,7 +212,7 @@ export default function TableGenerator() {
 										<td key={ j } style={ { padding: '2px' } }>
 											<input
 												type="text"
-												className="mlc-wdt-text-input"
+												className="dkdt-text-input"
 												value={ cell }
 												onChange={ ( e ) => updateCell( i, j, e.target.value ) }
 												style={ { width: '120px', fontSize: '12px', padding: '4px 6px' } }

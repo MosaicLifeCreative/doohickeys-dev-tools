@@ -63,22 +63,22 @@ export default function DiffChecker() {
 	}, [ diff ] );
 
 	const preview = diff.length > 0 ? (
-		<div className="mlc-wdt-diff-preview">
-			<div className="mlc-wdt-diff-stats">
-				<span className="mlc-wdt-diff-stat-add">+{ stats.added } added</span>
-				<span className="mlc-wdt-diff-stat-remove">-{ stats.removed } removed</span>
-				<span className="mlc-wdt-diff-stat-equal">{ stats.unchanged } unchanged</span>
+		<div className="dkdt-diff-preview">
+			<div className="dkdt-diff-stats">
+				<span className="dkdt-diff-stat-add">+{ stats.added } added</span>
+				<span className="dkdt-diff-stat-remove">-{ stats.removed } removed</span>
+				<span className="dkdt-diff-stat-equal">{ stats.unchanged } unchanged</span>
 			</div>
-			<div className="mlc-wdt-diff-output">
+			<div className="dkdt-diff-output">
 				{ diff.map( ( op, idx ) => (
 					<div
 						key={ idx }
-						className={ `mlc-wdt-diff-line mlc-wdt-diff-${ op.type }` }
+						className={ `dkdt-diff-line dkdt-diff-${ op.type }` }
 					>
-						<span className="mlc-wdt-diff-gutter">
+						<span className="dkdt-diff-gutter">
 							{ op.type === 'add' ? '+' : op.type === 'remove' ? '-' : ' ' }
 						</span>
-						<span className="mlc-wdt-diff-text">{ op.text || '\u00A0' }</span>
+						<span className="dkdt-diff-text">{ op.text || '\u00A0' }</span>
 					</div>
 				) ) }
 			</div>
@@ -86,22 +86,22 @@ export default function DiffChecker() {
 	) : null;
 
 	const controls = (
-		<div className="mlc-wdt-diff-controls">
-			<div className="mlc-wdt-diff-inputs">
-				<div className="mlc-wdt-diff-input-col">
-					<label className="mlc-wdt-control-label">Original</label>
+		<div className="dkdt-diff-controls">
+			<div className="dkdt-diff-inputs">
+				<div className="dkdt-diff-input-col">
+					<label className="dkdt-control-label">Original</label>
 					<textarea
-						className="mlc-wdt-textarea mlc-wdt-textarea-mono"
+						className="dkdt-textarea dkdt-textarea-mono"
 						rows="12"
 						value={ textA }
 						onChange={ ( e ) => setTextA( e.target.value ) }
 						placeholder="Paste original text here..."
 					/>
 				</div>
-				<div className="mlc-wdt-diff-input-col">
-					<label className="mlc-wdt-control-label">Modified</label>
+				<div className="dkdt-diff-input-col">
+					<label className="dkdt-control-label">Modified</label>
 					<textarea
-						className="mlc-wdt-textarea mlc-wdt-textarea-mono"
+						className="dkdt-textarea dkdt-textarea-mono"
 						rows="12"
 						value={ textB }
 						onChange={ ( e ) => setTextB( e.target.value ) }

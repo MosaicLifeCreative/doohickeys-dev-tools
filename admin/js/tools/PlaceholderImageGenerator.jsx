@@ -90,55 +90,55 @@ export default function PlaceholderImageGenerator() {
 	const displayH = Math.round( height * scale );
 
 	const preview = (
-		<div className="mlc-wdt-placeholder-preview">
+		<div className="dkdt-placeholder-preview">
 			<canvas
 				ref={ canvasRef }
 				style={ { width: `${ displayW }px`, height: `${ displayH }px` } }
-				className="mlc-wdt-placeholder-canvas"
+				className="dkdt-placeholder-canvas"
 			/>
 		</div>
 	);
 
 	const controls = (
-		<div className="mlc-wdt-placeholder-controls">
+		<div className="dkdt-placeholder-controls">
 			<ProBadge feature="Social media presets are a Pro feature">
-				<div className="mlc-wdt-control-group">
-					<label className="mlc-wdt-control-label">Preset Sizes</label>
-					<div className="mlc-wdt-placeholder-presets">
+				<div className="dkdt-control-group">
+					<label className="dkdt-control-label">Preset Sizes</label>
+					<div className="dkdt-placeholder-presets">
 						{ PRESET_SIZES.map( ( preset ) => (
 							<button
 								key={ preset.label }
-								className="mlc-wdt-placeholder-preset-btn"
+								className="dkdt-placeholder-preset-btn"
 								onClick={ () => applyPreset( preset ) }
 							>
-								<span className="mlc-wdt-placeholder-preset-name">{ preset.label }</span>
-								<span className="mlc-wdt-placeholder-preset-size">{ preset.w }&times;{ preset.h }</span>
+								<span className="dkdt-placeholder-preset-name">{ preset.label }</span>
+								<span className="dkdt-placeholder-preset-size">{ preset.w }&times;{ preset.h }</span>
 							</button>
 						) ) }
 					</div>
 				</div>
 			</ProBadge>
 
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Dimensions</label>
-				<div className="mlc-wdt-placeholder-dims">
-					<div className="mlc-wdt-placeholder-dim">
-						<label className="mlc-wdt-range-label">Width (px)</label>
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Dimensions</label>
+				<div className="dkdt-placeholder-dims">
+					<div className="dkdt-placeholder-dim">
+						<label className="dkdt-range-label">Width (px)</label>
 						<input
 							type="number"
-							className="mlc-wdt-text-input"
+							className="dkdt-text-input"
 							value={ width }
 							min="1"
 							max="4096"
 							onChange={ ( e ) => setWidth( Math.max( 1, Math.min( 4096, Number( e.target.value ) || 1 ) ) ) }
 						/>
 					</div>
-					<span className="mlc-wdt-placeholder-x">&times;</span>
-					<div className="mlc-wdt-placeholder-dim">
-						<label className="mlc-wdt-range-label">Height (px)</label>
+					<span className="dkdt-placeholder-x">&times;</span>
+					<div className="dkdt-placeholder-dim">
+						<label className="dkdt-range-label">Height (px)</label>
 						<input
 							type="number"
-							className="mlc-wdt-text-input"
+							className="dkdt-text-input"
 							value={ height }
 							min="1"
 							max="4096"
@@ -148,65 +148,65 @@ export default function PlaceholderImageGenerator() {
 				</div>
 			</div>
 
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Colors</label>
-				<div className="mlc-wdt-color-row">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Colors</label>
+				<div className="dkdt-color-row">
 					<ColorPicker color={ bgColor } onChange={ setBgColor } label="Background" />
 					<ColorPicker color={ textColor } onChange={ setTextColor } label="Text" />
 				</div>
 			</div>
 
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Custom Text</label>
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Custom Text</label>
 				<input
 					type="text"
-					className="mlc-wdt-text-input"
+					className="dkdt-text-input"
 					value={ customText }
 					onChange={ ( e ) => setCustomText( e.target.value ) }
 					placeholder={ `${ width } \u00D7 ${ height }` }
 				/>
 			</div>
 
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">
 					Font Size { fontSize > 0 ? `(${ fontSize }px)` : '(Auto)' }
 				</label>
-				<div className="mlc-wdt-range-with-value">
+				<div className="dkdt-range-with-value">
 					<input
 						type="range"
-						className="mlc-wdt-range"
+						className="dkdt-range"
 						min="0"
 						max="200"
 						value={ fontSize }
 						onChange={ ( e ) => setFontSize( Number( e.target.value ) ) }
 					/>
-					<span className="mlc-wdt-field-value">
+					<span className="dkdt-field-value">
 						{ fontSize > 0 ? `${ fontSize }px` : 'Auto' }
 					</span>
 				</div>
-				<p className="mlc-wdt-tip">Set to 0 for automatic sizing based on dimensions</p>
+				<p className="dkdt-tip">Set to 0 for automatic sizing based on dimensions</p>
 			</div>
 		</div>
 	);
 
 	const output = (
 		<div>
-			<div className="mlc-wdt-section-label">Download</div>
-			<div className="mlc-wdt-qr-download-row">
-				<button className="mlc-wdt-download-btn" onClick={ downloadPNG }>
+			<div className="dkdt-section-label">Download</div>
+			<div className="dkdt-qr-download-row">
+				<button className="dkdt-download-btn" onClick={ downloadPNG }>
 					Download PNG
 				</button>
-				<button className="mlc-wdt-download-btn mlc-wdt-download-btn-outline" onClick={ downloadSVG }>
+				<button className="dkdt-download-btn dkdt-download-btn-outline" onClick={ downloadSVG }>
 					Download SVG
 				</button>
 			</div>
 			<ProBadge feature="Data URI export is a Pro feature">
-				<div className="mlc-wdt-placeholder-data-uri">
-					<div className="mlc-wdt-section-label" style={ { marginTop: '16px', display: 'flex', alignItems: 'center', gap: '8px' } }>
+				<div className="dkdt-placeholder-data-uri">
+					<div className="dkdt-section-label" style={ { marginTop: '16px', display: 'flex', alignItems: 'center', gap: '8px' } }>
 						Inline Data URI
 						<CopyButton text={ canvasRef.current?.toDataURL( 'image/png' ) || '' } />
 					</div>
-					<p className="mlc-wdt-tip">Copy the base64 data URI to embed directly in HTML/CSS without a file.</p>
+					<p className="dkdt-tip">Copy the base64 data URI to embed directly in HTML/CSS without a file.</p>
 				</div>
 			</ProBadge>
 		</div>

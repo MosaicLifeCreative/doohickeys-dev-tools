@@ -83,8 +83,8 @@ export default function QRCodeGenerator() {
 	}, [] );
 
 	const preview = (
-		<div className="mlc-wdt-qr-preview">
-			<div ref={ svgRef } className="mlc-wdt-qr-display">
+		<div className="dkdt-qr-preview">
+			<div ref={ svgRef } className="dkdt-qr-display">
 				<QRCodeSVG
 					value={ content || ' ' }
 					size={ Math.min( size, 400 ) }
@@ -109,22 +109,22 @@ export default function QRCodeGenerator() {
 	);
 
 	const controls = (
-		<div className="mlc-wdt-qr-controls">
+		<div className="dkdt-qr-controls">
 			{ /* Content */ }
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Content</label>
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Content</label>
 				<input
 					type="text"
 					value={ content }
 					onChange={ ( e ) => setContent( e.target.value ) }
-					className="mlc-wdt-text-input"
+					className="dkdt-text-input"
 					placeholder="Enter URL, text, or any data..."
 				/>
 			</div>
 
 			{ /* Size */ }
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">
 					Size: { size }px
 				</label>
 				<input
@@ -134,26 +134,26 @@ export default function QRCodeGenerator() {
 					step="8"
 					value={ size }
 					onChange={ ( e ) => setSize( Number( e.target.value ) ) }
-					className="mlc-wdt-range"
+					className="dkdt-range"
 				/>
 			</div>
 
 			{ /* Colors */ }
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Colors</label>
-				<div className="mlc-wdt-color-row">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Colors</label>
+				<div className="dkdt-color-row">
 					<ColorPicker color={ fgColor } onChange={ setFgColor } label="Foreground" />
 					<ColorPicker color={ bgColor } onChange={ setBgColor } label="Background" />
 				</div>
 			</div>
 
 			{ /* Error Correction */ }
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Error Correction</label>
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Error Correction</label>
 				<select
 					value={ errorLevel }
 					onChange={ ( e ) => setErrorLevel( e.target.value ) }
-					className="mlc-wdt-select"
+					className="dkdt-select"
 				>
 					{ ERROR_LEVELS.map( ( level ) => (
 						<option key={ level.value } value={ level.value }>
@@ -164,20 +164,20 @@ export default function QRCodeGenerator() {
 			</div>
 
 			{ /* Logo (Pro) */ }
-			<div className="mlc-wdt-control-group">
+			<div className="dkdt-control-group">
 				<ProBadge feature="Add a logo to your QR code">
-					<label className="mlc-wdt-control-label">Center Logo</label>
-					<div className="mlc-wdt-logo-upload">
+					<label className="dkdt-control-label">Center Logo</label>
+					<div className="dkdt-logo-upload">
 						{ logoSrc ? (
-							<div className="mlc-wdt-logo-preview-row">
+							<div className="dkdt-logo-preview-row">
 								<img
 									src={ logoSrc }
 									alt="Logo preview"
-									className="mlc-wdt-logo-thumb"
+									className="dkdt-logo-thumb"
 								/>
-								<div className="mlc-wdt-logo-info">
+								<div className="dkdt-logo-info">
 									<button
-										className="mlc-wdt-remove-btn"
+										className="dkdt-remove-btn"
 										onClick={ removeLogo }
 										title="Remove logo"
 									>
@@ -187,7 +187,7 @@ export default function QRCodeGenerator() {
 							</div>
 						) : (
 							<button
-								className="mlc-wdt-add-btn"
+								className="dkdt-add-btn"
 								onClick={ () => fileInputRef.current?.click() }
 							>
 								+ Upload Logo
@@ -202,8 +202,8 @@ export default function QRCodeGenerator() {
 						/>
 					</div>
 					{ logoSrc && (
-						<div className="mlc-wdt-logo-size-control">
-							<label className="mlc-wdt-range-label">
+						<div className="dkdt-logo-size-control">
+							<label className="dkdt-range-label">
 								Logo Size: { logoSize }%
 							</label>
 							<input
@@ -212,7 +212,7 @@ export default function QRCodeGenerator() {
 								max="35"
 								value={ logoSize }
 								onChange={ ( e ) => setLogoSize( Number( e.target.value ) ) }
-								className="mlc-wdt-range"
+								className="dkdt-range"
 							/>
 						</div>
 					) }
@@ -222,11 +222,11 @@ export default function QRCodeGenerator() {
 	);
 
 	const output = (
-		<div className="mlc-wdt-qr-download-row">
-			<button className="mlc-wdt-download-btn" onClick={ downloadPNG }>
+		<div className="dkdt-qr-download-row">
+			<button className="dkdt-download-btn" onClick={ downloadPNG }>
 				Download PNG
 			</button>
-			<button className="mlc-wdt-download-btn mlc-wdt-download-btn-outline" onClick={ downloadSVG }>
+			<button className="dkdt-download-btn dkdt-download-btn-outline" onClick={ downloadSVG }>
 				Download SVG
 			</button>
 		</div>

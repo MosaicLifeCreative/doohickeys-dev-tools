@@ -227,14 +227,14 @@ export default function SchemaGenerator() {
 	const scriptTag = `<script type="application/ld+json">\n${ jsonLd }\n</script>`;
 
 	const controls = (
-		<div className="mlc-wdt-schema-controls">
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Schema Type</label>
-				<div className="mlc-wdt-radio-group" style={ { flexWrap: 'wrap' } }>
+		<div className="dkdt-schema-controls">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Schema Type</label>
+				<div className="dkdt-radio-group" style={ { flexWrap: 'wrap' } }>
 					{ SCHEMA_TYPES.map( ( t ) => (
 						<label
 							key={ t.id }
-							className={ `mlc-wdt-radio${ schemaType === t.id ? ' active' : '' }${ t.pro && ! isPro ? ' mlc-wdt-radio-disabled' : '' }` }
+							className={ `dkdt-radio${ schemaType === t.id ? ' active' : '' }${ t.pro && ! isPro ? ' dkdt-radio-disabled' : '' }` }
 							title={ t.pro && ! isPro ? 'Pro feature' : '' }
 						>
 							<input
@@ -245,18 +245,18 @@ export default function SchemaGenerator() {
 								disabled={ t.pro && ! isPro }
 							/>
 							{ t.label }
-							{ t.pro && ! isPro && <span className="mlc-wdt-pro-badge-inline">Pro</span> }
+							{ t.pro && ! isPro && <span className="dkdt-pro-badge-inline">Pro</span> }
 						</label>
 					) ) }
 				</div>
 			</div>
 
 			{ ( FIELDS[ schemaType ] || [] ).map( ( field ) => (
-				<div key={ field.key } className="mlc-wdt-control-group">
-					<label className="mlc-wdt-control-label">{ field.label }</label>
+				<div key={ field.key } className="dkdt-control-group">
+					<label className="dkdt-control-label">{ field.label }</label>
 					{ field.type === 'textarea' ? (
 						<textarea
-							className="mlc-wdt-textarea"
+							className="dkdt-textarea"
 							rows="2"
 							value={ values[ field.key ] || '' }
 							onChange={ ( e ) => setValues( ( prev ) => ( { ...prev, [ field.key ]: e.target.value } ) ) }
@@ -264,7 +264,7 @@ export default function SchemaGenerator() {
 					) : (
 						<input
 							type="text"
-							className="mlc-wdt-text-input"
+							className="dkdt-text-input"
 							value={ values[ field.key ] || '' }
 							onChange={ ( e ) => setValues( ( prev ) => ( { ...prev, [ field.key ]: e.target.value } ) ) }
 						/>

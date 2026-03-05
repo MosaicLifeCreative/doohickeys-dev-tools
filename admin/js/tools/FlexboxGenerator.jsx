@@ -17,13 +17,13 @@ const ITEM_COLORS = [
 
 function OptionRow( { label, value, options, onChange } ) {
 	return (
-		<div className="mlc-wdt-control-group">
-			<label className="mlc-wdt-control-label">{ label }</label>
-			<div className="mlc-wdt-flex-options">
+		<div className="dkdt-control-group">
+			<label className="dkdt-control-label">{ label }</label>
+			<div className="dkdt-flex-options">
 				{ options.map( ( opt ) => (
 					<button
 						key={ opt }
-						className={ `mlc-wdt-flex-option-btn${ value === opt ? ' active' : '' }` }
+						className={ `dkdt-flex-option-btn${ value === opt ? ' active' : '' }` }
 						onClick={ () => onChange( opt ) }
 					>
 						{ opt }
@@ -152,12 +152,12 @@ export default function FlexboxGenerator() {
 					);
 				} ) }
 			</div>
-			<p className="mlc-wdt-tip">Click an item to edit its individual flex properties.</p>
+			<p className="dkdt-tip">Click an item to edit its individual flex properties.</p>
 		</div>
 	);
 
 	const controls = (
-		<div className="mlc-wdt-flex-controls">
+		<div className="dkdt-flex-controls">
 			<OptionRow label="flex-direction" value={ direction } options={ FLEX_DIRECTIONS } onChange={ setDirection } />
 			<OptionRow label="justify-content" value={ justify } options={ JUSTIFY_OPTIONS } onChange={ setJustify } />
 			<OptionRow label="align-items" value={ alignItems } options={ ALIGN_OPTIONS } onChange={ setAlignItems } />
@@ -166,11 +166,11 @@ export default function FlexboxGenerator() {
 				<OptionRow label="align-content" value={ alignContent } options={ ALIGN_CONTENT_OPTIONS } onChange={ setAlignContent } />
 			) }
 
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">gap: { gap }px</label>
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">gap: { gap }px</label>
 				<input
 					type="range"
-					className="mlc-wdt-range"
+					className="dkdt-range"
 					min="0"
 					max="40"
 					value={ gap }
@@ -178,11 +178,11 @@ export default function FlexboxGenerator() {
 				/>
 			</div>
 
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Items: { itemCount }</label>
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Items: { itemCount }</label>
 				<input
 					type="range"
-					className="mlc-wdt-range"
+					className="dkdt-range"
 					min="1"
 					max="12"
 					value={ itemCount }
@@ -198,12 +198,12 @@ export default function FlexboxGenerator() {
 
 			{ /* Per-item controls (Pro) */ }
 			<ProBadge feature="Per-item flex controls are a Pro feature">
-			<div className="mlc-wdt-flex-item-controls">
-				<label className="mlc-wdt-control-label">
+			<div className="dkdt-flex-item-controls">
+				<label className="dkdt-control-label">
 					Per-Item Properties
 					{ selectedItem !== null && selectedItem < itemCount && (
 						<button
-							className="mlc-wdt-flex-deselect"
+							className="dkdt-flex-deselect"
 							onClick={ () => setSelectedItem( null ) }
 						>
 							Close
@@ -212,37 +212,37 @@ export default function FlexboxGenerator() {
 				</label>
 
 				{ selectedItem !== null && selectedItem < itemCount ? (
-					<div className="mlc-wdt-flex-item-fields">
-						<div className="mlc-wdt-flex-item-field">
-							<span className="mlc-wdt-palette-slider-label">flex-grow</span>
+					<div className="dkdt-flex-item-fields">
+						<div className="dkdt-flex-item-field">
+							<span className="dkdt-palette-slider-label">flex-grow</span>
 							<input
 								type="range"
-								className="mlc-wdt-range"
+								className="dkdt-range"
 								min="0"
 								max="5"
 								value={ items[ selectedItem ].flexGrow }
 								onChange={ ( e ) => updateItem( selectedItem, 'flexGrow', parseInt( e.target.value ) ) }
 							/>
-							<span className="mlc-wdt-field-value">{ items[ selectedItem ].flexGrow }</span>
+							<span className="dkdt-field-value">{ items[ selectedItem ].flexGrow }</span>
 						</div>
 
-						<div className="mlc-wdt-flex-item-field">
-							<span className="mlc-wdt-palette-slider-label">flex-shrink</span>
+						<div className="dkdt-flex-item-field">
+							<span className="dkdt-palette-slider-label">flex-shrink</span>
 							<input
 								type="range"
-								className="mlc-wdt-range"
+								className="dkdt-range"
 								min="0"
 								max="5"
 								value={ items[ selectedItem ].flexShrink }
 								onChange={ ( e ) => updateItem( selectedItem, 'flexShrink', parseInt( e.target.value ) ) }
 							/>
-							<span className="mlc-wdt-field-value">{ items[ selectedItem ].flexShrink }</span>
+							<span className="dkdt-field-value">{ items[ selectedItem ].flexShrink }</span>
 						</div>
 
-						<div className="mlc-wdt-flex-item-field">
-							<span className="mlc-wdt-palette-slider-label">flex-basis</span>
+						<div className="dkdt-flex-item-field">
+							<span className="dkdt-palette-slider-label">flex-basis</span>
 							<select
-								className="mlc-wdt-select"
+								className="dkdt-select"
 								value={ items[ selectedItem ].flexBasis }
 								onChange={ ( e ) => updateItem( selectedItem, 'flexBasis', e.target.value ) }
 							>
@@ -258,10 +258,10 @@ export default function FlexboxGenerator() {
 							</select>
 						</div>
 
-						<div className="mlc-wdt-flex-item-field">
-							<span className="mlc-wdt-palette-slider-label">align-self</span>
+						<div className="dkdt-flex-item-field">
+							<span className="dkdt-palette-slider-label">align-self</span>
 							<select
-								className="mlc-wdt-select"
+								className="dkdt-select"
 								value={ items[ selectedItem ].alignSelf }
 								onChange={ ( e ) => updateItem( selectedItem, 'alignSelf', e.target.value ) }
 							>
@@ -274,21 +274,21 @@ export default function FlexboxGenerator() {
 							</select>
 						</div>
 
-						<div className="mlc-wdt-flex-item-field">
-							<span className="mlc-wdt-palette-slider-label">order</span>
+						<div className="dkdt-flex-item-field">
+							<span className="dkdt-palette-slider-label">order</span>
 							<input
 								type="range"
-								className="mlc-wdt-range"
+								className="dkdt-range"
 								min="-5"
 								max="5"
 								value={ items[ selectedItem ].order }
 								onChange={ ( e ) => updateItem( selectedItem, 'order', parseInt( e.target.value ) ) }
 							/>
-							<span className="mlc-wdt-field-value">{ items[ selectedItem ].order }</span>
+							<span className="dkdt-field-value">{ items[ selectedItem ].order }</span>
 						</div>
 					</div>
 				) : (
-					<p className="mlc-wdt-tip" style={ { margin: '8px 0 0' } }>
+					<p className="dkdt-tip" style={ { margin: '8px 0 0' } }>
 						Click an item in the preview to customize flex-grow, flex-shrink, flex-basis, align-self, and order.
 					</p>
 				) }

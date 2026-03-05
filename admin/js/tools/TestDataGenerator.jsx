@@ -153,22 +153,22 @@ export default function TestDataGenerator() {
 	}, [ data, format, selectedFields ] );
 
 	const preview = output ? (
-		<div className="mlc-wdt-testdata-preview">
+		<div className="dkdt-testdata-preview">
 			<div style={ { display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' } }>
-				<span className="mlc-wdt-section-label" style={ { margin: 0 } }>Output</span>
+				<span className="dkdt-section-label" style={ { margin: 0 } }>Output</span>
 				<CopyButton text={ output } />
 			</div>
-			<pre className="mlc-wdt-code-pre" style={ { maxHeight: '300px', overflow: 'auto' } }><code>{ output }</code></pre>
+			<pre className="dkdt-code-pre" style={ { maxHeight: '300px', overflow: 'auto' } }><code>{ output }</code></pre>
 		</div>
 	) : null;
 
 	const controls = (
-		<div className="mlc-wdt-testdata-controls">
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Fields</label>
-				<div className="mlc-wdt-testdata-fields">
+		<div className="dkdt-testdata-controls">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Fields</label>
+				<div className="dkdt-testdata-fields">
 					{ FIELDS.map( ( field ) => (
-						<label key={ field.id } className="mlc-wdt-checkbox">
+						<label key={ field.id } className="dkdt-checkbox">
 							<input
 								type="checkbox"
 								checked={ selectedFields.includes( field.id ) }
@@ -180,26 +180,26 @@ export default function TestDataGenerator() {
 				</div>
 			</div>
 
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Count: { count }</label>
-				<div className="mlc-wdt-range-with-value">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Count: { count }</label>
+				<div className="dkdt-range-with-value">
 					<input
 						type="range"
-						className="mlc-wdt-range"
+						className="dkdt-range"
 						min="1"
 						max="100"
 						value={ count }
 						onChange={ ( e ) => setCount( Number( e.target.value ) ) }
 					/>
-					<span className="mlc-wdt-field-value">{ count }</span>
+					<span className="dkdt-field-value">{ count }</span>
 				</div>
 			</div>
 
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Format</label>
-				<div className="mlc-wdt-radio-group">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Format</label>
+				<div className="dkdt-radio-group">
 					{ [ { id: 'json', label: 'JSON' }, { id: 'csv', label: 'CSV' }, { id: 'table', label: 'Table' } ].map( ( f ) => (
-						<label key={ f.id } className={ `mlc-wdt-radio${ format === f.id ? ' active' : '' }` }>
+						<label key={ f.id } className={ `dkdt-radio${ format === f.id ? ' active' : '' }` }>
 							<input
 								type="radio"
 								value={ f.id }
@@ -212,7 +212,7 @@ export default function TestDataGenerator() {
 				</div>
 			</div>
 
-			<button className="mlc-wdt-add-btn" onClick={ () => setSeed( ( prev ) => prev + 1 ) }>
+			<button className="dkdt-add-btn" onClick={ () => setSeed( ( prev ) => prev + 1 ) }>
 				Regenerate
 			</button>
 		</div>

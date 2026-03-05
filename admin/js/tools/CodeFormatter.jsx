@@ -191,22 +191,22 @@ export default function CodeFormatter() {
 	}, [ input, language ] );
 
 	const preview = output ? (
-		<div className="mlc-wdt-formatter-preview">
+		<div className="dkdt-formatter-preview">
 			<div style={ { display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' } }>
-				<span className="mlc-wdt-section-label" style={ { margin: 0 } }>Output</span>
+				<span className="dkdt-section-label" style={ { margin: 0 } }>Output</span>
 				<CopyButton text={ output } />
 			</div>
-			<pre className="mlc-wdt-code-pre"><code>{ output }</code></pre>
+			<pre className="dkdt-code-pre"><code>{ output }</code></pre>
 		</div>
 	) : null;
 
 	const controls = (
-		<div className="mlc-wdt-formatter-controls">
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Language</label>
-				<div className="mlc-wdt-radio-group">
+		<div className="dkdt-formatter-controls">
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Language</label>
+				<div className="dkdt-radio-group">
 					{ LANGUAGES.map( ( lang ) => (
-						<label key={ lang.id } className={ `mlc-wdt-radio${ language === lang.id ? ' active' : '' }` }>
+						<label key={ lang.id } className={ `dkdt-radio${ language === lang.id ? ' active' : '' }` }>
 							<input
 								type="radio"
 								value={ lang.id }
@@ -219,10 +219,10 @@ export default function CodeFormatter() {
 				</div>
 			</div>
 
-			<div className="mlc-wdt-control-group">
-				<label className="mlc-wdt-control-label">Input</label>
+			<div className="dkdt-control-group">
+				<label className="dkdt-control-label">Input</label>
 				<textarea
-					className="mlc-wdt-textarea"
+					className="dkdt-textarea"
 					rows="10"
 					value={ input }
 					onChange={ ( e ) => setInput( e.target.value ) }
@@ -230,11 +230,11 @@ export default function CodeFormatter() {
 				/>
 			</div>
 
-			<div className="mlc-wdt-formatter-actions">
-				<button className="mlc-wdt-download-btn" onClick={ handleFormat }>
+			<div className="dkdt-formatter-actions">
+				<button className="dkdt-download-btn" onClick={ handleFormat }>
 					Beautify
 				</button>
-				<button className="mlc-wdt-download-btn mlc-wdt-download-btn-outline" onClick={ handleMinify }>
+				<button className="dkdt-download-btn dkdt-download-btn-outline" onClick={ handleMinify }>
 					Minify
 				</button>
 			</div>
