@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Doohickey's Dev Tools Pro
  * Description: Essential utilities for web developers—right in your WordPress dashboard.
- * Version: 1.0.4
+ * Version: 1.0.5
  * Requires at least: 5.8
  * Requires PHP: 7.4
  * Author: Mosaic Life Creative
@@ -32,7 +32,7 @@ define( 'DKDT_PREMIUM_ACTIVE', true );
 
 // Plugin constants
 if ( ! defined( 'DKDT_VERSION' ) ) {
-	define( 'DKDT_VERSION', '1.0.4' );
+	define( 'DKDT_VERSION', '1.0.5' );
 }
 if ( ! defined( 'DKDT_PLUGIN_DIR' ) ) {
 	define( 'DKDT_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
@@ -77,6 +77,9 @@ if ( function_exists( 'dkdt_fs' ) ) {
 		}
 
 		dkdt_fs();
+		dkdt_fs()->add_filter( 'plugin_icon', function() {
+			return dirname( __FILE__ ) . '/images/icon-128x128.png';
+		} );
 		do_action( 'dkdt_fs_loaded' );
 	}
 }
