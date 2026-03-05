@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Doohickey's Dev Tools
  * Description: Essential utilities for web developers—right in your WordPress dashboard.
- * Version: 1.0.2
+ * Version: 1.0.3
  * Requires at least: 5.8
  * Requires PHP: 7.4
  * Author: Mosaic Life Creative
@@ -30,7 +30,7 @@ if ( function_exists( 'dkdt_init' ) ) {
 
 // Plugin constants
 if ( ! defined( 'DKDT_VERSION' ) ) {
-    define('DKDT_VERSION', '1.0.2');
+    define('DKDT_VERSION', '1.0.3');
 }
 if ( ! defined( 'DKDT_PLUGIN_DIR' ) ) {
     define('DKDT_PLUGIN_DIR', plugin_dir_path(__FILE__));
