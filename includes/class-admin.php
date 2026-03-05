@@ -74,9 +74,11 @@ class Dkdt_Admin {
 			$asset['version']
 		);
 
-		// Build upgrade URL from Freemius.
+		// Determine Pro status from Freemius license.
+		$is_pro = false;
 		$upgrade_url = '';
 		if ( function_exists( 'dkdt_fs' ) ) {
+			$is_pro = dkdt_fs()->can_use_premium_code();
 			$upgrade_url = dkdt_fs()->get_upgrade_url();
 		}
 
@@ -87,6 +89,7 @@ class Dkdt_Admin {
 				'pluginUrl'  => DKDT_PLUGIN_URL,
 				'nonce'      => wp_create_nonce( 'dkdt_nonce' ),
 				'version'    => DKDT_VERSION,
+				'isPro'      => $is_pro,
 				'upgradeUrl' => $upgrade_url,
 			)
 		);

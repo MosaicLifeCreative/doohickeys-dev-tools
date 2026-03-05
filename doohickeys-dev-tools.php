@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Doohickey's Dev Tools
+ * Plugin Name: Doohickey's Dev Tools Pro
  * Description: Essential utilities for web developers—right in your WordPress dashboard.
  * Version: 1.0.2
  * Requires at least: 5.8
@@ -13,14 +13,30 @@
  */
 
 // Prevent direct access
-if (!defined('ABSPATH')) {
-    exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+// If the free version is active, deactivate it — premium takes over.
+if ( ! function_exists( 'dkdt_premium_deactivate_free' ) ) {
+	function dkdt_premium_deactivate_free() {
+		if ( is_plugin_active( 'doohickeys-dev-tools/doohickeys-dev-tools.php' ) ) {
+			deactivate_plugins( 'doohickeys-dev-tools/doohickeys-dev-tools.php' );
+		}
+	}
+	add_action( 'admin_init', 'dkdt_premium_deactivate_free' );
 }
 
 // Plugin constants
-define('DKDT_VERSION', '1.0.2');
-define('DKDT_PLUGIN_DIR', plugin_dir_path(__FILE__));
-define('DKDT_PLUGIN_URL', plugin_dir_url(__FILE__));
+if ( ! defined( 'DKDT_VERSION' ) ) {
+	define( 'DKDT_VERSION', '1.0.2' );
+}
+if ( ! defined( 'DKDT_PLUGIN_DIR' ) ) {
+	define( 'DKDT_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+}
+if ( ! defined( 'DKDT_PLUGIN_URL' ) ) {
+	define( 'DKDT_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+}
 
 // Freemius SDK integration
 if ( function_exists( 'dkdt_fs' ) ) {
@@ -41,9 +57,8 @@ if ( function_exists( 'dkdt_fs' ) ) {
 					'premium_slug'        => 'doohickeys-dev-tools-premium',
 					'type'                => 'plugin',
 					'public_key'          => 'pk_f812a361b02bf6fe21443b390efb8',
-					'is_premium'          => false,
-					'is_org_compliant'    => true,
-					'premium_suffix'      => 'Pro',
+					'is_premium'          => true,
+					'is_premium_only'     => false,
 					'has_premium_version' => true,
 					'has_addons'          => false,
 					'has_paid_plans'      => true,

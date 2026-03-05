@@ -68,18 +68,18 @@ export default function Sidebar( { currentTool, onToolChange } ) {
 	const { isPro } = usePro();
 
 	return (
-		<nav className="dkdt-sidebar" role="navigation" aria-label="Tool navigation">
+		<nav className="mlc-wdt-sidebar" role="navigation" aria-label="Tool navigation">
 			{ tools.map( ( category ) => (
-				<div key={ category.category } className="dkdt-sidebar-group">
-					<h3 className="dkdt-sidebar-category">
-						<span className="dkdt-sidebar-icon">{ category.icon }</span>
+				<div key={ category.category } className="mlc-wdt-sidebar-group">
+					<h3 className="mlc-wdt-sidebar-category">
+						<span className="mlc-wdt-sidebar-icon">{ category.icon }</span>
 						{ category.category }
 					</h3>
-					<ul className="dkdt-sidebar-items">
+					<ul className="mlc-wdt-sidebar-items">
 						{ category.items.map( ( tool ) => (
 							<li key={ tool.id }>
 								<button
-									className={ `dkdt-sidebar-item${
+									className={ `mlc-wdt-sidebar-item${
 										currentTool === tool.id ? ' active' : ''
 									}` }
 									onClick={ () => onToolChange( tool.id ) }
@@ -88,24 +88,24 @@ export default function Sidebar( { currentTool, onToolChange } ) {
 									}
 								>
 									{ tool.label }
-									{ tool.pro && ! isPro && <span className="dkdt-sidebar-pro-tag">Pro</span> }
+									{ tool.pro && ! isPro && <span className="mlc-wdt-sidebar-pro-tag">Pro</span> }
 								</button>
 							</li>
 						) ) }
 					</ul>
 				</div>
 			) ) }
-			<div className="dkdt-sidebar-divider" />
-			<div className="dkdt-sidebar-pro">
+			<div className="mlc-wdt-sidebar-divider" />
+			<div className="mlc-wdt-sidebar-pro">
 				{ isPro ? (
-					<div className="dkdt-pro-active">Pro Active</div>
+					<div className="mlc-wdt-pro-active">Pro Active</div>
 				) : (
 					window.dkdtData?.upgradeUrl ? (
-						<a className="dkdt-pro-btn" href={ window.dkdtData.upgradeUrl }>
+						<a className="mlc-wdt-pro-btn" href={ window.dkdtData.upgradeUrl }>
 							Upgrade to Pro
 						</a>
 					) : (
-						<button className="dkdt-pro-btn" disabled>
+						<button className="mlc-wdt-pro-btn" disabled>
 							Upgrade to Pro
 						</button>
 					)
