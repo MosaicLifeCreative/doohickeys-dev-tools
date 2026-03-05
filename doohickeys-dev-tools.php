@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Doohickey's Dev Tools
  * Description: Essential utilities for web developers—right in your WordPress dashboard.
- * Version: 1.0.3
+ * Version: 1.0.4
  * Requires at least: 5.8
  * Requires PHP: 7.4
  * Author: Mosaic Life Creative
@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
 }
 
 // If the premium version is already active, deactivate this free version gracefully.
-if ( function_exists( 'dkdt_init' ) ) {
+if ( defined( 'DKDT_PREMIUM_ACTIVE' ) ) {
     if ( ! function_exists( 'dkdt_free_deactivate_self' ) ) {
         function dkdt_free_deactivate_self() {
             deactivate_plugins( plugin_basename( __FILE__ ) );
@@ -30,7 +30,7 @@ if ( function_exists( 'dkdt_init' ) ) {
 
 // Plugin constants
 if ( ! defined( 'DKDT_VERSION' ) ) {
-    define('DKDT_VERSION', '1.0.3');
+    define('DKDT_VERSION', '1.0.4');
 }
 if ( ! defined( 'DKDT_PLUGIN_DIR' ) ) {
     define('DKDT_PLUGIN_DIR', plugin_dir_path(__FILE__));

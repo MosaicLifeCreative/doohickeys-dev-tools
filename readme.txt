@@ -3,7 +3,7 @@ Contributors: mosaiclifecreative
 Tags: developer tools, css generator, color picker, web development, code tools
 Requires at least: 5.8
 Tested up to: 6.9
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 Requires PHP: 7.4
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -124,6 +124,9 @@ Never. All processing happens in your browser. Nothing is transmitted to externa
 8. SVG to PNG Converter with file upload and code paste options
 
 == Changelog ==
+
+= 1.0.4 =
+* Fixed: plugin no longer deactivates itself after updating from 1.0.2
 
 = 1.0.3 =
 * Smooth upgrade path: free version auto-deactivates when Pro is installed
